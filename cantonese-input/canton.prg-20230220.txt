@@ -896,7 +896,7 @@ Define class MyLblContainer as Container
 
 	Add Object lblChangjei As MyLabel With ;
 		top=5, Left=37, width=80, Height=25, ;
-		ForeColor=RGB(0,255,255), FontBold=.t., ToolTipText="­Ü¾e½X Click to copy"
+		ForeColor=RGB(0,255,255), FontBold=.t., ToolTipText="å€‰é ¡ç¢¼ Click to copy"
 	Add Object lblMatches As myLabel With ;
 		top=3, Left=105, width=this.width-10-100, ;
 		AutoSize=.f., Alignment=1, FontBold=.t., ForeColor=RGB(255,255,255)
@@ -906,7 +906,7 @@ Define class MyLblContainer as Container
 
 	PROCEDURE lblChangJei.click()
 		with thisform.PageFrame1.Page1.Edit1
-			m.yy=dbcs2uncd("­Ü¾e:")
+			m.yy=dbcs2uncd("å€‰é ¡:")
 			.Text=m.yy+this.caption
 		endwith
 	EndProc
@@ -1531,38 +1531,38 @@ Define Class MyForm As Form
 					m.xx=STRCONV(m.xx,13)
 					m.zz=""
 				CASE "metroradio.com.hk/"$m.xx
-					m.pfx=dbcs2uncd("·s«°¹q¥x")
+					m.pfx=dbcs2uncd("æ–°åŸé›»å°")
 					m.xx=STRTRAN(m.xx,"SearchText=&","")
-					m.zz=dbcs2uncd("- §Y®É·s»D - ·s«°°]¸g¥x°]¸gºô")
+					m.zz=dbcs2uncd("- å³æ™‚æ–°è - æ–°åŸè²¡ç¶“å°è²¡ç¶“ç¶²")
 					m.xx=STRTRAN(m.xx,m.zz,"")
 					* trailing text in line 2 of CopyTitleURL
 					m.ii=RAT("&",m.xx)
 					m.zz=SUBSTR(m.xx,m.ii)
 				CASE "rthk.hk/"$m.xx
-					m.pfx=dbcs2uncd("­»´ä¹q¥x")
+					m.pfx=dbcs2uncd("é¦™æ¸¯é›»å°")
 					m.zz="- RTHK"
 				CASE ".881903.com/"$m.xx
-					m.pfx=dbcs2uncd("°Ó·~¹q¥x")
-					m.zz=dbcs2uncd("¨â©¤¡U°Ó·~¹q¥x 881903")
+					m.pfx=dbcs2uncd("å•†æ¥­é›»å°")
+					m.zz=dbcs2uncd("å…©å²¸ï½œå•†æ¥­é›»å° 881903")
 					m.xx=STRTRAN(m.xx,m.zz,"")
-					m.zz=dbcs2uncd("°ê»Ú¡U°Ó·~¹q¥x 881903")
+					m.zz=dbcs2uncd("åœ‹éš›ï½œå•†æ¥­é›»å° 881903")
 					m.xx=STRTRAN(m.xx,m.zz,"")
-					m.zz=dbcs2uncd("¥»¦a¡U°Ó·~¹q¥x 881903")
+					m.zz=dbcs2uncd("æœ¬åœ°ï½œå•†æ¥­é›»å° 881903")
 					m.xx=STRTRAN(m.xx,m.zz,"")
 					* another form of line 2 for 881903
-					m.zz=dbcs2uncd("­ì¤åºô§}¡Ghttps")
+					m.zz=dbcs2uncd("åŸæ–‡ç¶²å€ï¼šhttps")
 					m.xx=STRTRAN(m.xx,m.zz,"https")
 					* trailing text in line 2 of CopyTitleURL
 					m.ii=RAT("/",m.xx)
 					m.zz=SUBSTR(m.xx,m.ii+1)					
 				CASE ".tvb.com/"$m.xx
-					m.pfx=dbcs2uncd("TVB·s»D")
+					m.pfx=dbcs2uncd("TVBæ–°è")
 					* trailing text in line 1 of CopyTitleURL
 					m.zz="|"
-					m.zz=m.zz+dbcs2uncd(" µL")
-					* Unicode character "½u" in Base64 converted to Unicode 
+					m.zz=m.zz+dbcs2uncd(" ç„¡")
+					* Unicode character "ç·š" in Base64 converted to Unicode 
 					m.zz=m.zz+STRCONV("57ar",14)
-					m.zz=m.zz+dbcs2uncd("·s»DTVB")
+					m.zz=m.zz+dbcs2uncd("æ–°èTVB")
 					m.zz=m.zz+SPACE(1)
 					m.zz=m.zz+dbcs2uncd("News")
 					m.xx=STRTRAN(m.xx, m.zz, "")
@@ -1570,57 +1570,57 @@ Define Class MyForm As Form
 					m.ii=RAT("/",m.xx)
 					m.zz=SUBSTR(m.xx,m.ii+1)
 				CASE "i-cable.com/"$m.xx
-					m.pfx=dbcs2uncd("¦³½u·s»D")
+					m.pfx=dbcs2uncd("æœ‰ç·šæ–°è")
 					m.zz="|"
-					m.zz=m.zz+dbcs2uncd(" ´ä»D | ¦³½u¼eÀW i-CABLE")
+					m.zz=m.zz+dbcs2uncd(" æ¸¯è | æœ‰ç·šå¯¬é » i-CABLE")
 					m.xx=STRTRAN(m.xx,m.zz,"")
 					m.ii=RAT("/",m.xx,2)
 					m.zz=SUBSTR(m.xx,m.ii+1)
 					m.zz="|"
-					m.zz=m.zz+dbcs2uncd(" ¦³½u¼eÀW i-CABLE")
+					m.zz=m.zz+dbcs2uncd(" æœ‰ç·šå¯¬é » i-CABLE")
 					m.xx=STRTRAN(m.xx,m.zz,"")
 					* trailing text in line 2 of CopyTitleURL
 					m.ii=RAT("/",m.xx,2)
 					m.zz=SUBSTR(m.xx,m.ii+1)
 				CASE "now.com/"$m.xx
-					m.pfx=dbcs2uncd("Now·s»D")
+					m.pfx=dbcs2uncd("Nowæ–°è")
 					m.zz=dbcs2uncd("| Now")
 					* Unicode space character in Base64 converted to Unicode
 					m.zz=m.zz+STRCONV("wqA=",14)
-					m.zz=m.zz+dbcs2uncd("·s»D")
+					m.zz=m.zz+dbcs2uncd("æ–°è")
 					m.xx=STRTRAN(m.xx,m.zz,"")
 				CASE "hkcd.com/"$m.xx
-					m.pfx=dbcs2uncd("°Ó³ø")
-					m.zz=dbcs2uncd("-­»´ä°Ó³ø")
+					m.pfx=dbcs2uncd("å•†å ±")
+					m.zz=dbcs2uncd("-é¦™æ¸¯å•†å ±")
 					m.xx=STRTRAN(m.xx,m.zz,"")
-					m.zz=STRCONV("4oCU",14)+dbcs2uncd("­»´ä°Ó³ø")
+					m.zz=STRCONV("4oCU",14)+dbcs2uncd("é¦™æ¸¯å•†å ±")
 					m.xx=STRTRAN(m.xx,m.zz,"")
 				CASE "wenweipo.com/"$m.xx
-					m.pfx=dbcs2uncd("¤å¶×ºô")
-					m.zz=dbcs2uncd("- ­»´ä - ­»´ä¤å¶×ºô")
+					m.pfx=dbcs2uncd("æ–‡åŒ¯ç¶²")
+					m.zz=dbcs2uncd("- é¦™æ¸¯ - é¦™æ¸¯æ–‡åŒ¯ç¶²")
 					m.xx=STRTRAN(m.xx,m.zz,"")
-					m.zz=dbcs2uncd("- °ê»Ú - ­»´ä¤å¶×ºô")
+					m.zz=dbcs2uncd("- åœ‹éš› - é¦™æ¸¯æ–‡åŒ¯ç¶²")
 					m.xx=STRTRAN(m.xx,m.zz,"")
-					m.zz=dbcs2uncd("- ¨â©¤ - ­»´ä¤å¶×ºô")
+					m.zz=dbcs2uncd("- å…©å²¸ - é¦™æ¸¯æ–‡åŒ¯ç¶²")
 					m.xx=STRTRAN(m.xx,m.zz,"")
 				CASE "takungpao.com.hk/"$m.xx
-					m.pfx=dbcs2uncd("¤j¤½³ø")
+					m.pfx=dbcs2uncd("å¤§å…¬å ±")
 				CASE "hket.com/"$m.xx
-					m.pfx=dbcs2uncd("¸gÀÙ¤é³ø")
+					m.pfx=dbcs2uncd("ç¶“æ¿Ÿæ—¥å ±")
 					** not perfectly working, pending date
-					m.zz=dbcs2uncd("- ­»´ä¸gÀÙ¤é³ø - TOPick - ·s»D - ªÀ·| - D")
+					m.zz=dbcs2uncd("- é¦™æ¸¯ç¶“æ¿Ÿæ—¥å ± - TOPick - æ–°è - ç¤¾æœƒ - D")
 					m.xx=STRTRAN(m.xx,m.zz,"")
-					m.zz=dbcs2uncd("- ­»´ä¸gÀÙ¤é³ø - §Y®É·s»DÀW¹D - °ê»Ú§Î¶Õ - Àô²y¬Fªv - D")
+					m.zz=dbcs2uncd("- é¦™æ¸¯ç¶“æ¿Ÿæ—¥å ± - å³æ™‚æ–°èé »é“ - åœ‹éš›å½¢å‹¢ - ç’°çƒæ”¿æ²» - D")
 					m.xx=STRTRAN(m.xx,m.zz,"")
-					m.zz=dbcs2uncd("- ­»´ä¸gÀÙ¤é³ø - ¤¤°êÀW¹D - °ê±¡°Ê¦V - D")
+					m.zz=dbcs2uncd("- é¦™æ¸¯ç¶“æ¿Ÿæ—¥å ± - ä¸­åœ‹é »é“ - åœ‹æƒ…å‹•å‘ - D")
 					m.xx=STRTRAN(m.xx,m.zz,"")
-					m.zz=dbcs2uncd("- ­»´ä¸gÀÙ¤é³ø - ¤¤°êÀW¹D - ªÀ·|¼öÂI - D")
+					m.zz=dbcs2uncd("- é¦™æ¸¯ç¶“æ¿Ÿæ—¥å ± - ä¸­åœ‹é »é“ - ç¤¾æœƒç†±é» - D")
 					m.xx=STRTRAN(m.xx,m.zz,"")
-					m.zz=dbcs2uncd("- ­»´ä¸gÀÙ¤é³ø - §Y®É·s»DÀW¹D - §Y¥«°]¸g - ªÑ¥« - D")
+					m.zz=dbcs2uncd("- é¦™æ¸¯ç¶“æ¿Ÿæ—¥å ± - å³æ™‚æ–°èé »é“ - å³å¸‚è²¡ç¶“ - è‚¡å¸‚ - D")
 					m.xx=STRTRAN(m.xx,m.zz,"")
-					m.zz=dbcs2uncd("- ­»´ä¸gÀÙ¤é³ø - ÁÍ¶Õ - ÁÍ¶Õ¤ÀªR - °]ª÷ - D")
+					m.zz=dbcs2uncd("- é¦™æ¸¯ç¶“æ¿Ÿæ—¥å ± - è¶¨å‹¢ - è¶¨å‹¢åˆ†æ - è²¡é‡‘ - D")
 					m.xx=STRTRAN(m.xx,m.zz,"")
-					m.zz=dbcs2uncd("- ­»´ä¸gÀÙ¤é³ø - §Y®É·s»DÀW¹D - ¬ì§Ş - D")
+					m.zz=dbcs2uncd("- é¦™æ¸¯ç¶“æ¿Ÿæ—¥å ± - å³æ™‚æ–°èé »é“ - ç§‘æŠ€ - D")
 					m.xx=STRTRAN(m.xx,m.zz,"")
 					* trailing text in line 2 of CopyTitleURL
 					m.ii=RAT("/",m.xx)
@@ -1631,54 +1631,54 @@ Define Class MyForm As Form
 					m.ii=RAT("/",m.xx)
 					m.zz=SUBSTR(m.xx,m.ii+1)
 				CASE "hkej.com/"$m.xx
-					m.pfx=dbcs2uncd("«H³ø")
-					m.zz=dbcs2uncd("- «H³øºô¯¸ hkej.com")
+					m.pfx=dbcs2uncd("ä¿¡å ±")
+					m.zz=dbcs2uncd("- ä¿¡å ±ç¶²ç«™ hkej.com")
 					m.xx=STRTRAN(m.xx,m.zz,"")
 					* trailing text in line 2 of CopyTitleURL
 					m.ii=RAT("/",m.xx)
 					m.zz=SUBSTR(m.xx,m.ii+1)
 				CASE "mingpao.com/"$m.xx
-					m.pfx=dbcs2uncd("©ú³ø")
+					m.pfx=dbcs2uncd("æ˜å ±")
 					* not perfectly working, date
-					m.zz=dbcs2uncd("- ¼öÂI - §Y®É·s»D - ©ú³ø·s»Dºô")
+					m.zz=dbcs2uncd("- ç†±é» - å³æ™‚æ–°è - æ˜å ±æ–°èç¶²")
 					m.xx=STRTRAN(m.xx,m.zz,"")
-					m.zz=dbcs2uncd("- ´ä»D - §Y®É·s»D - ©ú³ø·s»Dºô")
+					m.zz=dbcs2uncd("- æ¸¯è - å³æ™‚æ–°è - æ˜å ±æ–°èç¶²")
 					m.xx=STRTRAN(m.xx,m.zz,"")
-					m.zz=dbcs2uncd("- °ê»Ú - §Y®É·s»D - ©ú³ø·s»Dºô")
+					m.zz=dbcs2uncd("- åœ‹éš› - å³æ™‚æ–°è - æ˜å ±æ–°èç¶²")
 					m.xx=STRTRAN(m.xx,m.zz,"")
-					m.zz=dbcs2uncd("- ¨â©¤ - §Y®É·s»D - ©ú³ø·s»Dºô")
+					m.zz=dbcs2uncd("- å…©å²¸ - å³æ™‚æ–°è - æ˜å ±æ–°èç¶²")
 					m.xx=STRTRAN(m.xx,m.zz,"")
 					* trailing text in line 2 of CopyTitleURL
 					m.ii=RAT("/",m.xx)
 					m.zz=SUBSTR(m.xx,m.ii+1)
 				CASE "stheadline.com/"$m.xx
-					m.pfx=dbcs2uncd("¬P®q¤é³ø")
-					m.zz=dbcs2uncd("| ¬P®q¤é³ø")
+					m.pfx=dbcs2uncd("æ˜Ÿå³¶æ—¥å ±")
+					m.zz=dbcs2uncd("| æ˜Ÿå³¶æ—¥å ±")
 					m.xx=STRTRAN(m.xx,m.zz,"")
 					* trailing text in line 2 of CopyTitleURL
 					m.ii=RAT("/",m.xx)
 					m.zz=SUBSTR(m.xx,m.ii+1)
 				CASE "on.cc/"$m.xx
-					m.pfx=dbcs2uncd("ªFºô")
-					* example: "¡U§Y®É·s»D¡U´ä¿D¡Uon.ccªFºô "
+					m.pfx=dbcs2uncd("æ±ç¶²")
+					* example: "ï½œå³æ™‚æ–°èï½œæ¸¯æ¾³ï½œon.ccæ±ç¶² "
 					* strconv("772c5Y2z5pmC5paw6IGe772c5riv5r6z772cbw==bg==Lg==Yw==Yw==5p2x57ay",14)
 					* normal case
-					m.zz=dbcs2uncd("§Y®É·s»D¡U")
+					m.zz=dbcs2uncd("å³æ™‚æ–°èï½œ")
 					m.xx=STRTRAN(m.xx,m.zz,"")
 					* special case (vertical bar is 772c)
 					m.zz=strconv("772c5Y2z5pmC5paw6IGe772c",14)
 					m.xx=STRTRAN(m.xx,m.zz,"")
 					* same for both cases
-					m.zz=dbcs2uncd("´ä¿D¡Uon.ccªFºô")
+					m.zz=dbcs2uncd("æ¸¯æ¾³ï½œon.ccæ±ç¶²")
 					m.xx=STRTRAN(m.xx,m.zz,"")
-					m.zz=dbcs2uncd("¨â©¤¡Uon.ccªFºô")
+					m.zz=dbcs2uncd("å…©å²¸ï½œon.ccæ±ç¶²")
 					m.xx=STRTRAN(m.xx,m.zz,"")
-					m.zz=dbcs2uncd("°ê»Ú¡Uon.ccªFºô")
+					m.zz=dbcs2uncd("åœ‹éš›ï½œon.ccæ±ç¶²")
 					m.xx=STRTRAN(m.xx,m.zz,"")
 					* no "/" to delete in line 2
 					m.zz=""
 				CASE "swissinfo.ch/"$m.xx
-					m.pfx=dbcs2uncd("ªk·sªÀ")
+					m.pfx=dbcs2uncd("æ³•æ–°ç¤¾")
 					m.zz=dbcs2uncd("- SWI swissinfo.ch")
 					m.xx=STRTRAN(m.xx,m.zz,"")
 				OTHERWISE
@@ -1689,7 +1689,7 @@ Define Class MyForm As Form
 				m.xx=STRTRAN(m.xx, m.zz, "")
 			ENDIF
 			* prefix line 1
-			m.xx=STRTRAN(m.xx,"http",dbcs2uncd("¥ş¤å¨£")+": http")
+			m.xx=STRTRAN(m.xx,"http",dbcs2uncd("å…¨æ–‡è¦‹")+": http")
 			.Text="["+m.pfx+"]"+m.xx
 		ENDWITH
 		thisform.PageFrame1.Page1.cmdClip.click()
@@ -1925,7 +1925,7 @@ for m.ii=1 to 26
 	locate for thekey="BIG"+chr(asc("A")+m.ii-1)
 	?? canton.big5
 endfor
-? "MYNICK", "±i°O"
+? "MYNICK", "å¼µè¨˜"
 m.maxlen=0
 Select Distinct thekey From canton ;
 	where !Empty(thekey) ;
@@ -2338,16 +2338,16 @@ RETURN llOk
 *
 * http://blogs.lessthandot.com/index.php/datamgmt/datadesign/displaying-and-saving-unicode-data/
 *
-*!*	In the form¡¦s Load we need the following:
+*!*	In the formâ€™s Load we need the following:
 *!*	Sys(987,.F.)
 *!*	Sys(3101,65001)
 *!*	Then, after getting binary data from SQL Server the same way as I show in this blog, 
 *!*   we still need to use createbinary, e.g.
 *!*	this.txtLanguage.text = createbinary(prefs_sl.Language00)
-*!*	We don¡¦t want to use COMPROP now for the ActiveX.
-*!*	and then, saving data, we need to follow Rick¡¦s steps:
+*!*	We donâ€™t want to use COMPROP now for the ActiveX.
+*!*	and then, saving data, we need to follow Rickâ€™s steps:
 *!*	pcSavedText1 = Strconv(This.Text,12)
-*!*	*** Must explicitly force to binary ¡V can also use CAST in 9.0
+*!*	*** Must explicitly force to binary â€“ can also use CAST in 9.0
 *!*	pcSavedText1 = CREATEBINARY(pcSavedText1)
 *
 * http://www.news2news.com/vfp/?example=88
