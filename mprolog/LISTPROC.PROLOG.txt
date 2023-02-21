@@ -1,0 +1,12 @@
+((append () X X))
+((append (X|Y) Z (X|x))
+  (append Y Z x))
+
+((member X (X|Y)))
+((member X (Y|Z))
+  (member X Z))
+
+((reverse () ()))
+((reverse (X|Y) Z)
+  (reverse Y X1)(append X1 (X) Z))
+

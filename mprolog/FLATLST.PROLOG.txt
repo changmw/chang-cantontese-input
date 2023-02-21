@@ -1,0 +1,23 @@
+((/# This program flatten a list which convert an input list into ))
+((/# another list which contains no list as elements but includes ))
+((/# all the original atoms ))
+
+((/# this procedure add a list (a b) to another list (1 2) ))
+((/# making (a b 1 2) ))
+((append () X X))
+((append (X|Y) Z (X|x))
+  (append Y Z x))
+
+((/# This procedure flattens the list using infix tree passing algorithm ))
+((flatten x y)
+  (LST x)
+  (flatten2 x y))
+  
+((flatten2 () ()))
+((flatten2 x (x))
+  (CON x))
+((flatten2 (x1|x2) z)
+  (flatten2 x1 x3)
+  (flatten2 x2 x4)
+  (append x3 x4 z))
+
