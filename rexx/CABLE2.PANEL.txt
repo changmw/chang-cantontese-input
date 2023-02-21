@@ -1,0 +1,45 @@
+)ATTR                                                                           
+" TYPE(OUTPUT) COLOR(RED) INTENS(HIGH) CAPS(OFF) JUST(ASIS) HILITE(BLINK)       
+^ TYPE(INPUT) COLOR(TURQUOISE) CAPS(ON) OUTLINE(U)                              
+! TYPE(TEXT) COLOR(TURQUOISE) INTENS(LOW) SKIP(ON)                              
+| TYPE(TEXT) COLOR(RED) INTENS(LOW) SKIP(ON)                                    
+~ TYPE(TEXT) COLOR(BLUE     ) INTENS(HIGH) SKIP(ON)                             
+; TYPE(TEXT) COLOR(WHITE    ) INTENS(LOW) SKIP(ON)                              
+? TYPE(TEXT) COLOR(PINK     ) INTENS(HIGH) SKIP(ON) HILITE(REVERSE)             
+' TYPE(TEXT) COLOR(YELLOW   ) INTENS(HIGH) SKIP(ON) HILITE(USCORE)              
+)BODY LMSG(MSG)                                                                 
+?IBM INTERNAL USE ONLY                                                        ! 
+                                                                                
+                     'CABLING SYSTEM RECORD MAINTENANCE!                        
+                                                                                
+                                                                                
+ ~Control unit :^Z  !             ~User name :^Z                    !           
+                                                                                
+ ~Port no      :^Z  !             ~Location  :^Z   !                            
+                                                                                
+ ~Port address :^Z       !        ~Box no    :^Z         !                      
+                                                                                
+ ~Port type    :^Z      !         ~Terminal  :^Z     !                          
+                                                                                
+ ~Rack 1       :^Z       ! ~(Printer Label)                                     
+                                                                                
+ ~Rack 2       :^Z       !                                                      
+                                                                                
+ ~Rack 3       :^Z       !                                                      
+                                      | You may specify part of the key!        
+                                                                                
+;1 = Find First   3 = Blank     5 = sort by floor 7 = Previous    9 = count   ! 
+;2 = Find Next    4 = Xedit     6 =               8 = Next       12 = QUIT    ! 
+"MSG                                                                          ! 
+)INIT                                                                           
+ .ZVARS = '(cuname uname +                                                      
+            pno    uloc  +                                                      
+            paddr  bno   +                                                      
+            ptype  uterm +                                                      
+            rack1 +                                                             
+            rack2 +                                                             
+            rack3)'                                                             
+)PROC                                                                           
+ &RSTATUS = .PFKEY                                                              
+ &RCURSOR = .CURSOR                                                             
+)END                                                                            
