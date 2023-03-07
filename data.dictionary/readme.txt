@@ -1,1 +1,1 @@
-Data Dictionary System using dBase III+
+Data Dictionary System using dBase III+ for DOS
