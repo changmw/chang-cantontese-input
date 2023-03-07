@@ -5,3 +5,6 @@ coded using Turbo C 2.0 for DOS.
 This project won a little award from Hong Kong Computer Society, and 
 was interviewed by Hong Kong Air Cargo Terminals Limited (HACTL)
 in Kai Tak, Kowloon City.
+
+Back then, there was no HTML standard and Internet was still not yet
+opened to business use.
