@@ -1,3 +1,6 @@
+*
+* A calendar form to select a date for Visual Foxpro
+*
 define class cmdDow as commandbutton
 	visible=.t.
 	fontsize=12
