@@ -2,8 +2,8 @@ parameter m.mnx
 *
 * DO NOT use lparameter
 *
-* This Visual Foxpro program convert a Foxpro screen definition file 
-* (SCX) into a tile-based menu in a touch screen without extra work
+* This Visual Foxpro program convert a Foxpro menu definition file 
+* (MNX) into a tile-based menu in a touch screen without extra work
 * 
 local loForm
 loForm=createobject("PosMenu")
@@ -52,7 +52,7 @@ procedure cmdExit.click
 	this.enabled=.f.
 	if thisform.curlevel="_MSYSMENU"
 		thisform.clearmenu()
-		if posyn("", "Â÷¶}¨t²Î?")
+		if posyn("", "Ã‚Ã·Â¶}Â¨tÂ²ÃŽ?")
 			* do onshutdown
 			thisform.release()
 		else
@@ -136,10 +136,10 @@ procedure paintmenu
 	endscan
 	if thisform.curlevel="_MSYSMENU"
 		* quit
-		thisform.cmdExit.caption="ESC: Â÷¶}"
+		thisform.cmdExit.caption="ESC: Ã‚Ã·Â¶}"
 	else
 		* previous/back
-		thisform.cmdExit.caption="ESC: ¤W¤@­¶"
+		thisform.cmdExit.caption="ESC: Â¤WÂ¤@Â­Â¶"
 	endif
 	use in themenu
 	use in mymenu
