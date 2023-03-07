@@ -1,5 +1,10 @@
 parameter m.mnx
+*
 * DO NOT use lparameter
+*
+* This Visual Foxpro program convert a Foxpro screen definition file 
+* (SCX) io a tile-based menu in a touch screen
+* 
 local loForm
 loForm=createobject("PosMenu")
 loForm.show()
