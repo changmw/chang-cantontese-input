@@ -1,1 +1,1 @@
-Course assignments for PASCAL progreamming of Pro. Diploma in Computer Studies.
+Course assignments for PASCAL programming of Pro. Diploma in Computer Studies.
