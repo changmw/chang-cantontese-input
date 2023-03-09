@@ -5,6 +5,8 @@
 //
 // 1. Menu functions and Queue Name collection routines by Adam Chan
 // 2. Printer capture routines by Chang Man Wai
+// 
+//  NetWare C Interface-DOS v1.2 required!
 //
 #include <stdio.h>
 #include <conio.h>
