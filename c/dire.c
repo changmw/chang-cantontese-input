@@ -5,7 +5,7 @@
     Reverse-engineered from Yung Chun Kau's DIRX (Pascal).
     
     Mr. Yung was a CUHK graduate (major in Mathematics?) who worked
-    a programmer like me for Survey Research Hongkong.
+    as a programmer like me for Survey Research Hongkong.
     
     A similar utility existed for Unix/Linux called du in fileutils
 
