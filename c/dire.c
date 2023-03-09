@@ -8,7 +8,9 @@
     as a programmer like me for Survey Research Hongkong.
     
     A similar utility existed for Unix/Linux called du in fileutils
-    back then. But Mr. Yung didn't mention it. :)
+    back then. But Mr. Yung didn't mention it. But then, Unix and Xenix
+    programs didn't usually have source codes. "Open Source" was
+    not heard of.
 
     Originally written for Turbo C++ for DOS 3.0
 
