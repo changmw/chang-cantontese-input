@@ -8,6 +8,7 @@
     as a programmer like me for Survey Research Hongkong.
     
     A similar utility existed for Unix/Linux called du in fileutils
+    back then. But Mr. Yung didn't mention it. :)
 
     Originally written for Turbo C++ for DOS 3.0
 
