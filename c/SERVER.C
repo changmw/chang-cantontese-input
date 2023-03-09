@@ -3,6 +3,7 @@
  the caller should make sure IPX and NETX are loaded 
  
  IPX.EXE and NETX.EXE were the protocol stack for Novell Netware.
+ Back then, there was no TCP/IP nor Internet. :)
 
 */
 #include <stdio.h>
