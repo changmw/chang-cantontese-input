@@ -1,6 +1,6 @@
 /*
   return a user to the directory specified by DOS environment variable HOME
-         in drive F:
+         in drive F: (Novell Netware 386)
   Written by Chang Man Wai
 */
 #include <stdio.h>
