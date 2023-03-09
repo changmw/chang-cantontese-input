@@ -4,7 +4,8 @@
 // check if a Chinese System is running
 // Chun Hon and Eten are considered Eten by this program
 //
-// In the days of MS DOS, there were a few famous Chinese input system:
+// In the days of MS DOS, there were a few famous Chinese input system,
+// all of them came from Taiwan.
 // 
 //
 enum { NOCHINESE, ET, ZERO, DRAGON, KC };
