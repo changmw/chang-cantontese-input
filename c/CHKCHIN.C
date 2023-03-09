@@ -6,7 +6,7 @@
 //
 // In the days of MS DOS, there were a few famous Chinese input system,
 // all of them came from Taiwan. Now called Big5 Character Set.
-// 
+// Again, this program was intent for Survey Research Hongkong.
 //
 enum { NOCHINESE, ET, ZERO, DRAGON, KC };
 
