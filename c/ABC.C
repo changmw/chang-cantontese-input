@@ -6,6 +6,10 @@
 /*
   This program is used to print a PCRAS reports from a given page.
   A new page is identified by the string "SRH RETAIL AUDIT".
+  
+  SRH, Survey Research Hong Kong, was a market research company.
+  Retail audit aimed to collect sales figures of goods in various
+  supermarkets.
 
   This function was written to help Data Processing Deparment (of 
   Survey Reseearch Hongkong) to print a big file from a given page.
