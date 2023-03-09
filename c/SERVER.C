@@ -1,6 +1,10 @@
-/* function to extract the connection information of a workstation */
-/* used with Netware NETX.COM and IPX.COM */
-/* the caller should make sure IPX and NETX are loaded */
+/* function to extract the connection information of a workstation
+ used with Netware NETX.COM and IPX.COM
+ the caller should make sure IPX and NETX are loaded 
+ 
+ IPX.EXE and NETX.EXE were the protocol stack for Novell Netware.
+
+*/
 #include <stdio.h>
 #include <dos.h>
 
