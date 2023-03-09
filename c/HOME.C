@@ -3,7 +3,7 @@
          in drive F: (Novell Netware 386)
   Written by Chang Man Wai
   
-  This program was used with Novell Netware 386 in Survey Research Hongkong.  
+  This program was intent to use with Novell Netware 386 in Survey Research Hongkong.
 */
 #include <stdio.h>
 #include <stdlib.h>
