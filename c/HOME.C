@@ -2,6 +2,8 @@
   return a user to the directory specified by DOS environment variable HOME
          in drive F: (Novell Netware 386)
   Written by Chang Man Wai
+  
+  This program was used with Novell Netware 386 in Survey Research Hongkong.  
 */
 #include <stdio.h>
 #include <stdlib.h>
