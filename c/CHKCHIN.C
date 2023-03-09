@@ -5,7 +5,7 @@
 // Chun Hon and Eten are considered Eten by this program
 //
 // In the days of MS DOS, there were a few famous Chinese input system,
-// all of them came from Taiwan.
+// all of them came from Taiwan. Now called Big5 Character Set.
 // 
 //
 enum { NOCHINESE, ET, ZERO, DRAGON, KC };
