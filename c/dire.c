@@ -3,6 +3,10 @@
 
     Check the disk space used by each directory in SYS:USER.
     Reverse-engineered from Yung Chun Kau's DIRX (Pascal).
+    
+    Mr. Yung was a CUHK graduate (major in Mathematics?) who worked
+    a programmer like me for Survey Research Hongkong.
+    
     A similar utility existed for Unix/Linux called du in fileutils
 
     Originally written for Turbo C++ for DOS 3.0
