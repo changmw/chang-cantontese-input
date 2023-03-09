@@ -6,7 +6,7 @@ WAITN - written by Chang Man Wai
 Wait for given number of seconds, seconds elapsed will NOT be shown
 - useful in bringing up file/print server after some delay
 
-This program was written for DOS 3.30.
+This program was written for DOS 3.30, again for Survey Researh Hongkong.
 
 DOS 5 and 6 got a new function CHOICE.EXE.
 */
