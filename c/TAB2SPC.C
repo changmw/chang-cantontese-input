@@ -5,6 +5,10 @@
   Written by Chang Man Wai
   Compiled by Turbo C 2.0
 
+  This function was written to help Data Processing Deparment (of 
+  Survey Reseearch Hongkong) to print a big file from a given page.
+  Back then, the printer might be out of paper. It will be a nightware
+  to restart the whole print job.
 */
 #include <stdio.h>
 
