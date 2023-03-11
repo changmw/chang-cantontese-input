@@ -12,7 +12,7 @@ Well, on behalf of the Editorial Board, I would like to apologize for any compla
 
 I must take this chance to thank our beloved teachers Dr Balu, Mr. CH Lee, Mr. William Tung and Mr. Bradley Swim in addressing us. The continuous effort and patience of all the members of the Editorial Board must not be forgotten as well:
 
-**The Editorial Board
+**The Editorial Board**
 
 * Chairman: 	Daniel, Gary
 * Chief Editor & Artwork: 	Alex
