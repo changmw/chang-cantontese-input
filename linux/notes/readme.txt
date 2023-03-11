@@ -1,0 +1,1 @@
+Notes related to Linux
