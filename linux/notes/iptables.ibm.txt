@@ -1,0 +1,84 @@
+#!/bin/bash
+
+#Our complete stateful firewall script.  This firewall can be customized for 
+#a laptop, workstation, router or even a server. :)
+
+#change this to the name of the interface that provides your "uplink"
+#(connection to the Internet)
+
+UPLINK="eth1"
+
+#if you're a router (and thus should forward IP packets between interfaces),
+#you want ROUTER="yes"; otherwise, ROUTER="no"
+
+ROUTER="yes"
+
+#change this next line to the static IP of your uplink interface for static SNAT, or
+#"dynamic" if you have a dynamic IP.  If you don't need any NAT, set NAT to "" to
+#disable it.
+
+NAT="1.2.3.4"
+
+#change this next line so it lists all your network interfaces, including lo
+
+INTERFACES="lo eth0 eth1"
+
+#change this line so that it lists the assigned numbers or symbolic names (from
+#/etc/services) of all the services that you'd like to provide to the general
+#public.  If you don't want any services enabled, set it to ""
+
+SERVICES="http ftp smtp ssh rsync"
+
+if [ "$1" = "start" ]
+then
+	echo "Starting firewall..."
+	iptables -P INPUT DROP
+	iptables -A INPUT -i ! ${UPLINK} -j ACCEPT
+	iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+	#enable public access to certain services
+	for x in ${SERVICES}
+	do
+		iptables -A INPUT -p tcp --dport ${x} -m state --state NEW -j ACCEPT
+	done
+	
+	iptables -A INPUT -p tcp -i ${UPLINK} -j REJECT --reject-with tcp-reset
+	iptables -A INPUT -p udp -i ${UPLINK} -j REJECT --reject-with icmp-port-unreachable
+	
+	#explicitly disable ECN
+	if [ -e /proc/sys/net/ipv4/tcp_ecn ]
+	then
+		echo 0 > /proc/sys/net/ipv4/tcp_ecn
+	fi   
+
+	#disable spoofing on all interfaces
+	for x in ${INTERFACES} 
+	do	
+		echo 1 > /proc/sys/net/ipv4/conf/${x}/rp_filter     
+	done
+
+	if [ "$ROUTER" = "yes" ]
+	then
+		#we're a router of some kind, enable IP forwarding
+		echo 1 > /proc/sys/net/ipv4/ip_forward
+		if [ "$NAT" = "dynamic" ]
+		then
+			#dynamic IP address, use masquerading	
+			echo "Enabling masquerading (dynamic ip)..."
+			iptables -t nat -A POSTROUTING -o ${UPLINK} -j MASQUERADE
+		elif [ "$NAT" != "" ]
+		then
+			#static IP, use SNAT
+			echo "Enabling SNAT (static ip)..."
+			iptables -t nat -A POSTROUTING -o ${UPLINK} -j SNAT --to ${UPIP}
+		fi
+	fi
+	
+elif [ "$1" = "stop" ]
+then
+	echo "Stopping firewall..."
+	iptables -F INPUT
+	iptables -P INPUT ACCEPT
+	#turn off NAT/masquerading, if any
+	iptables -t nat -F POSTROUTING
+fi

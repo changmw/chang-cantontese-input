@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# http://www.linuxgazette.com/issue58/okopnik.html
+
+func_list ()     # lists all the functions in Funky
+{
+    # Any time I need a reminder of what functions I have, what
+    # they're called, and what they do, I just type "func_list".
+    # A cute example of recursion - a func that lists all funcs,
+    # including itself.
+
+    cat /usr/local/bin/Funky|grep \(\)
+} 
+
+getch ()     # gets one char from kbd, no "Enter" necessary
+{
+    OLD_STTY=`stty -g`
+    stty cbreak -echo
+    GETCH=`dd if=/dev/tty bs=1 count=1 2>/dev/null`
+    stty $OLD_STTY
+} 
+
+# . Funky
+
+declare -i Total=0
+
+leave ()
+{
+    echo "So youse are done shoppin'?"
+    [ $Total -ne 0 ] && echo "Dat'll be $Total bucks, pal."
+    echo "Have a nice day."
+    exit
+}
+
+trap 'leave' 0
+clear
+
+while [ 1 ]
+do
+    echo
+    echo "Whaddaya want? I got Cucumbers, Tomatoes, Lettuce, Onions,"
+    echo "and Radishes today."
+    echo
+
+    # Here's where we call a sourced function...
+    getch
+
+    # ...and reference a variable created by that function.
+    case $GETCH
+    in
+       C|c) Total=$Total+1; echo "Them are good cukes." ;;
+       T|t) Total=$Total+2; echo "Ripe tomatoes, huh?" ;;
+       L|l) Total=$Total+2; echo "I picked da lettuce myself." ;;
+       O|o) Total=$Total+1; echo "Fresh enough to make youse cry!" ;;
+       R|r) Total=$Total+2; echo "Real crispy radishes." ;;
+       *) echo "Ain't got nuttin' like that today, mebbe tomorra." ;;
+    esac
+
+    sleep 2
+    clear
+
+done

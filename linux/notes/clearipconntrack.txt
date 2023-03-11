@@ -1,0 +1,27 @@
+#!/bin/bash
+
+echo
+echo "############################"
+echo "# Edit by Youngh 2003.06.24 v1.1 "
+echo "# Usage : clr_conns IpAddress"
+echo "#    	This will clear all connections from this IP_Address"
+echo "# Example:/root/clr_conns  10.0.3.3 "
+echo "# needs: http://www.hping.org/
+echo "############################"
+echo
+
+if [ -z $1 ] ; then 
+	exit
+fi
+
+
+grep -E "^tcp .{10,25}ESTABLISHED src=$1 " /proc/net/ip_conntrack | while read line ; do 
+	S_IP=`echo $line | awk '{print substr($5,5)}'`
+	S_SOCK=`echo $line | awk '{print substr($7,7)}'`
+	D_IP=`echo $line | awk '{print substr($6,5)}'`
+	D_SOCK=`echo $line | awk '{print substr($8,7)}'`	
+	echo "$S_IP:$S_SOCK $D_IP:$D_SOCK"
+
+	hping2 $D_IP -R -s $S_SOCK -p $D_SOCK -a $S_IP -k -c 1 >/dev/null 2>/dev/null &
+
+done

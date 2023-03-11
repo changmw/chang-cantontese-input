@@ -1,0 +1,24 @@
+# http://www.apache-ssl.org/#FAQ
+
+confdir=/usr/local/apache/conf
+confdir=/etc/httpd
+
+cd $confdir/ssl.csr/
+# this will generate 2 files: server.scr and privkey.pem
+openssl req -new > server.csr
+cd $confdir
+# note that the CN (Common Name) must be "server" (same as file name portion)
+openssl rsa -in ssl.csr/privkey.pem -out ssl.key/server.key
+openssl x509 -in ssl.csr/server.csr -out ssl.crt/server.crt -req -signkey ssl.key/server.key -days 365
+
+exit
+
+# http://www.thawte.com/certs/server/keygen/apachessl.html
+echo "Generate a private key"
+cd $confdir/ssl.key
+openssl genrsa -des3 512/1024 > ssl.key/sever.key
+echo "Generate a CSR from your key" 
+openssl req -new -key ssl.key/server.key > ssl.csr/server.csr
+echo "Removing the passphrase"
+echo "Generate a self-signed certificate"
+openssl req -x509 -key ssl.key/server.key -in ssl.csr/server.csr > ssl.crt/server.crt

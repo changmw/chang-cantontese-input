@@ -1,0 +1,11 @@
+#!/bin/bash
+case "$1" in
+  proftpd)
+    cvs -d :pserver:anonymous@cvs.proftp.sourceforge.net:/cvsroot/proftp \
+	login
+    cvs -d :pserver:anonymous@cvs.proftp.sourceforge.net:/cvsroot/proftp \
+	-z3 co proftpd
+    ;;
+  *)
+    echo "cvs.get [project]"
+esac

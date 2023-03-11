@@ -1,0 +1,31 @@
+/* getvc.c
+ * Prints the number of the current VC to stdout.
+ *
+ * Joey Hess, Fri Apr  4 14:58:50 EST 1997
+ */
+/* 
+gcc getvc.c -o getvc
+strip getvc
+mv getvc /usr/local/bin
+*/
+             
+ #include <sys/vt.h>
+ #include <fcntl.h>
+           
+   main () {
+     int fd = 0;
+     struct vt_stat vt;
+             
+     if ((fd = open("/dev/console",O_WRONLY,0)) < 0) {
+        perror("Failed to open /dev/console\n");
+        return(2);
+        }
+     if (ioctl(fd, VT_GETSTATE, &vt) < 0) {
+        perror("can't get VTstate\n");
+        close(fd);
+        return(4);
+        }
+     printf("%d\n",vt.v_active);
+        }
+            
+ /* End of getvc.c */

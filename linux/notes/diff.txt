@@ -1,0 +1,8 @@
+creating a patch:
+
+diff --unified --recursive --new-file oldfile newfile > patchfile
+zcat patch-X.X.XX.gz | patch -p0 -E
+
+applying a patch:
+
+zcat patch-X.X.XX.gz | patch -p0 -E --dry-run

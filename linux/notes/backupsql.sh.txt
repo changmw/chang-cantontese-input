@@ -1,0 +1,8 @@
+#!/bin/bash
+
+mysqldump \
+	-udebian-sys-maint\
+	–password=xxx \
+	-hlocalhost \
+	–all-databases \
+	–opt –allow-keywords –flush-logs –hex-blob –master-data –max_allowed_packet=16M –quote-names –result-file=/home/user/backup/mysql_`date +\%Y-\%m-\%d_\%H-\%M-\%S`.sql

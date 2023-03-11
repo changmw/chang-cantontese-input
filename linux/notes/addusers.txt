@@ -1,0 +1,12 @@
+1. create new_userlist
+
+stud001::600:600:stu:/home/stu001:/bin/bash
+
+2. newusers < new_usrelist
+3. pwunconv
+4. create new_passlist
+
+stu001:password
+
+5. chpasswd < new_passlist
+6. pwconv

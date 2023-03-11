@@ -1,0 +1,16 @@
+
+If you have ipchains, you can type the following to avoid banners when surfing:
+
+ipchains -A output -d 199.95.207.0/24 -j REJECT
+ipchains -A output -d 199.95.208.0/24 -j REJECT
+ipchains -A output -d www.doubleclick.net -j REJECT
+ipchains -A output -d ad.doubleclick.net -j REJECT
+ipchains -A output -d ad.doubleclick.com -j REJECT
+ipchains -A output -d ad.preferences.com -j REJECT
+ipchains -A output -d adbot.theonion.com -j REJECT
+ipchains -A output -d adpick.switchboard.com -j REJECT
+ipchains -A output -d ads.i33.com -j REJECT
+ipchains -A output -d ads.infospace.com -j REJECT
+ipchains -A output -d ads.msn.com -j REJECT
+ipchains -A output -d ads.switchboard.com -j REJECT
+

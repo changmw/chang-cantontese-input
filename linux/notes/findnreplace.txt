@@ -1,0 +1,5 @@
+#!/bin/sh
+
+find $1 -type f -print | while read i; do
+  cat $i | sed -e 's/123/234/' | cat > $i
+done

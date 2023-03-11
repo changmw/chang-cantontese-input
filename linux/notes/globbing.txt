@@ -1,0 +1,5 @@
+To test if your system/shell has a bad globbing algorithm, just do 
+
+touch aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 
+ls *a*a*a*a*a*a*a*a*a*a*a*a*a*a*b*
+

@@ -1,0 +1,81 @@
+#!/bin/bash
+#
+# (cd /master; tar -cf - .) | (cd /slave; tar -xpf -)
+#
+XCLUDE=/tmp/xclude
+FLIST=/tmp/filelist
+TGT=/home/samba/public/linux
+SRC=/home/backup/config.tgz
+#
+# folders
+#
+cat > $FLIST << "EOF"
+/etc/rc.d/
+/etc/modules/
+/etc/X11/
+/etc/htdig/
+/etc/mail/
+/etc/cron.d/
+/etc/ppp/
+/etc/pam.d/
+/etc/logrotate.d/
+/etc/logcheck/
+/etc/samba.d/
+/etc/ssh/
+/etc/httpd/
+/etc/portsentry/
+/etc/sysconfig/
+/var/named/
+/home/dyndns/
+/home/scripts/
+/home/commo/
+/home/legend/
+/home/perl/
+/etc/news/
+/var/geektools/
+/etc/config.d/shells/
+/home/httpd/html/
+/etc/squid/
+/etc/openldap/
+EOF
+#
+# individual files
+#
+ls -1 /etc/*conf >> $FLIST
+ls -1 /etc/*cfg >> $FLIST
+ls -1 /etc/*rc >> $FLIST
+ls -1 /etc/*tab >> $FLIST
+ls -1 /etc/hosts* >> $FLIST
+ls -1 /etc/services >> $FLIST
+ls -1a /etc/.issue >> $FLIST
+ls -1 /etc/*tab >> $FLIST
+ls -1 /boot/grub/menu.lst >> $FLIST
+ls -1 /usr/sbin/modemd >> $FLIST
+ls -1 /usr/src/linux/.config >> $FLIST
+ls -1 /etc/ftp* >> $FLIST
+ls -1 /home/backup/backup >> $FLIST
+ls -1 /home/backup/partition >> $FLIST
+ls -1 /etc/aliases >> $FLIST
+ls -1 /etc/modules/default >> $FLIST
+ls -1 /etc/printcap >> $FLIST
+ls -1 /etc/lpd* >> $FLIST
+#
+# regex of files to be excluded
+#
+cat > $XCLUDE << "EOF"
+linux-sxs
+errors
+phorum-3.3.2a
+/etc/squid/icons/*
+EOF
+#
+tar cvpzf $SRC -T ${FLIST} -X $XCLUDE
+# 
+# extra copy in samba shares
+#
+cp $SRC $TGT
+# 
+# cleanup
+#
+rm $FLIST
+rm $XCLUDE

@@ -1,0 +1,37 @@
+references:
+
+http://xcin.linux.org.tw
+http://www.shellhung.org/Documentation/Chinese-OpenBSD/
+http://www.easytech.com.hk/rh71cle.html
+http://www.cis.nctu.edu.tw/~is84086/Project/kernel_cp950/#2.2.14
+
+
+For read chinese under Netscape, you just need to download the chinese
+fonts.
+For type chinese under Netscape, you need xa+cv
+For type and read chinese under xterm, you need xcin and crxvt
+But my advice is: if you are beginner, you better download all of them and
+follow the standard installation script to install all.
+
+steps:
+
+# by devilLinux
+1. download chinese fonts (.pcf) to a directory, say 'XXX'
+        ftp://linux.cis.nctu.edu.tw/Chinese
+2. mkfontdir
+3. cp fonts.dir fonts.alias
+4. vi fonts.alias, delete the no. on the first line
+5. add Fontpath "/usr/X11R6/lib/X11/fonts/XXX" to XF86Config
+6. xset fp rehash
+7. chkfontpath --add /usr/X11R6/lib/X11/fonts/XXX
+8. ps aux | grep big5 should see the fonts installed
+   chkfontpath --list
+
+
+# il8n
+# add these in your /etc/bashrc or /etc/profile or ~/.bashrc ... etc
+export LC_ALL=zh_TW.Big5
+export LC_CTYPE=zh_TW.Big5
+export LANG=zh_TW.Big5
+stty cs8 -istrip
+stty pass8

@@ -1,0 +1,17 @@
+CREATE TABLE timeclock
+(
+id int(11) NOT NULL,
+ref_employee int(11) NOT NULL,
+ref_usage int(11) NOT NULL,
+tsin datetime NOT NULL,
+tsout datetime NOT NULL,
+datamask int(11) NOT NULL,
+PRIMARY KEY (id),
+UNIQUE u_employee_tsin (ref_employee,tsin),
+UNIQUE u_employee_usage_tsout (ref_employee,ref_usage,tsout),
+INDEX ref_employee (ref_employee),
+INDEX ref_usage (ref_usage),
+CONSTRAINT FOREIGN KEY (ref_employee) REFERENCES employees(id),
+CONSTRAINT FOREIGN KEY (ref_usage) REFERENCES timeclockusages(id),
+CONSTRAINT CHECK (tsout>=tsin or tsout=0)
+);

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# find suid programs
+find / -type f -perm +6000 -ls
+
+# find fiels that doesn't belong to anyone
+find / -nouser -o -nogroup

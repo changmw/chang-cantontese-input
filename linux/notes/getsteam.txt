@@ -1,0 +1,4 @@
+Server: ftp.valvesoftware.com
+User: hlserver
+Pass: hlserver
+Remote dir: /linux

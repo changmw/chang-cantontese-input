@@ -1,0 +1,36 @@
+#
+# inetd.conf	This file describes the services that will be available
+#		through the INETD TCP/IP super server.  To re-configure
+#		the running INETD process, edit this file, then send the
+#		INETD process a SIGHUP signal.
+#
+#		In order to comply with the Linux Standard Base
+#		specification, many services are now configured
+#		via individual files in the /etc/inet.d directory.
+#
+#
+# Builtin services (silently drop requests from ports < 512)
+#
+echo	stream	tcp	nowait	root	internal
+echo	dgram	udp	wait	root	internal
+discard stream	tcp	nowait	root	internal
+discard dgram	udp	wait	root	internal
+daytime stream	tcp	nowait	root	internal
+daytime dgram	udp	wait	root	internal
+chargen stream	tcp	nowait	root	internal
+chargen dgram	udp	wait	root	internal
+time	stream	tcp	nowait	root	internal
+time	dgram	udp	wait	root	internal
+printer	stream	tcp	nowait lp	/usr/lib/cups/daemon/cups-lpd cups-lpd
+ftp	stream	tcp	nowait	root	/usr/sbin/tcpd /usr/sbin/in.proftpd
+auth    stream  tcp     nowait  root    /usr/sbin/in.identd     in.identd
+auth    stream  tcp     nowait  root    internal
+#imap	stream	tcp	nowait	root	/usr/sbin/tcpd imapwrapd
+imap	stream	tcp	nowait	root	/usr/sbin/tcpd imapd
+pop2	stream	tcp	nowait	root	/usr/sbin/tcpd ipop2d
+pop3	stream	tcp	nowait	root	/usr/sbin/tcpd ipop3d
+# modem daemon
+modem stream tcp nowait root /usr/sbin/tcpd /usr/sbin/modemd /dev/ttyS1
+telnet	stream	tcp	nowait	root	/usr/sbin/tcpd in.telnetd
+#uucp	stream	tcp	nowait	uucp	/usr/sbin/tcpd uucico -l
+whois stream tcp nowait nobody  /usr/sbin/tcpd /var/lib/geektools/proxy.pl

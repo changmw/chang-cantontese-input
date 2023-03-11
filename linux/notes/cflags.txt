@@ -1,0 +1,3 @@
+CFLAGS="-O2 -mcpu=pentiumpro"
+CXX=gcc
+CXXFLAGS="-O2 -mcpu=pentiumpro -felide-constructors" 

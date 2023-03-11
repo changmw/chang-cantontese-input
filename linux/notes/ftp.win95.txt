@@ -1,0 +1,6 @@
+prompt
+open ftp.hk.kernel.org
+anonymous
+nt5@nt5.com
+ls
+quit

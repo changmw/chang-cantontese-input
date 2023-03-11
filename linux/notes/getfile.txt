@@ -1,0 +1,10 @@
+#!/bin/sh
+ncftp -v -n yjp.dns2go.com 9394 <<EOF
+user hkpcug 1112
+passive
+binary
+prompt
+cd "11.09.01-Tom_Clancys_Ghost_Recon-Razor1911 by Geoffrey"
+mget *
+EOF
+exit 0

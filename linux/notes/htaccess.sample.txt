@@ -1,0 +1,14 @@
+vi .htaccess
+AuthUserFile /path_to_directory/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Whatever_you_want"
+AuthType Basic
+
+<Limit GET POST>
+require valid-user
+</Limit> 
+
+then
+htpasswd -c .htpasswd username
+type in a password
+this will create .htpasswd

@@ -1,0 +1,18 @@
+This header can be generated easily in CGI scripts or the mod_expires module included in Apache 1.2. For example, the following Apache directives (in a <Directory></Directory> or a .htaccessfile) would do it: 
+
+ExpiresActive On 
+
+ExpiresByType image/gif A432000 
+
+ExpiresByType image/jpeg A432000 
+
+ExpiresByType text/html A10800 
+
+The Expires header is activated for all the subsequent documents with a value of five days for JPEG and GIF images, and three hours for HTML documents. 
+
+If you have documents which should be never cached in any server or browser, use the HTTP header called: 
+
+Pragma: no-cache 
+
+Of course, a cache may expire an object sooner, based on site configuration, lack of free disk space, LRU (Less Recently Used) policies, etc., but it can never cache an object beyond its Expires time. 
+

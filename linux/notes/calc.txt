@@ -1,0 +1,4 @@
+#!/bin/bash
+j=1
+let j+=1
+echo $j

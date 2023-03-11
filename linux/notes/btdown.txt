@@ -1,0 +1,3 @@
+#!/bin/bash
+
+nice -20 btdownloadcurses.py $1 --max_upload_rate 32

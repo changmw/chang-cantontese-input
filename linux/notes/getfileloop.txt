@@ -1,0 +1,12 @@
+#!/bin/sh
+
+while [ ! -e "Civilization III - DEViANCE.bin" ] ; do 
+ftp -n yjp.dns2go.com 9394 <<EOF
+user hkpcug 1105
+binary
+prompt
+cd /Sid%20Meier%27s%20Civilization%20III%20%28c%29%20Microprose%20-%20DEViANCE
+mget Civilization%20III%20-%20DEViANCE.*
+EOF
+sleep 30
+done

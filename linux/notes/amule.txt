@@ -1,0 +1,8 @@
+#
+# http://tw.myblog.yahoo.com/circle-yuan/article?mid=645
+#
+wget -O server.met "http://peerates.net/peerates/trueservers.met"
+# calculate hash for password "123"
+echo -n 123 | md5sum | cut -d ' ' -f 1
+# ipfilter
+wget http://emulepawcio.sourceforge.net/ipfilter.zip

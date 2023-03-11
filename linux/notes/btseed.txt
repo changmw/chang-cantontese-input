@@ -1,0 +1,25 @@
+#!/bin/bash
+
+function usage
+{
+  echo "usage: btseed inputfile sample.torrent"
+}
+
+if [ -z $1 ] ; then
+  usage
+  exit 1
+fi
+if [ -z $2 ] ; then 
+  usage
+  exit 2
+fi
+if [ ! -f $2 ] ; then
+  echo "creating torrent $2"
+  btmakemetafile.py http://toylet.homeip.net:6969/announce $1 --target $2
+fi
+chown nobody:nobody $2
+if [ -f $2 ] ; then
+  # btdownloadheadless.py $2 --max_upload_rate 64 --display_interval 15 --super_seeder 1
+nice -20 btdownloadheadless.py $2 --max_upload_rate 64 --super_seeder 1
+fi
+exit 0

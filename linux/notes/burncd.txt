@@ -1,0 +1,8 @@
+#!/bin/bash
+ddrecord -v -data speed=2 dev=3,0 <ISONAME>i
+cdrecord -eject -v -data speed=2 dev=3,0 <ISONAME>
+
+# http://www.ibm.com/developerworks/linux/library/l-cdburn.html
+# mkisofs -o test.iso -Jrv -V test_disk /home/carla/
+# mount -t iso9660 -o ro,loop=/dev/loop0 test.iso /test_iso 
+cdrecord -v -eject speed=8 dev=0,1,0 test.iso 

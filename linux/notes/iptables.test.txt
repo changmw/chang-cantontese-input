@@ -1,0 +1,334 @@
+#!/bin/sh
+# adapted from "Taming the Wild Netfilter", September, Linux Journal
+# the article is avilable online at http://www.linuxjournal.com
+# some lines were copied from the ipchain script by Hunley in http://linux.nf
+# Source function library. 
+#
+# To delete rule number 1 in the INPUT chain. 
+# iptables -D INPUT 1
+# to delete rules that matches the requirement
+# iptables -D INPUT -s 127.0.0.1 -p icmp -j DROP
+#
+
+. /etc/rc.d/init.d/functions 
+
+IPT=`which iptables`
+
+function flushrules {
+  echo "flush all chains and delete user chains"
+  $IPT -F
+  $IPT -X
+  $IPT -Z
+  for i in INPUT OUTPUT FORWARD
+  do
+    $IPT -P $i ACCEPT
+  done
+  return 0
+}
+
+
+# copied from the article
+modprobe ip_tables
+modprobe ip_nat_ftp
+modprobe ip_conntrack_ftp
+
+case "$1" in
+
+start)
+#####START FIREWALL#####
+echo "Starting firewall:"
+
+$flushrules
+
+LOOPBACK="127.0.0.0/8" 
+CLASS_A="10.0.0.0/8" 
+CLASS_B="172.16.0.0/12" 
+CLASS_C="192.168.0.0/16" 
+CLASS_D_MULTICAST="224.0.0.0/4" 
+CLASS_E_RESERVED_NET="240.0.0.0/5" 
+P_PORTS="0:1023" 
+UP_PORTS="1024:65535" 
+TR_SRC_PORTS="32769:65535" 
+TR_DEST_PORTS="33434:33523"
+
+#this part came from http://linux.nf
+REMOTENET=0/0 
+
+# for i-cable users, modify the following line
+OUTERIF=ppp0 
+OUTERIP=`ifconfig $OUTERIF | grep inet | cut -d : -f 2 | cut -d \  -f 1` 
+OUTERMASK=`ifconfig $OUTERIF | grep Mas | cut -d : -f 4` 
+OUTERNET=$OUTERIP/$OUTERMASK 
+
+INTERNALIF=eth0
+INTERNALIP=`ifconfig $INTERNALIF | grep inet | cut -d : -f 2 | cut -d \  -f 1` 
+INTERNALMASK=`ifconfig $INTERNALIF | grep Mas | cut -d : -f 4` 
+INTERNALNET=$INTERNALIP/$INTERNALMASK 
+
+# define interfaces
+# internal interface
+IINT=$INTERNALIF
+# external interface (can be ppp+, eth#, ippp+, etc.)
+IEXT=$OUTERIF
+# internal network
+INTNET=$INTERNALNET
+# external interface IP(s)
+EXTIP=$EXTERNALIP
+
+# web servers for public use:
+# WEB=192.168.0.2-192.168.0.6:80
+# if the above or below is a range of servers, netfilter will perform
+# a rudimentary form of load balancing
+# DNS servers:
+# DNS=192.168.0.8-192.168.0.9:53
+###
+
+# turn off Explicit Congestion Notification
+if [ -e /proc/sys/net/ipv4/tcp_ecn ]
+then
+	echo 0 > /proc/sys/net/ipv4/tcp_ecn
+fi   
+
+# first, turn off forwarding
+# to guarantee no attack when the firewall is not yet ready
+echo 0 > /proc/sys/net/ipv4/ip_forward
+
+#this part also came from http://linux.nf
+# Turn on Source Address Verification 
+if [ -e /proc/sys/net/ipv4/conf/all/rp_filter ] 
+then 
+echo -e "\t\tDisabling IP Spoofing" 
+for f in /proc/sys/net/ipv4/conf/*/rp_filter 
+do 
+echo 1 > $f 
+done 
+fi 
+
+# Turn on SYN COOKIES PROTECTION (Thanks Holger!) 
+if [ -e /proc/sys/net/ipv4/tcp_syncookies ] 
+then 
+echo -e "\t\tEnabling TCP SYN Cookie protection" 
+echo 1 > /proc/sys/net/ipv4/tcp_syncookies 
+fi 
+
+# Turn on ICMP sanity checks 
+# Disable ICMP broadcast echo 
+echo 1 > /proc/sys/net/ipv4/icmp_echo_ignore_all
+if [ -e /proc/sys/net/ipv4/icmp_echo_ignore_broadcasts ] 
+then 
+echo -e "\t\tDisabling replies to ICMP echo broadcasts" 
+echo 1 > /proc/sys/net/ipv4/icmp_echo_ignore_broadcasts 
+fi 
+
+# Enable bad error message protection 
+if [ -e /proc/sys/net/ipv4/icmp_ignore_bogus_error_responses ] 
+then 
+echo -e "\t\tEnable 'bad error message' protection" 
+echo 1 > /proc/sys/net/ipv4/icmp_ignore_bogus_error_responses 
+fi 
+
+# Disable ICMP Redirects 
+if [ -e /proc/sys/net/ipv4/conf/all/accept_redirects ] 
+then 
+echo -e "\t\tDisabling ICMP redirects" 
+for i in /proc/sys/net/ipv4/conf/*/accept_redirects 
+do 
+echo 0 > $i 
+done 
+fi 
+
+# Disable source-routed packets 
+if [ -e /proc/sys/net/ipv4/conf/all/accept_source_route ] 
+then 
+echo -e "\t\tDisabling source-routed packets" 
+for i in /proc/sys/net/ipv4/conf/*/accept_source_route 
+do 
+echo 0 > $i 
+done 
+fi 
+
+# Log spoofed, source-routed, or redirected packets 
+if [ -e /proc/sys/net/ipv4/conf/all/log_martians ] 
+then 
+echo -e "\t\tTurning on logging of 'Martian' packets" 
+for i in /proc/sys/net/ipv4/conf/*/log_martians 
+do 
+echo 1 > $i 
+done 
+fi 
+
+# from IBM DeveloperWorks http://www.ibm.com, Linux 2.4 Stateful Firewall Design
+#deny everything from external if
+$IPT -P INPUT DROP
+#allow everything from non-external net
+$IPT -A INPUT -i ! $OUTERIF -j ACCEPT
+
+$IPT -A INPUT -i lo -j ACCEPT
+# $IPT -A OUTPUT -i lo -j ACCEPT
+
+# stole from http://www.cs.princeton.edu/~jns/security/iptables/
+## SYN-FLOODING PROTECTION 
+# This rule maximises the rate of incoming connections. 
+# In order to do this we divert tcp packets with the SYN bit 
+# set off to a user-defined chain. Up to limit-burst connections 
+# can arrive in 1/limit seconds ..... in this case 4 connections 
+# in one second. After this, one of the burst is regained 
+# every second and connections are allowed again. The default limit 
+# is 3/hour. The default limit burst is 5. 
+# 
+$IPT -N syn-flood 
+$IPT -A INPUT -i $IEXT -p tcp --syn -j syn-flood 
+$IPT -A syn-flood -m limit --limit 1/s --limit-burst 4 -j RETURN 
+$IPT -A syn-flood -j DROP 
+
+## Make sure NEW tcp connections are SYN packets 
+$IPT -A INPUT -i $IEXT -p tcp ! --syn -m state --state NEW -j DROP 
+
+## FRAGMENTS 
+# I have to say that fragments scare me more than anything. 
+# Sending lots of non-first fragments was what allowed Jolt2
+# to effectively "drown" Firewall-1. Fragments can be overlapped,
+# and the subsequent interpretation of such 
+# fragments is very OS-dependent (see this paper for details). 
+# I am not going to trust any fragments. 
+# Log fragments just to see if we get any, and deny them too. 
+# note, it may affect ICQ
+# $IPT -A INPUT -i $IEXT -f -j LOG --log-prefix "IPTABLES FRAGMENTS: " 
+# $IPT -A INPUT -i $IEXT -f -j DROP 
+
+# now for masquerading
+$IPT -t nat -A POSTROUTING -o $IEXT -s $INTNET -j MASQUERADE
+# if you use static IP, use this
+#$IPT -t nat -A POSTROUTING -o $INTNET -j SNAT --to 1.2.3.4
+
+# if your ISP blocks "fragmentation needed" ICMP packets, i.e.,:
+# web browsers connect, then hang with no data received
+# small e-mail works OK, but large e-mails hang
+# ssh works OK, but scp hangs after initial handshake
+# uncomment the following:
+$IPT -t filter -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
+
+# new chain log and drop
+$IPT -N logdrop
+$IPT -A logdrop -j LOG --log-prefix "IPT DROP "
+$IPT -A logdrop -j DROP
+# create new user chain
+$IPT -t filter -N tcprules
+$IPT -A INPUT -m state --state INVALID -m limit --limit 5/minute -j LOG --log-prefix "INVALID STATE:" 
+
+###
+## ACCEPT HERE ANY PORTS YOU WISH TO DNAT BELOW ##
+# web server
+$IPT -A tcprules -i $IEXT -p tcp --dport 80 -m state --state NEW -j ACCEPT
+$IPT -A tcprules -i $IEXT -p tcp --dport 8080 -m state --state NEW -j ACCEPT
+## ftp
+$IPT -A tcprules -i $IEXT -p tcp --dport 20 -m state --state NEW -j ACCEPT
+$IPT -A tcprules -i $IEXT -p tcp --dport 21 -m state --state NEW -j ACCEPT
+# 2) Passive ftp. 
+# This involves a connection outbound from a port >1023 
+# on the local machine, to a port >1023 
+# on the remote machine previously passed over the ftp channel 
+# via a PORT command. The ip_conntrack_ftp module recognizes the connection 
+# as RELATED to the original outgoing connection to port 21 
+# so we don't need NEW as a state match. 
+$IPT -A INPUT -i $IEXT -p tcp --sport $UP_PORTS --dport $UP_PORTS -m state --state ESTABLISHED -j ACCEPT 
+$IPT -A OUTPUT -o $IEXT -p tcp --sport $UP_PORTS --dport $UP_PORTS -m state --state ESTABLISHED,RELATED -j ACCEPT 
+## ssh
+$IPT -A tcprules -i $IEXT -p tcp --dport 22 -m state --state NEW -j ACCEPT
+## news nntp
+$IPT -A tcprules -i $IEXT -p tcp --dport 119 -m state --state NEW -j ACCEPT
+## ntp clock
+$IPT -A tcprules -i $IEXT -p tcp --dport 123 -m state --state NEW -j ACCEPT
+$IPT -A tcprules -i $IEXT -p udp --dport 123 -m state --state NEW -j ACCEPT
+
+# ICMP 
+# We accept icmp in if it is "related" to other connections 
+# (e.g a time exceeded (11) from a traceroute) or 
+# it is part of an "established" connection (e.g. an echo reply (0) 
+# from an echo-request (8)). 
+$IPT -A INPUT -i $IEXT -p icmp -m state --state ESTABLISHED,RELATED -j ACCEPT 
+# We always allow icmp out. 
+$IPT -A OUTPUT -o $IEXT -p icmp -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT 
+
+###
+# Note:  you may want to change the above rules to limit the number of
+# connections per minute or else run portsentry, etc., to watch for and
+# block bad guys:
+# $IPT -A tcprules -i $IEXT -p tcp --dport 80 -m limit --limit 3/second -m state --state NEW -j ACCEPT 
+
+# allowing incoming packets to outgoing established connections 
+$IPT -A tcprules -i $IEXT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+#internal net could open any new connection
+$IPT -A tcprules -i ! $IEXT -m state --state NEW -j ACCEPT
+
+#log any intruders before dropping them
+# limit the amount of logging for ICMP drops
+# $IPT -A INPUT -i $IEXT -m limit --limit 1/min -p icmp -j LOG 
+# all other errors
+$IPT -A tcprules -i $IEXT -m state --state NEW,INVALID -j LOG --log-prefix "IPT DROP "
+$IPT -A tcprules -i $IEXT -m state --state NEW,INVALID -j DROP 
+# reject packets like if we are not offering services
+$IPT -A INPUT -p tcp -i $IEXT -j REJECT --reject-with tcp-reset
+$IPT -A INPUT -p udp -i $IEXT -j REJECT --reject-with icmp-port-unreachable
+
+$IPT -A INPUT -j tcprules
+$IPT -A FORWARD -j tcprules
+
+###
+## DNAT RULES GO HERE ## port-mapping
+# $IPT -t nat -A PREROUTING -d $EXTIP -p tcp --dport 80 -j DNAT --to-destination $WEB
+# $IPT -t nat -A PREROUTING -d $EXTIP -p udp --dport 53 -j DNAT --to-destination $DNS
+###
+# now for snat:
+# $IPT -t nat -A POSTROUTING -o $IEXT -s $INTNET -j SNAT --to-source $EXTIP
+
+# Port forward
+# for NetMeeting, one needs: 389,522,1503,1720,1731
+# $IPT -t nat -A PREROUTING -p tcp -i $EXTIF --dport 80  -j DNAT --to 192.168.2.9:80
+
+# a few mangle rules you might or might not want to try out
+# note that ssh sets its own TOS value, so is not required below
+$IPT -t mangle -A PREROUTING -m multiport -p tcp --dport 80,21 -j TOS --set-tos 16
+$IPT -t mangle -A PREROUTING -m multiport -p tcp --sport 80,21 -j TOS --set-tos 16
+$IPT -t mangle -A PREROUTING -p tcp --dport ftp-data -j TOS --set-tos 8
+$IPT -t mangle -A PREROUTING -p tcp --sport ftp-data -j TOS --set-tos 8
+$IPT -t mangle -A PREROUTING -p tcp --dport 25 -j TOS --set-tos 4
+$IPT -t mangle -A PREROUTING -p tcp --dport 110 -j TOS --set-tos 2
+
+# if you have a line in your /etc/sysctl.conf like this:
+# net.ipv4.ip_forward = 1
+# uncomment the following and comment out the echo line below it
+#/sbin/sysctl -p > /dev/null
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+echo 
+echo -e "\tInternal: $INTERNALIF $INTERNALNET" 
+echo -e "\tExternal: $OUTERIF $OUTERNET" 
+echo 
+logger -t firewall start
+;; 
+
+#####STOP FIREWALL#### 
+stop) 
+echo "Shutting down firewall:" 
+flushrules
+echo -e "\033[71G done" 
+logger -t firewall stop
+;; 
+
+*) 
+echo "" 
+echo " USAGE: $0 [command] " 
+echo "" 
+echo " COMMANDS:" 
+echo " start Enables Firewall and Masquerading (if installed)." 
+echo " stop Disables Firewall and Masquerading (if installed)." 
+echo " help Displays this list of options." 
+echo "" 
+exit 1 
+;; 
+
+esac 
+exit 0
+

@@ -1,0 +1,54 @@
+http://www.ducea.com/2009/03/18/iptables-geoip-match-on-debian-lenny/
+
+The installation is very simple and requires only the following steps exemplified on a debian lenny machine (kernel 2.6.26 and iptables 1.4.2):
+
+1. Install the needed dependencies: kernel headers and iptables dev:
+aptitude install linux-headers-2.6.26-1-amd64 iptables-dev
+libtext-csv-xs-perl will be also needed if you plan to update the database (normally you will want this to be able to update the db from time to time):
+aptitude install libtext-csv-xs-perl
+
+2. Download the xtables-addons package and the supplied database (or the sources to build your own):
+wget http://switch.dl.sourceforge.net/sourceforge/xtables-addons/xtables-addons-1.12.tar.bz2
+wget http://jengelh.medozas.de/files/geoip/geoip_iv0_database-20090201.tar.bz2
+
+3. Configure and compile the package. There are several iptables modules included; you can leave them all enabled or choose to compile and install only the ones needed. For this edit the mconfig file and leave only the ones you want:
+build_CHAOS=m
+build_DELUDE=m
+build_DHCPADDR=m
+build_ECHO=
+build_IPMARK=m
+build_LOGMARK=m
+build_SYSRQ=m
+build_TARPIT=m
+build_TEE=m
+build_condition=m
+build_fuzzy=m
+build_geoip=m
+build_ipp2p=m
+build_ipset=m
+build_length2=m
+build_lscan=m
+build_quota2=m
+
+Compile and install:
+./configure --with-xtlibdir=/lib/xtables
+make
+make install
+
+this will add the iptables extension /lib/xtables/libxt_geoip.so and the kernel module in /lib/modules/<kernel>/extra/xt_geoip.ko
+
+4. Now we have to put the geoip database files under the expected location (/var/geoip); this is hardcoded in the code, but you can change it if really needed and recompile. I would like to add that even if this uses the same geoip source (the free GeoLite Country database) as the original geoip iptables module, but the format has changed. You can either get the database from the source, or build your own with the supplied script. Once you have that copy the files to /var/geoip
+
+wget http://www.maxmind.com/download/geoip/database/GeoIPCountryCSV.zip
+unzip GeoIPCountryCSV.zip
+./runme.sh
+cp -R var/geoip/ /var/
+
+That¡¦s it! All you have to do is use the module based on your needs. The syntax is the same as the original geoip iptables module:
+[!] ¡Vsrc-cc, ¡Vsource-country country[,country...] = Match packet coming from (one of) the specified country(ies)
+[!] ¡Vdst-cc, ¡Vdestination-country country[,country...] = Match packet going to (one of) the specified country(ies)
+NOTE:  The country is inputed by its ISO3166 code.
+
+We use something like this to mark and send each type of traffic to its own destination:
+iptables -t mangle -A PREROUTING -p tcp -m geoip --src-cc US -d <IP> --dport 80 -j MARK --set-mark 1
+iptables -t mangle -A PREROUTING -p tcp -m geoip ! --src-cc US -d <IP> --dport 80 -j MARK --set-mark 2

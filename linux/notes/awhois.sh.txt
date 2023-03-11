@@ -1,0 +1,739 @@
+#! /bin/sh
+:
+#
+#	awhois - all-encompassing whois client wrapper....
+#
+# (c) Copyright 1998 Greg A. Woods.
+# (c) Copyright 1999 Greg A. Woods.
+# (c) Copyright 2000 Greg A. Woods.
+# Freely redistibutable.
+# All other rights reserved.
+# Return all fixes/modifications/suggestions to <woods-awhois@planix.com>.
+#
+#ident	"@(#)LOCAL:awhois.sh	1.61	00/04/07 22:39:27 (woods)"
+
+# An up-to-date version of this script is always available at:
+#
+#	ftp://ftp.weird.com/pub/local/awhois.sh
+#
+# and the one here is usually kept up-to-date too:
+#
+#	ftp://ftp.planix.com/pub/Planix/awhois.sh
+
+# NOTE:  There are some guys at www.geektools.com who are trying to do
+# something similar to this via a WWW interface and through a
+# "transparent" WHOIS proxy at whois.geektools.com.  They've also set
+# up a domain 'whois-servers.net' which contains TXT and CNAME records
+# pointing at what should be the whois server for a given TLD.  They
+# don't yet have as many domains covered as I do, but they're likely
+# to be more up-to-date than this script is!  For now the hard-coded
+# server names will take precedence, but at some point I may split the
+# lookup into several sections and prefer the pointer in
+# whois-servers.net to the hard-coded names.
+
+# XXX # this script should really just be a part of the rwhois client's
+# XXX # scheme for falling back to traditional WHOIS queries.
+
+argv0=`basename $0`
+
+WHOIS_DNS_DB="whois-servers.net"
+INTERNIC_WHOISHOST="whois.internic.net"
+
+USAGE="Usage: $argv0 [-h whois-host] [-cv] [query-type] query-string"
+
+HELP="$USAGE
+	-h host	query the specified host.
+	-C	don't check if awhois agrees with $WHOIS_DNS_DB
+	-v	be verbose and show what's happening
+
+The appropriate whois server will be chosen based on the query-string
+given, so long as it is recognized as a handle, host, domain, network,
+AS number, etc.  If the query-string doesn't match an appropriate
+pattern the server listed at $WHOIS_DNS_DB will be queried.  The query-
+type is passed as the first string in the query (see 'awhois help')
+"
+
+WHOISHOST=""
+VERBOSE=false
+CHECK_INTERNIC=false
+# XXX set this to false if your broken shell doesn't have 'type'
+CHECK_WHOISHOST=true
+
+while getopts "ch:Hv" OPTCHAR ; do
+	case $OPTCHAR in
+	C)
+		CHECK_WHOISHOST=false
+		;;
+	h)
+		WHOISHOST=$OPTARG
+		;;
+	H)
+		echo "$HELP" 1>&2
+		exit 2
+		;;
+	v)
+		VERBOSE=true
+		;;
+	\?)
+		echo "$USAGE" 1>&2
+		exit 2
+		;;
+	esac
+done
+shift `expr $OPTIND - 1`
+
+# so far as I know all whois servers are case-insensitive....
+# XXX this invocation of tr should work for SysV & BSD & POSIX
+#
+QUERY=`echo "$*" | tr '[A-Z]' '[a-z]'`
+QUERYTLD=`echo $QUERY | sed 's/^.*\.\([^\.]*\)$/\1/'`
+
+if [ "X${QUERY}" = "X" ] ; then
+	echo "$USAGE" 1>&2
+	exit 2
+fi
+
+if [ -n "$WHOISHOST" ] ; then
+	$VERBOSE && echo whois -h $WHOISHOST \"$QUERY\"
+	exec whois -h $WHOISHOST "$QUERY"
+fi
+
+# XXX there's lots of info about how to use the RIPE database
+# XXX more effectively at:
+# XXX	http://www.ripe.net/docs/ripe-157.html#toc18
+#
+# note that with a '-a' ripe's whois will look in other IRR databases
+
+# Note that http://www.apnic.net/db/RIRs.html has canonical info about
+# some of the regional registries.
+# 
+# Note that http://www.apnic.net/db/dbsources.html has more specific
+# info about the breakdown of IPv4 ranges for APNIC sub-delegations.
+
+# XXX there's nots of info about how to use NSI's WHOIS server
+# XXX available using "whois -h whois.networksolutions.com help"
+# 
+# For now we're going to simply decode a slightly more restrictive
+# query type definition as if they were intended for an NSI-style
+# WHOIS server and then hope it works.  In the future it might make
+# sense to try handling both NSI and RIPE server types
+# intelligently....
+# 
+# XXX At the moment subdisplays are not handled specially at all.
+# 
+QUERY_TYPE=""
+case "$QUERY" in
+as*\ *)
+	QUERY_TYPE="asn"
+	QUERY=`echo "$QUERY" | sed 's/as[^ ]* //'`
+	;;
+
+# XXX This is just too confusing -- and mostly unnecessary given the
+# way I use awhois....
+# 
+## XXX internic.net special
+#domain\ *)
+#	exec whois -h $INTERNIC_WHOISHOST "$QUERY"
+#	;;
+do*\ *)
+	QUERY_TYPE="domain"
+	QUERY=`echo "$QUERY" | sed 's/do[^ ]* //'`
+	;;
+ga*\ *)
+	QUERY_TYPE="gateway"
+	QUERY=`echo "$QUERY" | sed 's/ga[^ ]* //'`
+	;;
+gr*\ *)
+	QUERY_TYPE="group"
+	QUERY=`echo "$QUERY" | sed 's/o[^ ]* //'`
+	;;
+ha*\ *)
+	QUERY_TYPE="handle"
+	QUERY=`echo "$QUERY" | sed 's/ha[^ ]* //'`
+	;;
+!*)
+	QUERY_TYPE="handle"
+	QUERY=`echo "$QUERY" | sed 's/^!//'`
+	;;
+# XXX NSI special
+help)
+	exec whois -h whois.networksolutions.com help
+	;;
+ho*\ *)
+	QUERY_TYPE="host"
+	QUERY=`echo "$QUERY" | sed 's/ho[^ ]* //'`
+	;;
+lo*\ *)
+	QUERY_TYPE="localdomain"
+	QUERY=`echo "$QUERY" | sed 's/lo[^ ]* //'`
+	;;
+# XXX internic.net special
+nameserver\ *)
+	exec whois -h $INTERNIC_WHOISHOST "$QUERY"
+	;;
+na*\ *)
+	QUERY_TYPE="name"
+	QUERY=`echo "$QUERY" | sed 's/na[^ ]* //'`
+	;;
+.*)
+	QUERY_TYPE="name"
+	QUERY=`echo "$QUERY" | sed 's/^\.//'`
+	;;
+ne*\ *)
+	QUERY_TYPE="network"
+	QUERY=`echo "$QUERY" | sed 's/ne[^ ]* //'`
+	;;
+or*\ *)
+	QUERY_TYPE="organization"
+	QUERY=`echo "$QUERY" | sed 's/o[^ ]* //'`
+	;;
+# XXX internic.net special
+registrar\ *)
+	exec whois -h $INTERNIC_WHOISHOST "$QUERY"
+	;;
+esac
+
+case "$QUERY" in
+
+# RIPE (Réseaux IP Européens) IPv4 Ranges:
+#	24.132.0.0 - 24.135.255.255 (24.132/14)
+#	62.0.0.0 - 62.255.255.255 (62/8)
+#	193.0.0.0 - 195.255.255.255 (193/8, 194/7)
+#	212.0.0.0 - 213.255.255.255 (212/7)
+#
+24.13[2-5].*[0-9]|62.*[0-9]|19[3-5].*[0-9]|21[23].*[0-9])
+	WHOISHOST="whois.ripe.net --"
+	CHECK_WHOISHOST=false
+	;;
+
+# AUNIC IPv4 Ranges:
+#	203.0.0.0 to 203.63.255.255
+203.[0-9].*[0-9]|203.[1-5][0-9].*[0-9]|203.6[0-3].*[0-9])
+	WHOISHOST="whois.aunic.net"
+	CHECK_WHOISHOST=false
+	;;
+
+# APNIC IPv4 Ranges:
+#	24.192.0.0 - 24.195.255.255 (24.192/14)
+#	61.0.0.0 - 61.255.255.255 (61/8)
+#	169.208.0.0 - 169.223.255.255 (169.208/12)
+#	202.0.0.0 - 203.255.255.255 (202/7)
+#	210.0.0.0 - 211.255.255.255 (210/7)
+#
+24.19[2-5].*[0-9]|61.*[0-9]|169.20[89].*[0-9]|169.21[0-9].*[0-9]|169.22[0-3].*[0-9]|20[23].*[0-9]|21[01].*[0-9])
+	WHOISHOST="whois.apnic.net"
+	CHECK_WHOISHOST=false
+	;;
+
+# This is a bit of a quick&dirty hack.
+# ARIN's info for this (under NETBLK-SEED-NETS) says: 192.72.3.0 - 192.72.252.0
+#
+192.72.*[0-9])
+	# XXX the target of this CNAME this is gone, but nobody else
+	# has the data!
+	WHOISHOST="whois.iii.org.tw"
+	CHECK_WHOISHOST=false
+	;;
+
+# the rest of the IP numbers, ARIN handle patterns, ...  (NOTE: net &
+# netblk handles, and AS numbers, come at the end of the case stmt.)
+# 
+[1-9].*[0-9]|[1-9][0-9].*[0-9]|[12][0-9][0-9].*[0-9]|[0-9]|[0-9][0-9]|[0-9][0-9][0-9]|[0-9][0-9][0-9][0-9]|[0-9][0-9][0-9][0-9][0-9]|*-arin)
+	WHOISHOST="whois.arin.net"
+	CHECK_WHOISHOST=false
+	;;
+
+*.6bone)
+	WHOISHOST="whois.6bone.net"
+	CHECK_WHOISHOST=false
+	;;
+
+# who'd have ever thunk it!  Anyone want to pay us for *.weird.com?
+*.gb.com|*.gb.net|*.uk.com|*.uk.net)
+	WHOISHOST="whois.nomination.net"
+	;;
+
+# NOTE:  These (as well as some country-code) top level domains are
+# now served by several registries.  The "Registry WHOIS" server on
+# whois.InterNIC.net now provides "technical information about the
+# registered domain name and referral information for the registrar of
+# the domain name."  We must now do two WHOIS queries to get back the
+# non-technical details about a domain within these top-level domains.
+# 
+# Oh, what I wouldn't do to help get global RWHOIS services up and
+# running smoothly!
+# 
+# www.InterNIC.net is now the repository for documents and other
+# information pertaining to the Shared Registration System.
+# 
+*.com|*.org|*.edu|*.net)
+	CHECK_INTERNIC=true
+	CHECK_WHOISHOST=false
+	;;
+
+# these handles are NSI's
+*-dom|*-org)
+	WHOISHOST="www.networksolutions.com"
+	if [ -n "$QUERY_TYPE" -a "X"$QUERY_TYPE != "Xhandle" ] ; then
+		echo "Warning: convertying '$QUERY_TYPE' query to 'handle' query" 1>&1
+	fi
+	QUERY_TYPE="handle"
+	CHECK_WHOISHOST=false
+	;;
+
+*.gov)
+	WHOISHOST="whois.nic.gov"
+	;;
+
+*.int)
+	WHOISHOST="whois.isi.edu"
+	;;
+
+*.mil)
+	WHOISHOST="whois.nic.mil"
+	;;
+
+*.6bone)
+	WHOISHOST="whois.6bone.net"
+	;;
+
+*.ac)
+	WHOISHOST="whois.nic.ac"
+	;;
+
+*.ad)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.al)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.am)
+	# whois-servers.net claims whois.ripe.net....
+	WHOISHOST="whois.amnic.net"
+	;;
+
+*.as)
+	WHOISHOST="whois.nic.as"
+	;;
+
+*.at)
+	# whois-servers.net claims whois.ripe.net....
+	WHOISHOST="whois.univie.ac.at"
+	;;
+
+*.net.au)
+	WHOISHOST="whois.connect.com.au"
+	;;
+
+*.au)
+	WHOISHOST="whois.aunic.net"
+	;;
+
+*.az)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.ba)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.be)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.bg)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.br)
+	WHOISHOST="whois.nic.br"
+	;;
+
+*.by)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.ca)
+	WHOISHOST="whois.cdnnet.ca"
+	;;
+
+*.cc)
+	WHOISHOST="whois.nic.cc"
+	;;
+
+*.ch)
+	WHOISHOST="whois.nic.ch"
+	;;
+
+*.ck)
+	WHOISHOST="whois.ck-nic.org.ck"
+	;;
+
+*.ac.cn)
+	WHOISHOST="whois.cnc.ac.cn"
+	;;
+
+*.cn)
+	WHOISHOST="whois.cnnic.net.cn"
+	;;
+
+*.uk.co)
+	WHOISHOST="whois.uk.co"
+	;;
+
+*.co)
+	# this is not right, but the right one is unknown...
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.cy)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.cz)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.de)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.dk)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.dz)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.ee)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.eg)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.es)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+# Aleksi Suhonen informs me that privacy laws in Finland clash with
+# certain aspects of whois databases so there's no place to find
+# contact info for the bulk of the supposed 15,000 or so domains in
+# .fi, except perhaps directly from the <postmaster> or their web
+# page, etc.
+#
+*.fi)
+	echo "There is no authoritative WHOIS for .fi -- trying RIPE..." 1>&2
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.fo)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.fr)
+	WHOISHOST="whois.nic.fr"
+	;;
+
+*.ga)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.gb)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.ge)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.gl)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.gm)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+#*.gr)
+#	WHOISHOST="whois.forthnet.gr"
+#	;;
+
+*.gr)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.hk)
+	WHOISHOST="whois.hknic.net.hk"
+	;;
+
+*.hr)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.hu)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.ie)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.il)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.in)
+	WHOISHOST="whois.NCST.ERNET.IN"
+	;;
+
+*.is)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.it)
+	# whois-servers.net claims whois.ripe.net....
+	WHOISHOST="whois.nic.it"
+	;;
+
+*.jo)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.jp|[a-z][a-z][0-9][0-9][0-9]jp)
+	WHOISHOST="whois.nic.ad.jp"
+	QUERY=${QUERY}"/e"
+	;;
+
+*.kr)
+	WHOISHOST="whois.krnic.net"
+	;;
+
+*.li)
+	WHOISHOST="whois.nic.li"
+	;;
+
+*.lk)
+	WHOISHOST="whois.nic.lk"
+	;;
+
+*.lt)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.lu)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.lv)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.ma)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.mc)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.md)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.mk)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.mm)
+	WHOISHOST="whois.nic.mm"
+	;;
+
+*.mt)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.mx)
+	WHOISHOST="whois.nic.mx"
+	;;
+
+*.nl)
+	WHOISHOST="www.domain-registry.nl"
+	;;
+
+*.no)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.nu)
+	WHOISHOST="whois.nic.nu"
+	;;
+
+*.nz)
+	WHOISHOST="tardis.patho.gen.nz"
+	;;
+
+*.pl)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.pk)
+	WHOISHOST="whois.pknic.net.pk"
+	;;
+
+*.pt)
+	# whois-servers.net claims whois.ripe.net....
+	WHOISHOST="whois.dns.pt"
+	;;
+
+*.ro)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.ru)
+	WHOISHOST="whois.ripn.net"
+	;;
+
+*.se)
+	WHOISHOST="whois.nic-se.se"
+	;;
+
+*.sg)
+	WHOISHOST="whois.nic.net.sg"
+	;;
+
+*.sh)
+	WHOISHOST="whois.nic.sh"
+	;;
+
+*.si)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.sk)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.sm)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.su)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.th)
+	WHOISHOST="whois.thnic.net"
+	;;
+
+*.tj)
+	WHOISHOST="whois.nic.tj"
+	;;
+
+*.tn)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.to)  
+	WHOISHOST="whois.tonic.to"
+	;;                      
+       
+*.tr)
+	# The official registrar is at whois.metu.edu.tr
+	# However for now RIPE has more detailed info...
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.tw)
+	WHOISHOST="whois.twnic.net"
+	;;
+
+*.ua)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.ac.uk)
+	WHOISHOST="whois.ja.net"
+	;;
+
+*.co.uk|*.org.uk|*.net.uk|*.plc.uk|*.gov.uk|*.net.uk)
+	WHOISHOST="whois.nic.uk"
+	;;
+
+*.uk)
+	WHOISHOST="whois.nic.uk"
+	;;
+
+*.us)
+	WHOISHOST="whois.isi.edu"
+	;;
+
+*.va)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.yu)
+	WHOISHOST="whois.ripe.net"
+	;;
+
+*.za)
+	WHOISHOST="whois.frd.ac.za"
+	;;
+
+# this must come last to avoid kacking net-foo.com, etc....
+net-*|netblk-*|asn-*)
+	WHOISHOST="whois.arin.net"
+	CHECK_WHOISHOST=false
+	;;
+
+# a simple catch-all for the obvious ones....
+# remember that for now INTERNIC doesn't know about handles....
+[a-z][a-z][0-9]*|[a-z][a-z][a-z][0-9]*)
+	WHOISHOST="whois.networksolutions.com"
+	if [ -n "$QUERY_TYPE" -a "X"$QUERY_TYPE != "Xhandle" ] ; then
+		echo "Warning: convertying '$QUERY_TYPE' query to 'handle' query" 1>&1
+	fi
+	QUERY_TYPE="handle"
+	CHECK_WHOISHOST=false
+	;;
+
+*)
+	echo "Warning: '$argv0' knows not which whois server to talk to for '$QUERY'." 1>&2
+	echo "Trying look-up via WHOIS server listed at '${QUERYTLD}.${WHOIS_DNS_DB}'...." 1>&2
+	WHOISHOST=${QUERYTLD}.${WHOIS_DNS_DB}
+	CHECK_WHOISHOST=false
+	;;
+esac
+
+if $CHECK_INTERNIC ; then
+	newh=`whois -h $INTERNIC_WHOISHOST "$QUERY" | sed -n 's/^.*Whois Server: //p'`
+	if [ -z "$newh" ] ; then
+		WHOISHOST="whois.networksolutions.com"
+	else
+		WHOISHOST=$newh
+	fi
+fi
+
+if $CHECK_WHOISHOST ; then
+	WHOIS_SERVERS=""
+	# XXX if your shell is so broken as to not have the "type"
+	# XXX builtin then you can work around this brokenness by
+	# XXX simply setting CHECK_WHOISHOST near the top to default
+	# XXX to 'false'.
+	if expr "`type host`" : '.* is .*/host$' >/dev/null 2>&1 ; then
+		# XXX see <URL:ftp://ftp.nikhef.nl/pub/network/host.tar.Z>
+		# NOTE: the ancient broken "host" from BIND will just
+		# barely work for this job....
+		WHOIS_SERVERS=`host -t CNAME ${QUERYTLD}.${WHOIS_DNS_DB} | awk '{print $NF; exit}'`
+	fi
+	if [ -n "$WHOIS_SERVERS" -a "X$WHOISHOST" != "X$WHOIS_SERVERS" ] ; then
+		echo "Warning: '$argv0' disagrees with ${WHOIS_DNS_DB}: $WHOISHOST != $WHOIS_SERVERS" 1>&2
+	fi
+fi
+
+$VERBOSE && echo whois -h $WHOISHOST $QUERY_TYPE \"$QUERY\"
+exec whois -h $WHOISHOST $QUERY_TYPE "$QUERY"

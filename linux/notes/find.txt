@@ -1,0 +1,7 @@
+##-- find a string in the system
+# find . -type f -exec grep "string or options" /dev/null {} \;
+##-- For example to retrieve the second last field, use:
+field=`awk -F: '{print $(NF-1)}'` 
+##-- Here is a find command that will print all the directories in the
+##-- current filesystem, with the number of files (inodes) in that directory.
+find . -xdev -type d -exec /bin/echo -n {} \; -exec sh -c "ls {} | wc -l" \; 

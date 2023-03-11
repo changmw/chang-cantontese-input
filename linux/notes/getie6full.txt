@@ -1,0 +1,1 @@
+"C:\Downloads\ie6setup.exe" /c:"ie6wzd.exe /d /s:""#E"

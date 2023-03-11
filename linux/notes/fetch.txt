@@ -1,0 +1,7 @@
+#!/bin/sh
+
+(
+sleep 1
+echo 'article <40bd4dc2$1@news.hkpcug.org>'
+sleep 1
+) | telnet news.hkpcug.org 119

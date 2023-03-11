@@ -1,0 +1,31 @@
+#!/bin/sh
+
+SVR=yjp.dns2go.com
+POR=9394
+USR=hkpcug
+PSW=1115
+TMP=/tmp/ftpjob
+TGT=clonecd.3.2.0.1
+SRC="CloneCD v.3.2.0.1 with Keygen"
+
+# create the temp script file
+echo '#!/bin/sh' > $TMP
+echo 'ftp -v -n '$SVR' '$POR' <<EOF' >> $TMP
+echo 'user '$USR' '$PSW >> $TMP
+echo 'passive' >> $TMP
+echo 'binary' >> $TMP
+echo 'prompt' >> $TMP
+echo 'cd '$SRC >> $TMP
+echo 'mget *' >> $TMP
+echo 'quit' >> $TMP
+echo 'EOF' >> $TMP
+
+# create directory and download the files
+if [ ! -e $TGT ] ; then
+mkdir $TGT
+fi
+cd $TGT
+# cat $TMP
+chmod +x $TMP
+$TMP 
+exit 0

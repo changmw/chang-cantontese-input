@@ -1,0 +1,29 @@
+#!/bin/sh
+# 
+# Conor Casey 11/11/02
+#
+# Monitor script which emails the users on $ALIAS 
+# if new files are uploaded to any of the directorie $DIR
+#
+# Can be kicked off by a cron job every X minutes
+# 
+
+ALIAS="some.alias@some.domain"
+BASE_DIR="/ftp/base/dir"
+TIMEKEEPER_DIR="/time/keeper/dir"
+
+
+if [ "`find $DIR -newer ${TIMEKEEPER_DIR}/timekeeper`" != "" ]; then
+
+	mailx -s "Files Uploaded to $BASE_DIR" $ALIAS << EOF
+The following files have been uploaded...
+
+`find $BASE_DIR -newer ${TIMEKEEPER_DIR}/timekeeper`
+
+EOF
+
+fi
+
+
+touch ${TIMEKEEPER_DIR}/_timekeeper
+

@@ -1,0 +1,13 @@
+Converting UNIX to DOS and DOS to UNIXConverting UNIX to DOS and DOS to UNIX 
+DOS/Windows format files and UNIX files often have a compatibility problem. 
+That's because UNIX uses Control-J (^J) to demark the End-of-line character, and 
+DOS uses Control-M (^M). So sometimes when you pull a DOS/Windows file onto a 
+UNIX box, each line ends with a "^M", or sometimes you bring a UNIX file onto a 
+DOS/Windows box and it looks like there are no end-of-line demarcations.
+There are several ways to convert a DOS file to UNIX format, or vice versa. One 
+such way would be thus, to convert a DOS/Windows text file into a Solaris UNIX 
+file:
+tr -d '\015' < filein.dos > fileout.unix 
+another way is:
+sed 's/^V^M//g' filein.dos > fileout.unix 
+Back to tech tips 

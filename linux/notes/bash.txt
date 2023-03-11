@@ -1,0 +1,126 @@
+#!/bin/bash
+# http://www.pegasus.rutgers.edu/~elflord/unix/bash-tute.html
+#
+X=3
+Y=4
+empty_string=""
+if [ $X -lt $Y ]	# is $X less than $Y ? 
+then
+	echo "\$X=${X}, which is greater than \$Y=${Y}"
+fi
+
+if [ -n "$empty_string" ]; then
+	echo "empty string is non_empty"
+fi
+
+# always use "" in if [ ] tests
+# -n operand non zero length
+# -z operand zero legnth
+# -d directory exists
+# -f file exists
+# -sq  -neq = != -lt -gt -ge -le
+if [ -e "${HOME}/.fvwmrc" ]; then 		# test to see if ~/.fvwmrc exists
+	echo "you have a .fvwmrc file"
+	if [ -L "${HOME}/.fvwmrc" ]; then 	# is it a symlink ?  
+		echo "it's a symbolic link
+	elsif [ -f "${HOME}/.fvwmrc" ]; then 	# is it a regular file ?
+		echo "it's a regular file"
+	fi
+else
+	echo "you have no .fvwmrc file"
+fi
+
+# command substitution
+files="$(ls )"
+web_files=`ls public_html`
+echo $files
+echo $web_files
+
+# increment with while loop
+X=0
+while [ $X -le 20 ]
+do
+	echo $X
+	X=$((X+1))
+done
+
+# globbing
+echo *.html
+for X in *.html
+do
+	grep -L '<UL>' "$X"
+done
+
+# again, quotes are important. note the space in values
+colour1="red"
+colour2="light blue"
+colour3="dark green"
+for X in "$colour1" $colour2" $colour3"
+do
+	echo $X
+done
+
+
+# method 1
+for dest in a[1-9]*; do
+for source in ab* [b-x]*; do
+ cd ${source}
+ cp $(cat copylist) ../${dest}
+ cd ..
+done
+done
+$
+
+# method 2
+for file in $(find .); do  
+if [ ! "$(grep -e 'Hi!' ${file})" = "" ]; then
+echo ${file}  > fi  > done
+
+# method 3
+for file in $(find .); do  
+if [ ! "$(grep -e 'Hi!' ${file})" = "" ]; then
+echo ${file}  
+fi  
+done  
+
+# mathematics
+# count number of files
+# expr evaluate arithmatic expressions. man expr for details.
+X=`expr 3 \* 2 + 4` 
+k=0
+for i in /etc/*.conf
+do
+ echo $j+1 | bc`
+ k=$((k+1))
+done
+echo $k
+
+# while loop with file redirection
+i=0
+while :IFS=\  read line
+do
+  let i=i+1
+  echo $i: $line
+done < /etc/fstab
+
+# using getops
+echo "no of arguments=" $#
+echo "pid = " $$
+while getopts ":abc:" option
+do
+  case $option in
+    a ) echo "a";;
+    b ) echo "b";;
+    c ) echo "c with " $OPTARG;;
+  esac
+done
+
+# automatic reading of arguments
+for arg
+do
+  echo $arg
+done
+
+# a 10-digit random number
+head -c4 /dev/urandom | od -N4 -tu4 | sed -ne '1s/.* //p'
+echo $RANDOM

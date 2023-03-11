@@ -1,0 +1,8 @@
+# format the partition
+mke2fs /dev/hda10
+# create the journal file
+tune2fs -j /dev/hda10
+# mount the ext3 partition with the right file system
+adjust /etc/fstab to mount /dev/hda10 using ext3
+# turn off fsck check
+tune2fs -c 0 -i 0 /dev/hdxy

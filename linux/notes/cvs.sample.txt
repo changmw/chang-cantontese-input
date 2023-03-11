@@ -1,0 +1,44 @@
+# first create a working directory to store 
+# the cvs info relted to the project.
+# note that you can export environment variable CVSROOT
+cvs -d /usr/local/cvs/myproject init
+
+# import source code files into the directory from your working directory
+# the -k option can import binary files
+cd /myproject
+cvs import -m "project name" myproject vendor release
+
+# whenever you want to change the project content, 
+# you must first check out the project.
+cd /currentwork
+cvs checkout myproject/client1
+
+# after making changes (say to the file client1/index.html, 
+# commit the changes back and the changes will get a revision number
+cvs commit -m "changes made" index.html
+
+# to check out a previous revision (based on date or revision no.)
+cvs checkout -D yesterday myproject/client1/index.html
+cvs checkout -r 1.2 myproject/client1/index.html
+
+# to add project files, again, check out the project first to 
+# the working directory, then add the file to it, and commit
+cvs add newfile
+cvs commit -m "added a file" newfile
+
+# similar procedure to remove a file. but this time
+cvs remove oldfile
+cvs commit -m "removed a file" oldfile
+
+# you can split the project into two branches.
+# (ie, to start branching from rel-1-0)
+# -b : create new branch
+# -r : to tag/mark the source of the branch
+cvs rtag -b -r rel-1-0 rel-1-0-bugfix myproject
+
+# from now on, to check out rel-1-0-bugfix to work on the new branch
+cvs checkout -r rel-1-0-bugfix myproject
+
+# to merge rel-1-0-bugfix back into the original branch
+cvs checkout myproject
+cvs update -j rel-1-0-bugfix

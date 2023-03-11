@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# thunderbird-win32.zip
+packages='
+mozilla-i686-pc-linux-gnu.tar.gz
+mozilla-win32-installer.exe
+'
+packages='
+mozilla-i686-pc-linux-gnu.tar.gz
+mozilla-win32-installer.exe
+'
+for i in $packages ; do
+if [ -f $i ] ; then
+  echo $i "alraedy exists"
+else
+  echo "downloading" $i
+  wget ftp://ftp.jaist.ac.jp/pub/Mozilla/mozilla/nightly/latest/$i
+  chown nobody:nobody $i
+fi
+# wget ftp://ftp.mozilla.org/pub/mozilla.org/mozilla/nightly/latest/$i
+done

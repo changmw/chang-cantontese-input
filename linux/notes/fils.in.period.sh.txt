@@ -1,0 +1,10 @@
+#!/bin/bash
+
+FROMDATE=200401010000
+TODATE=200401310000
+
+touch /tmp/fromdate -t $FROMDATE
+touch /tmp/todate -t $TODATE
+find . -newer /tmp/fromdate ! -newer /tmp/todate
+rm /tmp/fromdate
+rm /tmp/todate

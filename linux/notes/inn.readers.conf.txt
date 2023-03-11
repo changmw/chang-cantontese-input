@@ -1,0 +1,22 @@
+auth "member" {
+    hosts: "*"
+    auth: "ckpasswd -f /etc/passwd"
+    default: "<member>"
+}
+
+auth "all" {
+    hosts: "*"
+    default: "<all>"
+}
+
+access "member" {
+    users: "testing"
+    newsgroups: "*"
+    access: RPA
+}
+
+access "all" {
+    users: "<all>"
+    newsgroups: "*,!control"
+    access: RPA
+}

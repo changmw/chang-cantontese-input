@@ -1,0 +1,5 @@
+#!/bin/bash
+grep ^tcp /proc/net/ip_conntrack | awk '{print $4}' | sort | uniq -c
+grep TIME_WAIT /proc/net/ip_conntrack | more
+
+cat /proc/net/ip_conntrack | sed -e "s/.*src=//" | cut -f 1 -d " " | sort | uniq -c

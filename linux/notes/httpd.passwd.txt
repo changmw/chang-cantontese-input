@@ -1,0 +1,12 @@
+    <Directory "/home/web/">
+      Options All
+      AllowOverride None
+        Authname "Auth webpage"
+        Authtype Basic
+        Authuserfile /etc/httpd/conf/passwd.acl
+        require user abc cde urname
+    </Directory>
+
+# htpasswd password.acl username
+# -c to create if not exist.
+# htpasswd -c passwd.acl username

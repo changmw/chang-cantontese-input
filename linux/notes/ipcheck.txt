@@ -1,0 +1,30 @@
+#!/bin/bash
+#
+# watchout! you got password in this script
+#
+if [ -n "$1" ] 
+then
+	OUTIF=$1
+else
+	OUTIF=eth0
+fi
+
+MYDIR=/home/dyndns/ipcheck
+ACCT=toylet
+PSWD=dns9394
+DOMAIN=changmw
+
+if [ ! -e $MYDIR/$DOMAIN/ipcheck.dat ]; then 
+echo "First run for ipcheck for $DOMAIN"
+mkdir $MYDIR/$DOMAIN
+/usr/bin/python $MYDIR/ipcheck.py \
+	-i $OUTIF \
+	--makedat \
+	-q -d $MYDIR/$DOMAIN $ACCT $PSWD $DOMAIN.homeip.net
+fi
+/usr/bin/python $MYDIR/ipcheck.py \
+	--syslog \
+	-v \
+	-f \
+	-i $OUTIF \
+	-q -d $MYDIR/$DOMAIN $ACCT $PSWD $DOMAIN.homeip.net

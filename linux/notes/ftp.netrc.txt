@@ -1,0 +1,41 @@
+Ftp transfers can be automated. The Expect program can be used to
+recursively descend sub-directories, etc. Or, you can use ftp's .netrc
+file. The .netrc file must be in the home directory of the user invoking
+ftp, and must not be readable or writable by other users. Here's an
+example .netrc file:
+
+machine oldbox login root passwd rootpass
+macdef init
+hash
+prompt off
+mget *.cgi
+
+macdef myget
+cd somedir
+mget *.data
+cdup
+
+The "macdef" keyword defines a macro. Macros are executed by typing the
+name preceded by a "$"; the "init" macro is executed automatically after
+login. See "man netrc" for more information.
+
+
+Below is the contents of an automatic ftp script I found on the Internet.
+ I've been using it for several months and it works great.  Make the script
+ executable and run it from cron.  Obviously, you'll need to change "get"
+ for "put".  It does whatever ftp commands you give it until it reaches the
+ EOF.
+
+=============================
+#!/bin/sh
+ftp -n yourNTserver <<EOF
+user anonymous password yourname@domain.com
+binary
+hash
+prompt
+get firstfile.xls
+get secondfile.xls
+get thirdfile.xls
+EOF
+
+

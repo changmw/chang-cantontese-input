@@ -1,0 +1,56 @@
+http://www.debianadmin.com/running-internet-explorer-debian-and-ubuntu-linux.html
+
+http://www.tatanka.com.br/ies4linux/index-en.html
+
+IEs4Linux Installation in Ubuntu
+
+You have to enable universe packages first. It is also recommended that you use the official winehq ubuntu package:
+
+Open /etc/apt/sources.list file
+
+$sudo gedit /etc/apt/sources.list
+
+Uncomment following lines in your /etc/apt/sources.list and it may be different if you are in different country instead of UK
+
+deb http://uk.archive.ubuntu.com/ubuntu dapper universe
+deb-src http://uk.archive.ubuntu.com/ubuntu dapper universe
+
+Add WineHQ APT Repository
+
+or
+
+If you want to add source packages from the repository
+
+Currently, wine only have i386 binary packages available. If you do not use an i386 architecture, or wish to compile the package in a special or optimized way, you can build the wine package using the source repository instead. To do this, add a source repository with one of the following:
+
+deb-src http://wine.budgetdedicated.com/apt dapper main
+
+Close gedit and run an update to take your new Repository
+
+$sudo apt-get update
+
+Install wine and cabextract
+
+$sudo apt-get install wine cabextract
+
+Now you need to download IEs4Linux script from here
+
+$wget http://www.tatanka.com.br/ies4linux/downloads/ies4linux-2.0.3.tar.gz
+
+$tar xzvf ies4linux-2.0.3.tar.gz
+
+$cd ies4linux-2.0.3
+
+Once you are inside ies4linux-2.0.3 directory you need to run the following script to install internet explorer
+
+$./ies4linux
+
+This will install the internet explore in your machine.
+
+To run IE you need to run the following command and it may be different for others this path at the end of installation it will give from where you want to run
+
+$/root/bin/ie6
+
+You should see the Internet explorer opening
+
+Internet Explorer Version and Widows Media Player

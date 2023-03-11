@@ -1,0 +1,20 @@
+
+# popular servers:
+
+irc.freenode.net
+
+exit
+# useful commands
+# /links		; list irc servers
+# /server servername	; connect to a server
+# /set hold_mode on	; turn on pause for long result display
+# /list -YES		; list all channels
+# /list -min 20		; list channels with at least 20 users
+# /join #channel	; join a channel
+# /nick my_nickname	; set my nickname
+# /whois nickname	; find out more about a nickname
+# /msg nickname		; private chat to nickname
+# /dcc chat nickname	; establish a secured dcc chat session
+# /msg =nickname	; chat in dcc channel
+# /leave #channel 
+# /quit

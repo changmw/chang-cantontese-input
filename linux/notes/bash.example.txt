@@ -1,0 +1,32 @@
+#!/bin/bash
+
+uri_escape()
+{
+  local string x
+  string=$1
+  var=${2:-_URI_ESCAPE}
+
+  while [ -n "$string" ]
+  do
+     temp=${string#?}
+     char=${string%"$temp"}
+     case $char in
+       [_a-zA-Z0-9] ) printf -v x "%s" "$x" "$char" ;;
+       *) printf -v x "%s%%%X" "$x" "'$string" ;;
+     esac
+     eval "$var=\$x"
+     string=$temp
+  done
+}
+
+Twitter() {
+    local USERNAME=user PASSWORD=password
+
+    uri_escape "$*" MESSAGE
+
+    curl --basic --user $USERNAME:$PASSWORD --data-ascii \
+         status="${MESSAGE:0:140}"  \
+         http://twitter.com/statuses/update.json > /dev/null 2>&1 &&
+      echo Success.
+}
+

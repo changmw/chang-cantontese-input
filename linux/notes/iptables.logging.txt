@@ -1,0 +1,73 @@
+## LOGGING 
+# You don't have to split up your logging like I do below, 
+# but I prefer to do it this way because I can then grep 
+# for things in the logs more easily. One thing you probably want 
+# to do is rate-limit the logging. I didn't do that here because 
+# it is probably best not too when you first set things up 
+# ................. you actually really want to see everything going to 
+# the logs to work out what isn't working and why. You cam 
+# implement logging with "-m limit --limit 6/h --limit-burst 5" 
+# (or similar) before the -j LOG in each case. 
+# 
+# Any udp not already allowed is logged and then dropped. 
+$IPT -A INPUT  -i $IEXT -p udp -j LOG --log-prefix "IPTABLES UDP-IN: " 
+$IPT -A INPUT  -i $IEXT -p udp -j DROP 
+#$IPT -A OUTPUT -o $IEXT -p udp -j LOG --log-prefix "IPTABLES UDP-OUT: " 
+#$IPT -A OUTPUT -o $IEXT -p udp -j DROP 
+# Any icmp not already allowed is logged and then dropped. 
+$IPT -A INPUT  -i $IEXT -p icmp -j LOG --log-prefix "IPTABLES ICMP-IN: " 
+$IPT -A INPUT  -i $IEXT -p icmp -j DROP 
+#$IPT -A OUTPUT -o $IEXT -p icmp -j LOG --log-prefix "IPTABLES ICMP-OUT: " 
+#$IPT -A OUTPUT -o $IEXT -p icmp -j DROP 
+# Any tcp not already allowed is logged and then dropped. 
+$IPT -A INPUT  -i $IEXT -p tcp -j LOG --log-prefix "IPTABLES TCP-IN: " 
+$IPT -A INPUT  -i $IEXT -p tcp -j DROP 
+#$IPT -A OUTPUT -o $IEXT -p tcp -j LOG --log-prefix "IPTABLES TCP-OUT: " 
+#$IPT -A OUTPUT -o $IEXT -p tcp -j DROP 
+# Anything else not already allowed is logged and then dropped. 
+# It will be dropped by the default policy anyway ........
+# but let's be paranoid. 
+$IPT -A INPUT  -i $IEXT -j LOG --log-prefix "IPTABLES PROTOCOL-X-IN: " 
+$IPT -A INPUT  -i $IEXT -j DROP 
+#$IPT -A OUTPUT -o $IEXT -j LOG --log-prefix "IPTABLES PROTOCOL-X-OUT: " 
+#$IPT -A OUTPUT -o $IEXT -j DROP 
+
+$IPT -A INPUT -j tcprules
+# reject packets like if we are not offering services
+$IPT -A INPUT -p tcp -i $IEXT -j REJECT --reject-with tcp-reset
+$IPT -A INPUT -p udp -i $IEXT -j REJECT --reject-with icmp-port-unreachable
+
+$IPT -A FORWARD -j tcprules
+
+###
+## DNAT RULES GO HERE ## port-mapping
+# $IPT -t nat -A PREROUTING -d $EXTIP -p tcp --dport 80 -j DNAT --to-destination $WEB
+# $IPT -t nat -A PREROUTING -d $EXTIP -p udp --dport 53 -j DNAT --to-destination $DNS
+###
+# now for snat:
+# $IPT -t nat -A POSTROUTING -o $IEXT -s $INTNET -j SNAT --to-source $EXTIP
+
+# Port forward
+# for NetMeeting, one needs: 389,522,1503,1720,1731
+# $IPT -t nat -A PREROUTING -p tcp -i $EXTIF --dport 80  -j DNAT --to 192.168.2.9:80
+
+# a few mangle rules you might or might not want to try out
+# note that ssh sets its own TOS value, so is not required below
+$IPT -t mangle -A PREROUTING -m multiport -p tcp --dport 80,21 -j TOS --set-tos 16
+$IPT -t mangle -A PREROUTING -m multiport -p tcp --sport 80,21 -j TOS --set-tos 16
+$IPT -t mangle -A PREROUTING -p tcp --dport ftp-data -j TOS --set-tos 8
+$IPT -t mangle -A PREROUTING -p tcp --sport ftp-data -j TOS --set-tos 8
+$IPT -t mangle -A PREROUTING -p tcp --dport 25 -j TOS --set-tos 4
+$IPT -t mangle -A PREROUTING -p tcp --dport 110 -j TOS --set-tos 2
+
+
+# if you have a line in your /etc/sysctl.conf like this:
+# net.ipv4.ip_forward = 1
+# uncomment the following and comment out the echo line below it
+#/sbin/sysctl -p > /dev/null
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+echo 
+echo -e "\tInternal: $INTERNALIF $INTERNALNET" 
+echo -e "\tExternal: $OUTERIF $OUTERNET" 
+echo 

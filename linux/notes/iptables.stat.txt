@@ -1,0 +1,2 @@
+#!/bin/bash
+cat /var/log/kernel | sed -e "s/.*DPT=/DPT=/" -e "s/ .*//" | cut -f 19-20 -d\  | uniq -c

@@ -1,0 +1,6 @@
+modify /etc/boinc-client/gui_rpc_auth.cfg
+
+cp boinc /usr/bin/boinc_client
+cp boincmd /usr/bin/boinc_cmd
+
+run /etc/init.d/rc.boinc

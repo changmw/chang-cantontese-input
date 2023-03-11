@@ -1,0 +1,4 @@
+#!/bin/bash
+touch /tmp/timestamp
+# edit using GUI
+find / -xdev -type f -newer /tmp/timestamp

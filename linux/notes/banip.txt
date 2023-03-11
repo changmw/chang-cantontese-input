@@ -1,0 +1,3 @@
+#!/bin/bash
+logger $1 -t ban
+iptables -I INPUT -s $1 -j DROP

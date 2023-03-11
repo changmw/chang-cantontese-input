@@ -1,0 +1,2 @@
+dd if=/dev/hdd of=image.iso
+

@@ -1,0 +1,4 @@
+#!/bin/bash
+i=0
+eval i=\$$i
+echo $i
