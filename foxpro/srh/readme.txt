@@ -14,5 +14,7 @@ https://www.scmp.com/article/214408/ac-nielsen-seeks-end-fragmentation
 I left SRH for a little and short adventure in the Tuen Mun power 
 plant of China Light & Power, working with HP Unix workstations,
 Ingres4GL and Ingres RDBMS. So I really didn't know what happened 
-to my colleagues in MIS Team (which turned into MIS Department) 
-after the acquisition.
+to my colleagues in MIS Team after the acquisition.
+
+BTW, before I left SRH, the MIS Team of Data Processing Department
+was promoted into MIS Department.
