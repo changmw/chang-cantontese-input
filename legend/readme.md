@@ -20,7 +20,7 @@ The Editorial Board
 * Treasurer: 	Victor
 * Section Editors: 	Micheal, Daniel, Donkey, Geoffrey, Sandy, Victor, Alex, Simon, Authray, Kathy
 * Chinese support: 	Big Bill, Tommy
-* Publisher 	City Univerity Of Hong Kong
+* Publisher: 	City Univerity Of Hong Kong
 
 Ladies and gentlemen, it is my honour to bring to you the long-awaited yearbook of BScCS(86-90) -- the Legend!
 
