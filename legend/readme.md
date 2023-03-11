@@ -12,14 +12,15 @@ Well, on behalf of the Editorial Board, I would like to apologize for any compla
 
 I must take this chance to thank our beloved teachers Dr Balu, Mr. CH Lee, Mr. William Tung and Mr. Bradley Swim in addressing us. The continuous effort and patience of all the members of the Editorial Board must not be forgotten as well:
 
-[b]The Editorial Board[/b]
-Chairman: 	Daniel, Gary
-Chief Editor & Artwork: 	Alex
-General Secretaries: 	Donkey, Geoffrey
-Treasurer: 	Victor
-Section Editors: 	Micheal, Daniel, Donkey, Geoffrey, Sandy, Victor, Alex, Simon, Authray, Kathy
-Chinese support: 	Big Bill, Tommy
-Publisher 	City Univerity Of Hong Kong
+The Editorial Board
+
+* Chairman: 	Daniel, Gary
+* Chief Editor & Artwork: 	Alex
+* General Secretaries: 	Donkey, Geoffrey
+* Treasurer: 	Victor
+* Section Editors: 	Micheal, Daniel, Donkey, Geoffrey, Sandy, Victor, Alex, Simon, Authray, Kathy
+* Chinese support: 	Big Bill, Tommy
+* Publisher 	City Univerity Of Hong Kong
 
 Ladies and gentlemen, it is my honour to bring to you the long-awaited yearbook of BScCS(86-90) -- the Legend!
 
