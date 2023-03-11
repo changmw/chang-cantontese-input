@@ -6,4 +6,4 @@ LHUNG.DOC.txt     Dr. S.L. Hung
 SWIM.DOC.txt      Mr. Bradley Swim
 TUNG.DOC.txt      Mr. William Tung
 
-![List of CPHK Teachers](cphk.teachers.listjpg)
+![List of CPHK Teachers](cphk.teachers.list.jpg)
