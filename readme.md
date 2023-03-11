@@ -8,7 +8,6 @@ Bookmarks Sharing: https_://_del.icio.us/toylet (discontinued)
 
 Anime & Cartoon Songs: https://www.facebook.com/groups/1831142300504995 
 
-GitHub: https://github.com/changmw/master 
 
 **Simplicity is beauty! May the Force and farces be with you!**
 
