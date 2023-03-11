@@ -10,6 +10,6 @@ Anime & Cartoon Songs: https://www.facebook.com/groups/1831142300504995
 
 GitHub: https://github.com/changmw/master 
 
-**Simplicity is beauty! May the Force and farces be with you!
+**Simplicity is beauty! May the Force and farces be with you!**
 
-**Remain silent! Drink, Blink, Stretch! Live long and prosper!
+**Remain silent! Drink, Blink, Stretch! Live long and prosper!**
