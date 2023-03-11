@@ -6,7 +6,7 @@ with China Light & Power (CLP) when I met an interesting
 person Mr. Dion Wiggins. You can easily Google about
 him now.
 
-It was Mr. Wiggins who introduced me to the project
-team in CLP. I was then interviewed by Executive Leasing
-(Australia), and signed a temporary contact as an
-Application Developer.
+It was Mr. Wiggins who introduced and recommended me to 
+the special project team in CLP. I was then interviewed 
+by Executive Leasing (Australia), and signed a temporary 
+contact as an Application Developer.
