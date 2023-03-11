@@ -1,0 +1,130 @@
+Section "Module"
+	Load  "GLcore"
+	Load  "dbe"
+	Load  "dri"
+	Load  "extmod"
+	Load  "glx"
+	Load  "record"
+	Load  "xie"
+
+	Load  "freetype"
+        Load  "type1"
+	Load "v4l"
+EndSection
+
+
+Section "Device"
+	### Available Driver options are:-
+        #Option     "SWcursor"
+        #Option     "HWcursor"
+        #Option     "NoAccel"
+        #Option     "ShowCache"
+        #Option     "ShadowFB"
+        #Option     "UseFBDev"
+        #Option     "Rotate"
+	Identifier  "Card0"
+	Driver      "nv"
+	VendorName  "NVidia"
+	BoardName   "GeForce2 MX"
+	BusID       "PCI:1:0:0"
+
+EndSection
+
+
+Section "DRI"
+	Mode 0666
+EndSection
+
+
+Section "Files"
+    	RgbPath "/usr/X11R6/lib/X11/rgb"
+	FontPath "/usr/X11R6/lib/X11/fonts/75dpi:unscaled"
+    	FontPath "/usr/X11R6/lib/X11/fonts/misc:unscaled"
+    	FontPath "/usr/X11R6/lib/X11/fonts/TrueType"
+    	FontPath "/usr/X11R6/lib/X11/fonts/Type1"
+    	FontPath "/usr/X11R6/lib/X11/fonts/Speedo"
+    	FontPath "/usr/X11R6/lib/X11/fonts/ghostscript"
+EndSection
+
+
+Section "ServerFlags"
+    	Option "AllowMouseOpenFail" 
+EndSection
+
+
+Section "InputDevice"
+	Driver 		"keyboard"
+	Identifier 	"keyboard"
+	Option		"XkbRules"	"xfree86"
+	Option		"XkbModel" 	"pc104"
+	Option		"XkbLayout" 	"us"
+	
+EndSection
+
+
+Section "InputDevice"
+	Driver 		"mouse"
+	Identifier 	"mouse"
+
+	Option		"Protocol"	"PS/2"
+	Option		"Device"	"/dev/psaux"
+	
+	
+EndSection
+
+
+Section "InputDevice"
+	Driver		"mouse"
+	Identifier	"usbmice"
+	Option		"Device" "/dev/input/mice"
+	Option		"Protocol" "IMPS/2"
+	Option		"ZAxisMapping" "4 5"
+EndSection
+
+
+Section "ServerLayout"
+	Identifier	"Default layout"
+	Screen		0 "Screen0" 0 0
+	InputDevice	"mouse" "CorePointer"
+	InputDevice	"usbmice" "SendCoreEvents"
+	InputDevice	"keyboard" "CoreKeyboard"
+EndSection
+
+
+Section "Monitor"
+    	Identifier "Generic Monitor"
+    	VendorName "Typical Monitors"
+    	ModelName "1280x1024, 60Hz"
+    	HorizSync 30-86
+    	VertRefresh 50-160
+    	ModeLine "1024x768/85Hz" 98.9  1024 1056 1216 1408   768 782 788 822 -HSync -VSync
+    	ModeLine "640x480" 25.175 640 664 760 800 480 491 493 525
+EndSection                                                                 
+
+
+Section "Screen"
+    Identifier  "Screen0"
+    Device	"Card0"
+    Monitor	"Generic Monitor"
+    DefaultDepth 24
+    Subsection "Display"
+	Depth	    32
+	Modes "1024x768/85Hz" "640x480"
+      	        Virtual 0 0
+    EndSubsection
+    Subsection "Display"
+        Depth	    24
+        Modes "1024x768/85Hz" "640x480"    
+                Virtual 0 0
+    EndSubsection
+    Subsection "Display"
+        Depth	    8
+        Modes "1024x768/85Hz" "640x480"
+                Virtual 0 0
+    EndSubsection
+    Subsection "Display"
+        Depth	    16
+        Modes "1024x768/85Hz" "640x480"
+                Virtual 0 0
+    EndSubsection
+EndSection

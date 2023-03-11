@@ -1,0 +1,50 @@
+# [*Vesa_Monitor_@60Hz_(640X480X8.Z1)] 31.469 kHz HSync
+Modeline "640x480"     25.175   640  648  752  800  480  490  492  525 -HSync -VSync 
+# [*Vesa_Monitor_@60Hz_(800X600X8.Z1)] 37.879 kHz HSync
+Modeline "800x600"     40.000   800  832  968 1056  600  601  605  628 +HSync +VSync 
+# [*Vesa_Monitor_@60Hz_(1024X768X8.Z1)] 48.363 kHz HSync
+Modeline "1024x768"     65.000  1024 1040 1184 1344  768  771  777  806 -HSync -VSync 
+# [*Vesa_Monitor_@60Hz_(1280X1024X8.Z1)] 63.981 kHz HSync
+Modeline "1280x1024"    108.000  1280 1320 1440 1688 1024 1025 1028 1066 +HSync +VSync 
+# [*Vesa_Monitor_@60Hz_(1600X1200X8.Z1)] 75.000 kHz HSync
+Modeline "1600x1200"    162.000  1600 1656 1856 2160 1200 1201 1204 1250 +HSync +VSync 
+# [*Vesa_Monitor_@65Hz_(1600X1200X8.Z1)] 81.250 kHz HSync
+Modeline "1600x1200"    175.500  1600 1656 1856 2160 1200 1201 1204 1250 +HSync +VSync 
+# [*Vesa_Monitor_@70Hz_(1152X864X8.Z1)] 63.995 kHz HSync
+Modeline "1152x864"     94.200  1152 1176 1280 1472  864  865  868  914 +HSync +VSync 
+# [*Vesa_Monitor_@70Hz_(1600X1200X8.Z1)] 87.5 kHz HSync
+Modeline "1600x1200"    189.000  1600 1656 1856 2160 1200 1201 1204 1250 +HSync +VSync 
+# [*Vesa_Monitor_@70-72Hz_(640X480X8.Z1)] 37.861 kHz HSync
+Modeline "640x480"     31.500   640  656  704  832  480  489  492  520 -HSync -VSync 
+# [*Vesa_Monitor_@70-72Hz_(800X600X8.Z1)] 48.077 kHz HSync
+Modeline "800x600"     50.000   800  848  976 1040  600  637  643  666 +HSync +VSync 
+# [*Vesa_Monitor_@70-72Hz_(1024X768X8.Z1)] 56.476 kHz HSync
+Modeline "1024x768"     75.000  1024 1040 1184 1328  768  771  777  806 -HSync -VSync 
+# [*Vesa_Monitor_@75Hz_(1600X1200X8.Z1)] 93.75 kHz HSync
+Modeline "1600x1200"    202.500  1600 1656 1856 2160 1200 1201 1204 1250 +HSync +VSync 
+# [*Vesa_Monitor_@75Hz_(1280X1024X8.Z1)] 79.976 kHz HSync
+Modeline "1280x1024"    135.000  1280 1288 1440 1688 1024 1025 1028 1066 +HSync +VSync 
+# [*Vesa_Monitor_@75Hz_(1152X864X8.Z1)] 67.5 kHz HSync
+Modeline "1152x864"    108.000  1152 1208 1344 1600  864  865  868  900 +HSync +VSync 
+# [*Vesa_Monitor_@75Hz_(1024X768X8.Z1)] 60.023 kHz HSync
+Modeline "1024x768"     78.750  1024 1032 1136 1312  768  769  772  800 +HSync +VSync 
+# [*Vesa_Monitor_@75Hz_(800X600X8.Z1)] 46.875 kHz HSync
+Modeline "800x600"     49.500   800  808  896 1056  600  601  604  625 +HSync +VSync 
+# [*Vesa_Monitor_@75Hz_(640X480X8.Z1)] 37.500 kHz HSync
+Modeline "640x480"     31.500   640  648  720  840  480  481  484  500 -HSync -VSync 
+# [*Vesa_Monitor_@80Hz_(1600X1200X8.Z1)] 100.000 kHz HSync
+Modeline "1600x1200"    216.000  1600 1656 1856 2160 1200 1201 1204 1250 +HSync +VSync 
+# [*Vesa_Monitor_@85Hz_(1600X1200X8.Z1)] 106.25 kHz HSync
+Modeline "1600x1200"    229.500  1600 1656 1856 2160 1200 1201 1204 1250 +HSync +VSync 
+# [*Vesa_Monitor_@85Hz_(1280X1024X8.Z1)] 91.146 kHz HSync
+Modeline "1280x1024"    157.500  1280 1336 1504 1728 1024 1025 1028 1072 +HSync +VSync 
+# [*Vesa_Monitor_@85Hz_(1152X864X8.Z1)] 77.487 kHz HSync
+Modeline "1152x864"    121.500  1152 1208 1344 1568  864  865  868  911 +HSync +VSync 
+# [*Vesa_Monitor_@85Hz_(1024X768X8.Z1)] 68.677 kHz HSync
+Modeline "1024x768"     94.500  1024 1064 1168 1376  768  769  772  808 +HSync +VSync 
+# [*Vesa_Monitor_@85Hz_(800X600X8.Z1)] 53.674 kHz HSync
+Modeline "800x600"     56.250   800  824  896 1048  600  601  604  631 +HSync +VSync 
+# [*Vesa_Monitor_@85Hz_(640X480X8.Z1)] 43.269 kHz HSync
+Modeline "640x480"     36.000   640  688  752  832  480  481  484  509 -HSync -VSync 
+# [*Vesa_Monitor_@85Hz_(1024X768X8.Z1)] 68.677 kHz HSync
+Modeline "1024x768"     94.500  1024 1064 1168 1376  768  769  772  808 +HSync +VSync 

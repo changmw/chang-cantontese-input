@@ -1,0 +1,11 @@
+http://www.linuxjournal.com/content/tech-tip-start-kiosk-style-machine-running-single-x11-application
+
+On Debian you would change the file /etc/X11/Xsession.d/99x11-common_start. In stock form there is a line that reads:
+
+   exec $STARTUP
+
+Change that to read:
+
+   exec firefox javascript:%20resizeTo\(1024,768\)
+
+and your machine will boot directly into Firefox at a screen size of 1024x768. Of course you can change the size to any resolution you like. You can probably also add more javascript as well and force opening a web page and other stuff. Combine this with Bastille and an autologin of a non-privileged user and you'll have a very convenient (and cheap) kiosk. 

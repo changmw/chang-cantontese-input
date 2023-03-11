@@ -1,0 +1,26 @@
+#!/bin/sh
+## to configure XFree86 4, run xf86config
+#  or run XFree86 -configure to create a default ./XF86Config.new
+#  you may need to edit the mouse setting 
+#  (auto -> ps2, /dev/mouse -> /dev/psaux)
+#  and set DefaultColorDepth 
+#  then test it with XFree86 -xf86config ./XF86Config.new
+#       (or use env var $XF8CONFIG
+#  then cp ./XF86Config.new /etc/X11/XF86Config-4 (for caldera)
+#
+## Lizardx wants /etc/XF86Config
+# XFree86 wants /etc/X11/XF86Config
+#
+## to show the config: X -showconfig
+#
+## to know what fonts available: xlsfonts
+#
+## and to use the fonts:xterm -fn _fontname_
+#
+## to increase size of fonts, prepend these lines
+#
+## before the login line in /etc/X11/xinit/xinitrc
+xterm -geometry 80x25+0+500 -fn lucidasanstypewriter-18 -sb -name Big1 &
+xterm -geometry 80x25+1300+1050 -fn lucidasanstypewriter-18 -sb -name Big2 &
+xterm -geometry 80x25+0+1050    -fn lucidasanstypewriter-18 -sb -name Big3 &
+#

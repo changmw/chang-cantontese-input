@@ -1,0 +1,20 @@
+#-----------------------------------------------------------
+# .xinitrc
+#-----------------------------------------------------------
+
+# run profile to set $PATH and other env vars correctly
+. $HOME/.bash_profile
+
+# setup background
+xsetroot -solid '#056'
+
+# setup mouse acceleration
+xset m 7 2
+
+# run initial programs
+xterm &
+
+# start icewm, and run xterm if it crashes (just to be safe)
+exec icewm || exec xterm -fg red
+
+#-----------------------------------------------------------

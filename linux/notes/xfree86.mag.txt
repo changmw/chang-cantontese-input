@@ -1,0 +1,20 @@
+Section "Monitor"
+        Identifier   "Monitor0"
+        VendorName   "MAG"
+        ModelName    "786FD"
+        HorizSync       30-86
+        VertRefresh     50-160
+EndSection
+
+Section "Screen"
+	Modelines	640   480 43.25 85
+			800   600 53.67 85
+			1024  768 68.67 85
+			1024  768 60.02 75
+			1280 1024 79.97 75
+			1280  960 85.84 85
+			1600 1200 81.3  65
+        SubSection "Display"
+        EndSubSection
+EndSection
+

@@ -1,0 +1,5 @@
+# localhost: xhost + remotehost
+# telnet remotehost
+# remotehost: export DISPLAY=remotehost:0.0
+# remotehost: startx
+# export DISPLAY=`who am i | cut -d. -f 1 - | awk '{ print $0 ":0.0"}' - `

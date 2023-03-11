@@ -1,0 +1,19 @@
+# method 1
+patch=linux-2.4.xx-xfs-1.x.x.patch.gz
+cd /usr/src
+gunzip $patch
+patch -p0 < $patch
+# method 2
+cd /usr/src/linux
+bzcat $patch | patch -Np1
+# rebuld boot kernel
+build xfsprogs
+build acl
+build xfsdump
+#
+mkfs.xfs /dev/hda5
+# copy everything complete to mnt
+mount -t xfs /dev/hda5 /mnt
+cd /
+tar lvcf - . | (cd /mnt ; tar xpvf -)
+same as cp -ax / /mnt ?

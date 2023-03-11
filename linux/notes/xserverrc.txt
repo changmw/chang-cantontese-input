@@ -1,0 +1,16 @@
+#!/bin/bash
+# /etc/X11/xinit/xserverrc
+
+XAUTH=$HOME/.Xauthority
+MKCOOKIE=/usr/bin/mcookie
+
+touch $XAUTH
+
+for host in localhost $HOSTNAME $HOST; do
+    xauth add $host/unix:0 . `$MKCOOKIE`
+    xauth add $host:0 . `$MKCOOKIE`
+done
+xauth add :0.0 . `$MKCOOKIE`
+
+# exec Xwrapper -auth $XAUTH :0
+exec X -auth $XAUTH :0
