@@ -4,4 +4,4 @@ BALU.DOC.txt      N.Y.Balasubramanian, Head, Department of Computer Science
 CHLEE.DOC.txt     Mr. C.H. Lee
 LHUNG.DOC.txt     Dr. S.L. Hung
 SWIM.DOC.txt      Mr. Bradley Swim
-TUNG.DOC.txt      M.r William Tung
+TUNG.DOC.txt      Mr. William Tung
