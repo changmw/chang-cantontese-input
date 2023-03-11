@@ -3,7 +3,8 @@ Management Infomration Systems for Survey Research Hongkong
 SRH's mother company Survey Research Group was acquired by
 AC Nielsen sometime in year 1994. I suspect AC Nielssen was
 after the client database and data archive of SRH & SRG,
-more than their employees.
+more than their employees. Those involved with big projects
+(like retail audit, media index) might remain.
 
 A.C. NIELSEN GRABS ASIAN DATA GIANT THAT IRI HAD SOUGHT – Chicago Tribune
 https://www.chicagotribune.com/news/ct-xpm-1994-07-06-9407060160-story.html
