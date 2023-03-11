@@ -29,3 +29,12 @@ for Novell Netware.
 An interesting thing about X protocol was remote control
 and screen casting, very much like Remote Desktop in 
 Windows now. It's graphical, unlike DOS.
+
+Something unrelated to computers:
+
+I still remmeber the double-decker bus used to
+carry CLP employees from Hung Hom Railway Station
+to it's Tuen Mun Power Plant. Back then, the railway
+system of MTR hadn't been extended to Tuen Mun yet,
+so cars and buses were the only way for Tuen Mun
+residents to reach Kowloon and Hong Kong Island.
