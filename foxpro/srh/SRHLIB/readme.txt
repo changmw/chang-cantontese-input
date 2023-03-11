@@ -1,1 +1,1 @@
-SRHLIB source codes
+SRHLIB source codes, compiled into SRHLIB.APP!
