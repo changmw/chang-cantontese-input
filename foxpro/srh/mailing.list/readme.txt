@@ -4,6 +4,8 @@ by the only librarian of the Company.
 
 Actual database was not included because of
 the confidentiality of customer/client records.
+It should not be defficult to re-create the
+database based on the source codes.
 
 Main program is MAILLIST.PRG.
 
