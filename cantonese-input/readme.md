@@ -6,3 +6,5 @@ English is definitely easier for me. :)
 Related:
 
 https://sourceforge.net/projects/changscantoneseinput/
+
+![This is an image](https://github.com/changmw/master/blob/master/cantonese-input/chang.canton.input-1.jpg)
