@@ -7,4 +7,4 @@ Related:
 
 https://sourceforge.net/projects/changscantoneseinput/
 
-![This is an image](/master/cantonese-input/chang.canton.input-1.jpg)
+![This is an image](chang.canton.input-1.jpg)
