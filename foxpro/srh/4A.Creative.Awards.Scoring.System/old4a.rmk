@@ -1,0 +1,13 @@
+.prg.obj:
+  CLIPPER $* -m -le:
+
+AMAIN.OBJ      : AMAIN.PRG
+ADATA.OBJ      : ADATA.PRG
+AJ.OBJ         : AJ.PRG
+SS_DATA.OBJ    : SS_DATA.PRG
+SS_DIR.OBJ     : SS_DIR.PRG
+AREPORT.OBJ    : AREPORT.PRG
+RLIB.OBJ       : RLIB.PRG
+
+AMAIN.EXE      : $**
+  BLINKER @4a.lnk
