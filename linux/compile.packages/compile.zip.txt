@@ -1,0 +1,6 @@
+#
+# modify unix/Makefile
+# set PREFIX
+# bugfix the install section,/ modify $INSTALL to $INSTALL_PROGRAM
+# make -f unix/Makefile generic
+# make -f unix/Makefile install

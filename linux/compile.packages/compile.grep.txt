@@ -1,0 +1,5 @@
+./configure \
+	--prefix=/tools \
+	--disable-perl-regexp \
+	--with-included-regex
+exit

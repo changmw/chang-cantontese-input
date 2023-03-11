@@ -1,0 +1,12 @@
+#!/bin/bash
+./configure  \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	--localstatedir=/var \
+	--sharedstatedir=/usr/share
+#
+# modify /etc/cups/mime.types
+#   uncomment application/octet-stream
+# modify /etc/cups/mime.convs
+#   uncomment application/octet-stream
+#   uncomment application/vnd-cups.postscript

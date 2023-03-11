@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# uncompress from a fresh tin.tar.gz to compile
+# to avoid errors
+#
+./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	--with-mime-default-charset=Big5 \
+	--disable-mime-strict-charset \
+	--with-iso-to-ascii=5
+make build

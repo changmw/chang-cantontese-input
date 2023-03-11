@@ -1,0 +1,47 @@
+#!/bin/bash
+#
+# reference: http://www.linuxfromscratch.org 
+#
+# alwaays read the doc accompanying glibc
+# get glibc-$version.tar.gz, glibc-linuxthreads-$version.tar.gz
+#
+# cd /usr/include
+# cp -ra scsi scsi.org
+# cp -ra linux linux.org
+# cp -ra asm asm.org
+# cd /
+# cp -ra lib olib
+#
+# cd /usr/src
+# tar xzvf glibc
+# cd usr/src/glibc-2.3
+# tar xzvf glibc-linxuthreads
+#
+# cd glibc-3
+# cp malloc/Makefile malloc/Makefile.backup
+# *** define the location of perl
+# sed 's%\$(PERL)%/usr/bin/perl%' malloc/Makefile > tmp~
+# mv tmp~ malloc/Makefile
+#
+# *** use gid instead of an name
+# cp login/Makefile login/Makefile.backup
+# sed 's/root/0/' login/Makefile > tmp~
+# mv tmp~ login/Makefile
+#
+export PERL=/usr/bin/perl
+cd /usr/src
+mkdir glibc-build
+cd glibc-build
+unset CFLAGS CXXFLAGS
+../glibc-2.3.3/configure \
+	--prefix=/usr \
+	--libexecdir=/usr/bin \
+	--enable-add-ons=linuxthreads \
+	--disable-profile
+# 
+make
+make check
+# note: this is one target. the "/" is part of the rule name
+make localedata/install-locales
+#checkinstall -si make install;make localedata/install-locales
+#ldconfig -v

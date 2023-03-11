@@ -1,0 +1,10 @@
+#!/bin/bash
+# http://lists.alioth.debian.org/pipermail/minicom-devel/2007/000661.html
+perl -pi -e 's/wprintf/mc_wprintf/g' `grep -rlni wprintf src/*`
+# http://bugs.gentoo.org/270452
+perl -pi -e 's/getline/_getline/g' `grep -rlni wprintf src/*`
+cd src
+# Have you tried the ad-hoc DTR patch I posted to minicom-devel?
+# http://lists.alioth.debian.org/pipermail/minicom-devel/2008/000849.html 
+cat minicom.diff | patch -p0
+# look for "define identity" in configure, change VERSION to something bigger than 2.3

@@ -1,0 +1,13 @@
+#!/bin/bash
+# bunzip2 -bkd | tar xv
+echo "setting feature.h"
+echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
+echo '#define SYS_GVIMRC_FILE "/etc/gvimrc"' >> src/feature.h
+./configure \
+	--prefix=/usr \
+	--with-features=huge \
+	--disable-gpm \
+	--disable-gui
+make
+exit
+make install

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+./configure \
+	--prefix=/usr \
+	--with-user=mdefang \
+	--with-spooldir=/var/mimedefang \
+	--with-quarantinedir=/var/mimedefang/quarantine
+
+exit
+# groupadd mdefang
+# useradd -d /var/mimedefang -g mdefang mdefang
+# mkdir /var/mimedefang
+# chown mdefang /var/mimedefang

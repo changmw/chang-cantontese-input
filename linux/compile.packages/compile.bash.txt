@@ -1,0 +1,13 @@
+#!/bin/sh
+# patch -Np1 -i /samba/linux/bash/bash-2.05b-2.patch
+./configure \
+	--prefix=/usr \
+	--bindir=/bin
+# modify Makfile, install:
+# ln -f $(DESTDIR)$(bindir)/$(Program) $(DESTDIR)$(bindir)/sh
+exit
+make
+make test
+make install
+exec /bin/bash --login +h
+# fix certain scripts in /etc/rc.d/init.d

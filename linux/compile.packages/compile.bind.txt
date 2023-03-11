@@ -1,0 +1,41 @@
+#!/bin/sh
+./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	--enable-threads \
+	--localstatedir=/var/state \
+	--with-libtool \
+	--with-openssl=/usr
+make -j 3
+exit 0
+#
+# popular dig query:
+#
+# dig mx donkeyware.org
+# dig -x <ip address>
+# dig <hostname>
+# dig @<name server> query
+# dig @server.donkeyware.org txt chaos version.bind
+# dig <hostname> soa +noaa
+# dig axfr <domain>
+# host -t ns <domain>
+# host -t soa <domain>
+#
+# groupadd bind
+# useradd -d /var/named -g bind -s /bin/false bind
+# mkdir -p /var/named/pz 
+# chown -R bind:bind /var/named 
+# chmod -R 755 /var/named 
+#
+# chroot
+#
+groupadd -g 200 named &&
+useradd -m -g named -u 200 -s /bin/false named &&
+cd /home/named
+mkdir -p dev etc/namedb/slave var/run
+mknod /home/named/dev/null c 1 3
+mknod /home/named/dev/random c 1 8
+chmod 666 /home/named/dev/{null,random}
+mkdir /home/named/etc/namedb/pz
+cp /etc/localtime /home/named/etc :
+chown -R named.named /home/named

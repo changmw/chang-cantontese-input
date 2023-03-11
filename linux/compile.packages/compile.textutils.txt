@@ -1,0 +1,5 @@
+#!/bin/sh
+./configure --prefix=/usr
+make
+checkinstall
+cp /usr/bin/{cat,head} /bin

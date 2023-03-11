@@ -1,0 +1,14 @@
+#!/bin/bash
+./configure \
+	--prefix=/usr \
+	--bindir=/usr/sbin \
+	--sysconfdir=/etc \
+	--localstatedir=/var \
+	--without-gdchart
+exit
+make
+checkinstall
+# start ntop in daemon mode
+#  ntop -P /var/ntop -u nobody -A
+#  ntop -i lo,eth0,eth1 -P /var/ntop -u nobody -d
+#  http://localhost:3000

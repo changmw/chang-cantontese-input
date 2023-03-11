@@ -1,0 +1,6 @@
+#
+# modify bnbt.h
+# add a line '#include <sys/time.h>' below '#include <time.h>'
+#
+# to allow anonymouce access, set allowed_dir=<blank>
+# and bnbt_upload_dir=<blank>

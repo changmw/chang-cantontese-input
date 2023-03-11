@@ -1,0 +1,12 @@
+#!/bin/sh
+./configure \
+	--prefix=/usr \
+	--exec-prefix=/ \
+	--bindir=/usr/sbin \
+	--libexecdir=/usr/libexec \
+	--localstatedir=/var \
+	--mandir=/usr/share/man
+exit 0
+make 
+make install
+make install-dev

@@ -1,0 +1,38 @@
+#!/bin/bash
+#mozilla compile script...
+export MOZILLA_OFFICIAL=1
+export BUILD_OFFICIAL=1
+export MOZ_INTERNAL_LIBART_LGPL=1
+
+./configure --prefix=/usr/local/mozilla \
+--with-x \
+--with-pthreads \
+--with-system-jpeg \
+--with-system-png \
+--with-system-zlib \
+--with-system-mng \
+--enable-toolkit-gtk \
+--enable-toolkit-xlib \
+--enable-toolkit-qt \
+--with-qtdir=/usr/lib/qt3 \
+--enable-xft \
+--enable-svg \
+--disable-debug \
+--enable-crypto \
+--enable-optimize='-O3 -march=i586 -mcpu=i586' \
+--enable-reorder \
+--enable-strip \
+--enable-xterm-updates \
+--enable-cpp-rtti \
+--enable-cpp-exceptions \
+--enable-default-toolkit=qt
+
+make -f client.mk build
+cd security/manager
+make
+cd -
+cd xpinstall/packager
+make
+
+# cd /opt/mozilla/plugins
+# ln -s /opt/j2re1.3.1/plugin/i386/mozilla/javaplugin_oji.so

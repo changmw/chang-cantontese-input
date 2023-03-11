@@ -1,0 +1,10 @@
+#!/bin/bash
+
+checkinstall -si ./setup.py install
+
+exit
+
+# to create seed
+btmakemetafile.py sample http://url:6969/announce
+# to start seeding
+btdownloadheadless.py sample.torrent > /dev/null 2>&1 &

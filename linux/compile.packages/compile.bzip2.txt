@@ -1,0 +1,35 @@
+#!/bin/bash
+
+MAJOR="1.0"
+VERSION="1.0.3"
+
+case "$1" in
+compile) 
+make
+make -f Makefile-libbz2_so
+exit $?
+;;
+install)
+install -m 755 bzip2-shared /bin/bzip2
+install -m 755 bzip2recover /bin
+strip /bin/bzip2*
+ln -sf bzip2 /bin/bunzip2
+ln -sf bzip2 /bin/bzcat
+
+install -m 644 bzlib.h    /usr/include
+install -m 644 libbz2.a   /usr/lib
+install -m 755 libbz2.so.$VERSION /usr/lib
+ln -s libbz2.so.$VERSION  /usr/lib/libbz2.so.$MAJOR
+ln -s libbz2.so.$VERSION /usr/lib/libbz2.so
+
+install -m755 bzmore /usr/bin
+ln -sf bzmore /usr/bin/bzless
+
+install -m 644 bzip2.1 /usr/man/man1
+ln -sf bzip2.1 /usr/man/man1/bunzip2.1
+exit 0
+;;
+*)
+echo "usage: $0 (compile | install)"
+exit 1
+esac

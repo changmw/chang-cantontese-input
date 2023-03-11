@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# edit the MCONFIG file and set
+#
+# HAVE_PAM=yes
+# HAVE_SHADOW=no
+# HAVE_PASSWD=yes
+# HAVE_GETTY=yes
+# HAVE_OPENPTY=yes
+# HAVE_MOUNT=no
+#
+#./configure
+# 
+# sed -n 's/LIBTERMCAP=-ltermcap/HAVE_TERMCAP=no/' make_include
+# sed -n 's/#define( HAVE_TERMCAP)/#undef$1/' defines.h
+#
+# make HAVE_PWDB=yes
+#
+# make prefix=$DESTDIR/usr install
+#
+# for i in fdformat setfdprm
+# do
+#   mv -f $DESTDIR/usr/bin/$i $DESTDIR/usr/sbin
+# done

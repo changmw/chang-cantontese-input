@@ -1,0 +1,4 @@
+#!/bin/sh
+# may need to ln -s /bin/install /usr/bin
+make
+checkinstall -si make prefix=/usr install

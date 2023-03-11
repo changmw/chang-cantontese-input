@@ -1,0 +1,8 @@
+#!/bin/bash
+# remvoe preivous version by
+# rpm -e modtuils-2.4.x --nodeps
+./configure --prefix=/usr --sbindir=/sbin
+# make
+# checkinstall
+# rpm --rebuilddb
+# ldconfig

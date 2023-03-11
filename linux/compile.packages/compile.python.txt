@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# uncompress from a fresh tin.tar.gz to compile
+# to avoid errors
+#
+./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc
+make

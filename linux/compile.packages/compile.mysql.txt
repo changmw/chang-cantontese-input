@@ -1,0 +1,57 @@
+#!/bin/sh
+
+# CFLAGS="-O2 -march=pentiumpro"
+# CXXFLAGS="-O2 -march=pentiumpro -felide-constructors"
+
+# disable test-suite
+if [ -e configure.old ] ; then
+echo "configure modified"
+else
+echo "disable test suite"
+cp configure configure.old
+sed -e "s%mysql-test/Makefile%%" -e "s% mysql-test%%" configure.old > configure
+fi
+sleep 5
+./configure --prefix=/usr \
+--exec-prefix=/usr \
+--sysconfdir=/etc \
+--libexecdir=/usr/sbin \
+--localstatedir=/var/lib/mysql \
+--sharedstatedir=/usr/share/mysql \
+--infodir=/usr/share/info \
+--without-debug \
+--without-bench \
+--with-innodb \
+--with-mysqld-user=mysql \
+--enable-assembler \
+--enable-thread-safe-client \
+--enable-local-infile \
+--enable-large-files \
+--with-extra-charsets=all
+
+# --with-charset=dos \
+# --includedir=/usr/include/mysql \
+# --with-mysqld-ldflags=-all-static \
+# --with-client-ldflags=-all-static \
+
+echo "edit Makefile, change bench-dir:"
+exit 0
+# make
+
+# default init sript
+cp /usr/share/mysql/mysql.server /etc/rc.d/init.d/
+ln -s /etc/init.d/mysql.server /etc/init.d/rc3.d/S20mysql
+ln -s /etc/init.d/mysql.server /etc/init.d/rc3.d/K20mysql
+
+# create default configuration file
+cp /usr/share/mysql/my-medium.cnf /etc/my.cnf
+
+# init a default set of database
+mysql_install_db
+chown -R mysql:mysql /var/lib/mysql
+
+# by default, mysql has no password:
+# mysql -uroot mysql
+# mysql> UPDATE user SET password=password('new-password') WHERE user='root';
+# mysql> FLUSH PRIVILEGES;
+# mysql> EXIT;

@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# notes: you must keep as, ld and ranlib from previous version
+# or you can copy the new as-new, ld-new and ranlib to /bin 
+cd /usr/src
+mkdir binutils-build
+cd binutils-build
+./binutils-2.14/configure \
+	--prefix=/usr \
+	--disable-nls
+make LDFLAGS="-all-static" tooldir=/usr
+#
+checkinstall -si make tooldir=/usr install
+checkinstall -si make tooldir=/usr install-info
+cp /usr/src/binutils-2.14/include/libiberty.h /usr/include

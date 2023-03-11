@@ -1,0 +1,9 @@
+#!/bin/bash
+rpm -e netkit-telnet
+rpm -e bsd-finger
+rpm -e netkit-rlogin
+rpm -e netkit-rusers
+rpm -e netkit-rwho
+rpm -e tftp
+./configure --prefix=/usr
+make

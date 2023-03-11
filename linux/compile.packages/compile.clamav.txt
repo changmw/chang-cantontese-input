@@ -1,0 +1,63 @@
+#!/bin/sh
+#
+# virus samples:  http://www.eicar.org
+#
+# groupadd clamav
+# useradd -g clamav -d /dev/null clamav
+# mkdir /var/clamav
+# chown clamav:clamav /var/clamav
+#
+#
+export CFLAGS="-O2 -march=pentiumpro"
+export CXXFLAGS="-O2 -march=pentiumpro -felide-constructors" 
+# make sure that you have /usr/lib/libmilter
+./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc/clamav \
+	--datadir=/var/clamav \
+	--enable-milter
+make
+exit
+#	--disable-zlib-vcheck \
+#
+cat > mirrors.txt <<EOF
+clamav.elektrapro.com
+clamav.ozforces.com
+clamav.essentkabel.com
+clamav.linux-sxs.org
+EOF
+exit
+patch 2 files inside /usr/src/clamav-$ver/clamav-milter:
+*** Makefile.in.orig	Sat Jun 21 12:07:03 2003
+	--- Makefile.in	Wed Aug 27 17:15:50 2003
+	***************
+	*** 122,124 ****
+	  
+	! @HAVE_MILTER_TRUE@@USE_PTHREAD_TRUE@clamav_milter_LDADD = ../clamd/cfgfile.o ../clamd/others.o
+	  
+	--- 122,124 ----
+	  
+	! @HAVE_MILTER_TRUE@@USE_PTHREAD_TRUE@clamav_milter_LDADD = ../clamd/cfgfile.o ../clamd/others.o ../clamscan/getopt.o
+	  
+	***************
+	*** 129,131 ****
+	  LIBS = -L../libclamav -L/usr/lib/libmilter -lmilter @CLAMD_LIBS@
+	! INCLUDES = -I../clamd -I../libclamav
+	  EXTRA_DIST = clamav-milter.c clamd.sh clamav-milter.sh INSTALL
+	--- 129,131 ----
+	  LIBS = -L../libclamav -L/usr/lib/libmilter -lmilter @CLAMD_LIBS@
+	! INCLUDES = -I../clamd -I../libclamav -I../clamscan
+	  EXTRA_DIST = clamav-milter.c clamd.sh clamav-milter.sh INSTALL
+
+	*** clamav-milter.c.orig	Tue May 30 08:17:00 2000
+	--- clamav-milter.c	Wed Aug 27 17:17:22 2003
+	***************
+	*** 952,954 ****
+	  
+	! 		sendmail = popen("/usr/lib/sendmail -t", "w");
+			if(sendmail) {
+	--- 952,954 ----
+	  
+	! 		sendmail = popen("/usr/sbin/sendmail -t", "w");
+			if(sendmail) {
+

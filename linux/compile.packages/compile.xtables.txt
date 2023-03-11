@@ -1,0 +1,4 @@
+#!/bin/bash
+
+./configure --prefix=/usr --with-xtlibdir=/lib/xtables
+make

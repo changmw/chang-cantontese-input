@@ -1,0 +1,12 @@
+#!/bin/sh
+./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	--localstatedir=/var/run \
+	--enable-fallback=procmail \
+	--with-ssl
+#
+# modify Makefile:
+# check CEFLAGS, LEFLAGS
+# modify socket.c, #include <sys/time.h>
+# make -j 3

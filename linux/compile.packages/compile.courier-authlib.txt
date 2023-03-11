@@ -1,0 +1,11 @@
+#!/bin/bash
+
+./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	--localstatedir=/var \
+	--without-authldap \
+	--without-authdaemon \
+	--without-authpgsql
+exit 0
+make install; make install-configure

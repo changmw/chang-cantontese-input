@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# http://archive.linuxfromscratch.org/mail-archives/hints/2002/07/0100.html
+# cp configure configure.bak
+# sed -e "s/ofstream=1/ofstream=0/" configure.bak > configure
+# http://www.scrounge.org/linux/htdig.html
+
+export CPPFLAGS="-Wno-deprecated"
+
+./configure \
+	--prefix=/usr \
+	--sbindir=/usr/sbin \
+	--sysconfdir=/etc/htdig \
+	--libdir=/usr/lib/htdig \
+	--localstatedir=/var/run \
+	--with-config-dir=/etc/htdig \
+	--sharedstatedir=/var/lib/htdig \
+	--with-common-dir=/var/lib/htdig \
+	--with-database-dir=/var/lib/htdig \
+	--with-default-config-file=/etc/htdig/htdig.conf \
+	--with-cgi-bin-dir=/home/httpd/cgi-bin \
+	--with-image-dir=/home/httpd/html/icons \
+	--with-search-dir=/home/httpd/html/htdig \
+	--enable-shared \
+	--enable-bigfile \
+	--with-zlib
+
+#make
+#make install
+
+# modify /usr/bin/htdig, comment out the "htnotify" line
+
+# after running rundig, the permissions of the database files 
+# would need to be changed to 644

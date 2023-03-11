@@ -1,0 +1,14 @@
+#!/bin/sh
+# work for wget, prozilla, ncftp
+./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	--libdir=/etc \
+	--localstatedir=/var/run \
+	--enable-color-scyle \
+	--enable-default-colors \
+	--enable-prettysrc \
+	--enable-nls \
+	--with-zlib \
+	--with-ssl=/usr/ssl
+# make -j 3

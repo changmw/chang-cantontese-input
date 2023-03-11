@@ -1,0 +1,18 @@
+#  Download the latest db from www.sleepycat.com*
+# unpack the tarball
+
+VERSION=4.1.25
+
+# (a *lot* of code still looks for db 1.x so we turn on the compat mode)
+cd /usr/src/db-$VERSION
+cd build_unix
+../dist/configure \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	--enable-compat185 \
+	--enable-cxx
+make
+exit
+cd build_unix
+checkinstall -si make docdir=/usr/share/doc/packages/db-$VERSION install
+# ldconfig -v

@@ -1,0 +1,51 @@
+#!/bin/sh
+# create the swap directories: squid -z
+# test squid: /usr/local/squid/bin/squid -NCd1
+# If everything is working okay, you will see the line: 
+# Ready to serve requests.
+# start squid in daemon mode: squid
+# to check whether it's running: squid -k check
+#
+# ln -s /var/log /var/logs
+#
+./configure \
+	--prefix=/usr \
+	--datadir=/usr/share/squid3 \
+	--libexecdir=/usr/libexec/squid \
+	--sysconfdir=/etc/squid3 \
+	--mandir=/usr/share/man \
+	--localstatedir=/var \
+	--with-cppunit-basedir=/usr \
+	--with-default-user=proxy \
+	--with-large-files \
+	--with-removal-policies="lru,heap" \
+	--with-filedescriptors=65536 \
+	--disable-maintainer-mode \
+	--disable-dependency-tracking \
+        --disable-ident-lookups \
+	--enable-async-io=8 \
+	--enable-ssl \
+	--enable-snmp \
+	--enable-inline \
+	--enable-underscore \
+	--enable-select \
+	--enable-icap-client \
+	--enable-htcp \
+	--enable-carp \
+	--enable-large-cache-files \
+	--enable-kill-parent-hack \
+        --enable-delay-pools \
+        --enable-cache-digests \
+        --enable-poll \
+	--enable-epoll \
+	--enable-linux-netfilter \
+	--enable-storeio=diskd,ufs,aufs \
+        --enable-removal-policies \
+	--enable-gnuregex \
+	--enable-useragent-logging \
+	--enable-err-langauges=English \
+	--enable-default-err-langauges=English \
+	--enable-auth="basic,digest,ntlm" \
+	--enable-ntlm-auth-helpers="SMB" \
+	--enable-digest-auth-helpers="password" \
+	--enable-basic-auth-helper="PAM"

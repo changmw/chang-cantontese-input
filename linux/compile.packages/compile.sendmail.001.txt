@@ -1,0 +1,82 @@
+# check option DaemonPortOpion in sendmail.cf
+#   yuo can limit the hosts that could use sendmail there.
+# /etc/mail/access is the usual place to control RELAY domains
+# steps:
+#$ tar -zxvf sendmail.8.11.2.tar.gz
+#$ cd sendmail-8.11.2
+#$ ./Build
+#$ su
+# ./Build install
+#$ cd sendmail-8.11.2
+#$ cd cf/cf
+#$ cp generic-linux.mc myconfig.mc
+#$ m4 ../m4/cf.m4 myconfig.mc > sendmail.cf
+#
+# sample m4 file for a mail server
+# OSTYPE(linux)dnl
+# DOMAIN(generic)dnl
+# MAILER(local)dnl
+# MAILER(smtp)dnl
+# The new items start here
+# FEATURE(allways_add_domain)dnl
+# to make your mail to appear coming from mydomain.com
+# FEATURE(allmasquerade)dnl
+# FEATURE(masquerade_envelope)dnl
+# MASQUERADE_AS(mydomain.com)dnl
+#
+# LOCAL_RULE_2
+# Rewrites xxx@host.intranet.mydomain.com
+# to xxx@mydomain.com
+# R$* @ $-.intranet.mydomain.com. $*     $: $1@mydomain.com $3
+#                                 (^^^^^ This is a TAB, do not use
+#                                 SPACES)
+# sample m4 file for a client
+# OSTYPE(linux)dnl
+# DOMAIN(generic)dnl
+# MAILER(local)dnl
+# MAILER(smtp)dnl
+# FEATURE(nullclient, mailhub)dnl
+
+
+# demand-dialing and sendmail
+In sendmail 8.10
+Use dsmtp and "dynamic" mailertable modified by ip-up and ip-down scripts.
+[ sendmail NEVER calls "itself" ] - it is up to you to decide when call
+should happen.
+
+*.mc (fixes):
+dnl Do not check sender address via DNS
+FEATURE(`accept_unresolvable_domains')dnl
+dnl Do not canonify email addresses (DNS would be required)
+FEATURE(`nocanonify')dnl
+dnl Use mailertable
+FEATURE(`mailertable')dnl
+
+mailertable-online (full):
+# keep empty if you want send directly
+# send directly, use the isp as fallback
+.    esmtp:%1:[isp-mail-server]
+
+mailertable-offline (full):
+# use dummy dsntp relay to keep messages in the queue
+.     dsmtp:[127.0.0.255]
+
+ip-up (fixes):
+# compile online version of mailertable
+( cd /etc/mailertable; makemap hash mailertable < mailertable-online )
+# make sendmail process the queue (side effect of making it reread the
+configuration)
+kill -HUP `cat _file_with_sendmail_daemon_pid_`
+
+ip-down (fixes):
+# compile offline version of mailertable
+( cd /etc/mailertable; makemap hash mailertable < mailertable-offline )
+
+#
+# Alternatively, edit /etc/sendmail.cf, changing the line that reads:
+# this will enable the mailstats script to work with caldera 3.1
+# 
+# O StatusFile=/var/log/sendmail.st
+# so it reads:
+# O StatusFile=/var/state/sendmail.st
+

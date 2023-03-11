@@ -1,0 +1,4 @@
+#!/bin/sh
+
+./configure --prefix=/usr --bindir=/bin /sysconfdir=/etc
+make

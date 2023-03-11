@@ -1,0 +1,7 @@
+#!/bin/sh
+./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	--localstatedir=/var/run \
+	--bindir=/bin
+# make -j 3

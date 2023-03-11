@@ -1,0 +1,85 @@
+#!/bin/bash
+
+APC=1.3.31
+
+# order is important here
+# perform one task atime
+APAPATCH=0
+MODSSL=0
+MODPERL=0
+MODDAV=0
+CONFAPACHE=1
+
+CFLAGS="-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64"
+
+if [ $MODPERL -eq 1 ] ; then
+ cd /usr/src/mod_perl*
+ perl Makefile.PL \
+ EVERYTHING=1 \
+ DO_HTTPD=1
+ make
+ checkinstall
+ exit
+fi
+
+if [ $APAPATCH -eq 1 ] ; then
+  cd /usr/src/apache_$APC/src/include
+  patch -p0 < /samba/linux/apache/apache-patch_HARD_SERVER_LIMIT.txt
+  exit 0
+fi
+
+if [ $MODSSL -eq 1 ] ; then
+  cd /usr/src/mod_ssl*
+  ./configure --with-apache=../apache_$APC
+fi
+
+cd /usr/src/apache_$APC
+
+EAPI_MM=SYSTEM
+SSL_BASE="/usr/ssl"
+PERL=`which perl`
+
+if [ $CONFAPACHE -eq 1 ] ; then
+
+# note that for the perl
+# activate-module must be placed before enable-module
+
+./configure \
+--prefix=/usr \
+--sbindir=/usr/sbin \
+--libexecdir=/usr/lib/httpd \
+--sysconfdir=/etc/httpd \
+--includedir=/usr/include/apache \
+--localstatedir=/var/run/httpd \
+--runtimedir=/var/run \
+--logfiledir=/var/log/httpd \
+--proxycachedir=/var/cache/httpd \
+--datadir=/home/httpd \
+--iconsdir=/home/httpd/icons \
+--cgidir=/home/httpd/cgi-bin \
+--with-perl=/usr/bin/perl \
+--htdocsdir=/usr/doc/apache_$APC/htdocs \
+--manualdir=/usr/doc/apache_$APC/manual \
+--disable-module=auth_db \
+--disable-module=auth_dbm \
+--activate-module=src/modules/perl/libperl.a \
+--enable-module=perl \
+--enable-module=all \
+--disable-module=mod_autoindex \
+--disable-module=mod_info \
+--enable-shared=max \
+--server-uid=httpd \
+--server-gid=httpd
+
+make
+exit
+fi
+
+# to be installed AFTER apache
+
+if [ $MODDAV -eq 1 ] ; then
+  cd mod_dav-*
+  ./configure --with-apxs=/usr/sbin
+  make
+  make install
+fi

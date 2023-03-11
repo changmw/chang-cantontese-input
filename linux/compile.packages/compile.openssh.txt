@@ -1,0 +1,9 @@
+#!/bin/sh
+./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc/ssh \
+	--with-pid-dir=/var/run \
+	--libexecdir=/usr/lib/ssh \
+	--with-pam \
+	--with-tcp-wrappers \
+	--with-ipv4-default

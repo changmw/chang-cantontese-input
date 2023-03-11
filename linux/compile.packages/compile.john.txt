@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# http://www.marqueze.net/relatos/relatos/mvarios/misc3/cracker.htm
+# http://www.aplawrence.com/Words2005/2005_03_26.html
+#
+# unshadow /etc/passwd /etc/shadown > pwd
+# john pwd
+# (press ENTER to see progress)
+
+#
+# modify src/param.h:
+#  change CFG_NAME "/etc/john.ini"
+#  WORDLIST_NAME  "/usr/share/john/password.lst"
+# modify Makefile: remove  "-O2 -fomit-frame-pointer" from CFLAGS
+#
+
+case "$1" in
+compile)
+make -C src linux-x86-any-elf
+;;
+install)
+install -m 755 run/{john,mailer} /usr/bin
+install -d 755 /usr/share/john
+install -m 644 run/{*.chr,password.lst} /usr/share/john/
+install -m 644 run/john.ini /etc
+pushd /usr/bin
+ln -s john unafs
+ln -s john unique
+ln -s john unshadow
+popd
+;;
+*)
+echo "usage: $0 (compile|install)"
+;;
+esac
+exit 0

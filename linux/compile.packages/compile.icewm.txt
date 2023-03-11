@@ -1,0 +1,42 @@
+#!/bin/bash
+./configure \
+	--prefix=/usr/X11R6 \
+	--sysconfdir=/etc \
+	--enable-shaped-decorations \
+	--enable-gradients \
+	--enable-antialiasing \
+	--enable-xfreetype
+make 
+make install
+ln -s /usr/X11R6/lib/X11/icewm /etc/X11/icewm
+#
+# useful programs: xcolors, xcolorsel, showrgb
+# user setup, fix the shortcut in the menu to enable the programs
+#
+# http://www.icewm.org/files/en/guide/
+#
+# vi menu
+# <separator>
+# menu <foldername> <icon>{
+# prog <programname> <icon> <command>
+# }
+#
+# vi preferences
+# MinimizetoDesktop=1/0
+# DesktopBackGroundColor="rgb:18/18/71"
+# DesktopBackgroundImage=""
+# DesktopBackgroundCenter=0
+# WorkspaceNames=" Homework", " Network ", " Game ", " Graphics "
+# howTaskBar=1 # 0/1
+# TaskBarAtTop=1 # 0/1
+# ShowTaskBar=1 # 0/1
+# TaskBarAutoHide=0 # 0/1
+# AutoHideDelay=300 # [0-5000]
+# ClockFontName="-adobe-courier-medium-r-*-*-*-140-*-*-*-*-*-*"
+# TaskBarClockLeds=0 #0/1
+# NetworkStatusDevice="ppp0"
+# CPUStatusCommand="/usr/X11R6/bin/qps"
+# TaskBarDoubleHeight=1 # 0/1
+
+
+

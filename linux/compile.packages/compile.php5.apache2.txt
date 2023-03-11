@@ -1,0 +1,59 @@
+#!/bin/bash
+
+./configure \
+--prefix=/usr \
+--sysconfdir=/etc \
+--with-config-file-path=/etc \
+--enable-track-vars \
+--enable-ftp \
+--enable-sysvsem \
+--enable-sysvshm \
+--enable-sockets \
+--enable-gd-native-ttf \
+--enable-memory-limit \
+--enable-trans-sid \
+--enable-magic-quotes \
+--enable-exif \
+--enable-inline-optimization \
+--enable-dbase \
+--enable-mbstring \
+--enable-embedded-mysqli \
+--with-mysqli \
+--with-gettext \
+--with-gd \
+--with-calendar=shared \
+--with-apxs2=`which apxs2` \
+--with-imap \
+--with-ncurses \
+--with-zlib-dir=/usr \
+--with-jpeg-dir=/usr \
+--with-png-dir=/usr \
+--with-xpm-dir=/usr \
+--with-openssl=/usr \
+--with-freetype-dir=/usr/include \
+--with-mysql=/usr \
+--with-kerberos \
+--with-imap-ssl
+
+#
+# --with-ldap \
+# --with-ttf=/usr/X11R6 \
+# --with-mm=/usr/mm-1.1.3 \
+# --with-pgsql=/usr/local/pgsql \
+# --with-pdflib=/usr/local \
+#
+
+make
+
+echo -n "Remember to back up /etc/apache/httpd.conf first"
+exit
+# make install
+
+# Create a test file:
+# echo "<? phpinfo(); ?>" > /home/httpd/html/test.php 
+# after installation;
+# vi /usr/local/lib/php.ini
+# search and replace:
+# mysql default socket = /var/lib/mysql/mysql.sock
+# add:
+# extension=mysql.so

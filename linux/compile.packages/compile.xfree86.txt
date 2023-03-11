@@ -1,0 +1,43 @@
+#!/bin/bash
+# step 1: remove kde of caldera
+for i in `rpm -qa | grep kde`
+do
+rpm -e --nodeps $i
+done
+ldconfig
+# step 2: remove Xfree86 of caldera
+for i in `rpm -qa | grep XFree86`
+do
+rpm -e --nodeps $i
+done
+#
+# backup existing configs
+mkdir /xbackup
+mv /usr/X11R6 /xbackup
+mv /etc/X11 /xbackup
+#
+cd /usr/src
+# download XF420src-?.tgz (3 files) from ftp://ftp.xfree86.org
+# download doctools
+tar xzvf XF420src-?.tgz
+rm XF420src-?.tgz
+# you may choose to run Xinstall.sh
+cd xc
+make World > world.log
+make install > install.log
+make install.man > man.log
+ldconfig
+#the xf86config will writes to /etc/X11/XF86Config
+# you need to answer a number of questions.
+# the mouse device for me is /dev/psaux (USB mouse)
+# xf86config
+# http://www.xfree.org/4.2.0/Install3.html#5
+XFree86 -configure
+XFree86 -xf86cofig /root/XF86Config.new
+# changes "auto" to "ps/2", "/dev/mouse" to "/dev/psaux"
+xf86cfg
+# I chose Nvidia GeForce
+# export DISPLAY=LOCALHOST:0.0
+startx
+# get mozilla-i686-pc-linux-gnu-svg-RH7.1.tar.gz from ftp://ftp.mozilla.org
+# and you can start reading chinese.

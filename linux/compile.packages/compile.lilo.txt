@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# change "printf(" to "fprintf(stdout,"
+# for every "directives may not be used inside a macro argument" error

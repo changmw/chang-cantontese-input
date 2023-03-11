@@ -1,0 +1,8 @@
+#!/bin/sh
+# you don't have to remove depending rpms.
+# just forcibly remove openssl --nodeps
+./config shared no-krb5 \
+	--prefix=/usr \
+	--openssldir=/usr/ssl
+# do not use make -j
+make

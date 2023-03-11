@@ -1,0 +1,14 @@
+#!/bin/sh
+# work for wget, prozilla, ncftp
+./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	--localstatedir=/var/run \
+	--with-openssl=/usr/ssl \
+        --includedir=/usr/include/sasl \
+	--enable-login \
+        --with-gnu-ld \
+        --disable-gssapi \
+	--disable-krb4
+# make -j 3
+# modify /usr/lib/sasl/Sendmail.conf

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	--localstatedir=/var \
+	--sharedstatedir=/usr/share \
+	--disable-debug \
+	--disable-ipv6
+make

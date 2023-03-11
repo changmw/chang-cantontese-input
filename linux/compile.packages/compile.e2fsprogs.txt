@@ -1,0 +1,14 @@
+#!/bin/sh
+cd /usr/src
+mkdir e2fsprogs-build
+cd e2fsprogs-build
+../e2fsprogs-1.35/configure \
+	--prefix=/usr \
+	--with-root-prefix="" \
+	--enable-elf-shlibs \
+	--disable-nls
+make
+if [ $? != 0 ] ; then
+ exit 1
+fi
+make check

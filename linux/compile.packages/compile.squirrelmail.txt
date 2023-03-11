@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# 4. General Options
+# 11. Allow server thread sort: false (default) -> true
+# 12. Allow server-side sorting: false (default) -> true

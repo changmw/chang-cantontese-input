@@ -1,0 +1,7 @@
+#!/bin/bash
+
+./configure --preifx=/usr
+
+make elf
+exit 0
+make install install-elf

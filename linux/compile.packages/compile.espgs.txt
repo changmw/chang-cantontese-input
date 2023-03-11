@@ -1,0 +1,8 @@
+#!/bin/bash
+
+./configure --prefix=/usr
+make
+exit 0
+#
+# check permission of /usr/share/ghostscript/7.07/*
+#

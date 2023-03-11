@@ -1,0 +1,73 @@
+#!/bin/bash
+#
+# dependency
+#
+# cyrus-sasl-devel
+# db-devel
+#
+# basic directory config
+# 
+# userid and group must exist before sh Build install
+# groupadd -g 18 smmsp &&
+# groupadd -g 19 mail &&
+# useradd -g smmsp -G mail -u 18 smmsp &&
+#
+# chmod 1777 /tmp &&
+# chmod 1777 /var/mail &&
+# mkdir /var/spool/mqueue
+#
+# for smrsh
+#
+# chown smmsp:smmsp /var/spool/clientmqueue
+# chmod 770 /var/spool/clientmqueue
+# chmod 700 /var/spool/mqueue
+# mkdir /etc/smrsh
+# ln -sf /etc/smrsh /var/adm/sm.bin
+# ln -sf /etc/smrsh /usr/adm/sm.bin
+#
+# useful sendmail commands:
+# check version: echo '$v' | sendmail -bt
+#                sendmail -bt -d0.1 < /dev/null
+# echo '$=w' | sendmail -bt -d0.4
+# sendmail -O LogLevel=14 -bd -X /tmp/output.log
+# 
+# immediately process incoming queue: /usr/lib/sendmail -v -q -oQ`pwd`
+#
+# build libmilter
+#
+cd libmilter
+sh Build
+sh Build install
+cd /usr/lib
+ln -s . libmilter
+#
+# build sendmail daemon
+# build supporting tools
+cd /usr/src/sendmail-$ver
+sh Build -c -f /etc/mail/site.config.m4
+sh Build install
+#
+# install libsmutil and libsm
+#
+cd /usr/src/sendmail-$ver/obj/libmutil
+install libsmutil.a /usr/lib
+cd ../libsm
+install libsm.a /usr/lib
+cd ../libsmdb
+install libsmdb.a /usr/lib
+#
+# http://www.sendmail.org/m4/intro.html
+# build sendmail.mc into sendmail.cf
+#
+cd /usr/src/sendmail-$ver/cf/cf
+cp /etc/mail/rhsbl.m4 /usr/src/sendmail-$ver/cf/feature
+#
+cp /etc/mail/config.mc /usr/src/sendmail-$ver/cf/cf
+sh Build config.cf
+install config.cf /etc/mail/sendmail.cf
+#
+# or m4 ../m4/cf.m4 /etc/mail/config.mc > /etc/mail/sendmail.cf
+#
+cp /etc/mail/submit.mc /usr/src/sendmail-$ver/cf/cf
+sh Build submit.cf
+install submit.cf /etc/mail

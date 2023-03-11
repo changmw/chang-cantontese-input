@@ -1,0 +1,18 @@
+#!/bin/sh
+VERSION=1.2.3
+# CFLAGS="$CFLAGS -fPIC -march=pentiumpro"
+
+./configure \
+	--prefix=/usr \
+	--exec_prefix=/usr/bin \
+	--libdir=/lib \
+	--includedir=/usr/include \
+	--shared 
+make LIBS="libz.so.$VERSION libz.a"
+exit
+# create a script installme with the following lines:
+#
+make LIBS="libz.so.$VERSION libz.a" install
+ln -sf /lib/libz.so.1 /usr/lib/libz.so
+ln -sf /lib/libz.so.$VERSION /usr/lib/libz.so.1
+cp zlib.3 /usr/share/man/man3

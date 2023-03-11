@@ -1,0 +1,73 @@
+#!/bin/sh
+# http://hunley.homeip.net/linux_sources/utils/gcc_notes
+cd /usr/src
+mkdir gcc-build
+cd gcc-build
+# host=i686-pc-linux
+
+VERSION=
+
+if [ $VERSION == "2.95.3" ] ; then
+# gcc-2.95.3 should be using libstdcc++-2.90.8
+../gcc-$VERSION/configure \
+	--prefix=/usr \
+	--with-gxx-include-dir=/usr/include/g++ \
+	--enable-shared \
+	--enable-language=c,c++ \
+	--enable-gnu-ld
+fi
+
+if [ $VERSION == "3.2.1" ] ; then
+../gcc-$VERSION/configure \
+	--prefix=/usr \
+	--with-slibdir=/lib \
+	--enable-threads=posix \
+	--enable-shared \
+	--enable-language=c,c++ \
+	--enable-gnu-ld \
+	--enable-__cxa_atexit \
+	--enable-clocale=gnu
+fi
+
+if [ $VERSION == "3.3.5" ] ; then
+../gcc-$VERSION/configure \
+	--prefix=/usr \
+	--with-system-zlib \
+	--with-gnu-ld \
+	--enable-shared \
+	--enable-threads=posix \
+	--with-nptl \
+	--with-slibdir=/lib \
+	--enable-languages=c,c++ \
+	--disable-checking \
+	--enable-__cxa_atexit \
+	--enable-clocale=gnu \
+	--disable-libstdcxx-pch
+fi
+make
+if [ $? -ne 0 ] ; then echo "Error" ; exit 666 ; fi
+# make bootstrap
+make bootstrap-lean
+#  check for error (non-zero return value)
+if [ $? -ne 0 ] ; then echo "Error" ; exit 666 ; fi
+make -k check
+exit 0
+make install-no-fixedincludes
+
+# remove the old gcc, g77 and g++ rpms
+rpm -e g++
+rpm -e g77
+rpm -e gcc-java
+rpm -e gcc-objc
+rpm -e gcc
+#
+make install-no-fixedincludes
+#
+# post implementation
+cd /lib 
+ln -sf /usr/bin/cpp
+cd /usr/bin 
+ln -sf gcc cc
+cd /usr/lib
+ln -sf /usr/bin/cpp 
+ln -sf /usr/lib/gcc-lib/i686-pc-linux-gnu/2.95.3/libstdc++.so

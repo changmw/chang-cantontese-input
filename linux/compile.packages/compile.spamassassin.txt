@@ -1,0 +1,4 @@
+#
+perl Makefile.PL SYSCONFDIR=/etc
+#make
+#make install

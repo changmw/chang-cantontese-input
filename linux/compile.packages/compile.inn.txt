@@ -1,0 +1,85 @@
+#!/bin/sh
+./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc/news \
+	--localstatedir=/var/state \
+	--includedir=/usr/include/news \
+	--oldincludedir=/usr/include/news  \
+	--with-sharedstatedir=/usr/share/news \
+	--with-control-dir=/sbin \
+	--with-db-dir=/var/lib/news \
+	--with-etc-dir=/etc/news \
+	--with-filter-dir=/etc/news/filter \
+	--with-filter-dir=/etc/news/filter \
+	--with-log-dir=/var/log/news \
+	--with-spool-dir=/var/spool/news \
+	--with-run-dir=/var/run \
+	--with-tmp-path=/var/tmp \
+	--with-sendmail=/usr/sbin/sendmail \
+	--with-perl \
+	--with-gnu-ld \
+	--enable-libtool \
+	--enable-tagged-hash \
+	--enable-shared
+exit
+# do not use make -j
+make 
+#create user and group news, home=/home/news
+#
+rpm -qa | grep inn | while read line
+do
+ rpm -e --nodeps $line
+done
+
+checkinstall
+ldconfig -v
+#everything must be done as user news
+su - news
+
+# create buffer directories and init buffers
+#edit cycbuff.conf to add
+#	cycbuff:ONE:/opt/inn/spool/cycbuffs/one:512000
+#	cycbuff:TWO:/opt/inn/spool/cycbuffs/two:512000
+#	metacycbuff:BIGAREA:ONE,TWO:SEQUENTIAL
+#mkdir /opt/inn/spool/cycbuffs
+#dd if=/dev/zero of=/opt/inn/spool/cycbuffs/one bs=1k count=512000
+#dd if=/dev/zero of=/opt/inn/spool/cycbuffs/two bs=1k count=512000
+#chmod 755 /opt/inn/spool/cycbuffs/
+#chmod 644 /opt/inn/spool/cycbuffs/*
+# set inn to use the buffers by creating storage.conf
+#method cnfs {
+#	newsgroups: *
+#	class: 1
+#	options: BIGAREA
+#}
+
+# create history files
+# cd ../db
+# touch history
+# makedbz -i
+# mv history.n.pag history.pag
+# chmod 644 *
+
+# ready the logs
+# add lines to /etc/syslog.conf
+# news.crit	-/var/log/news.crit
+# news.err	-/var/log/news.err
+# news.notice	-/var/log/news.notice
+# for i in crit err notice
+# do
+# 	touch /var/log/news.$i
+# 	chown news:news /var/log/news.$i
+# done
+# kill -HUP `pidof syslogd`
+
+# Do not forget to update your cron entries, and also run
+# makedbz if you need to.  If this is a first-time installation
+# a minimal active file has been installed.  You will need to
+# touch history and run "makedbz -i" to initialize the history
+# database.  See INSTALL for more information.
+
+# start server by rc.news
+# bin/ctinnd newgroup server.group1, server.group2
+
+# to kill post
+# ctlinnd cnacel "<message-id>"

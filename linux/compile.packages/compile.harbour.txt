@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# http://www.elart.it/links/harbourhowto_deb_en.php
+#
+# read doc/gmake.txt
+#
+
+chmod +x bin/*.sh
+if [ 0 == 1 ] ; then
+export HB_BIN_INSTALL=/usr/bin
+export HB_INSTALL_PREFIX=/usr/bin
+export HB_LIB_INSTALL=/usr/lib/harbour
+export HB_INC_INSTALL=/usr/include/harbour
+export HB_DOC_INSTALL=/usr/share/man/harbour
+export HB_CONTRIBLIBS=
+export HB_BUILD_SHARED=no
+fi
+# make 
+#
+# chmod 644 /usr/include/harbour
+#

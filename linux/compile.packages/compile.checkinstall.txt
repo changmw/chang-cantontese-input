@@ -1,0 +1,40 @@
+#
+# rename this file to Makefile
+#
+all:
+	make -C installwatch-0.6.3
+	
+install: all
+# need to find a way to automte this one
+# vi installwatch-0.6.3/Makefile
+# set PREFIX=/usr
+	make -C installwatch-0.6.3 install
+# relocate progrma from  /usr/local to /usr/sbin
+	cat checkinstall | sed "s/usr\/local/usr/g" > chkinstall
+	chmod +x chkinstall 
+	cp chkinstall /usr/sbin/checkinstall
+	cp makepak /usr/sbin
+# relocate the config file from /usr/lib to /etc
+	cat checkinstallrc | sed "s/usr\/lib\/checkinstall/etc/g" > chkinstallrc
+	mkdir -p /usr/lib/checkinstall
+	cp chkinstallrc /etc/checkinstallrc
+# clean up
+	rm chkinstall
+	rm chkinstallrc
+
+clean:
+	make -C installwatch-0.6.3 clean
+
+# for release arlier than 1.5.1
+# edit checkinstallrc, turn stripping OFF
+# or use --strip=no
+#
+# Edit the checkinstall script. Add OpenLinux manually:
+# # Find out the RPM source directory path
+#
+# if ! [ "$RPMSOURCEDIR" ]; then
+#    RPMSOURCEDIR="NOT-FOUND"
+#    for directory in packages redhat RedHat rpm RPM OpenLinux "" ; do
+#     [ -d /usr/src/${directory}/SOURCES ] &&
+# RPMSOURCEDIR="/usr/src/${directory}"
+#    done

@@ -1,0 +1,20 @@
+#!/bin/bash
+make USERBINDIR=/usr/bin \
+        BINDIR=/usr/sbin \
+        CLIENTBINDIR=/usr/sbin \
+	LIBDIR=/usr/lib \
+	INCDIR=/usr/include \
+        ADMMANDIR=/usr/share/man/cat8 \
+        FFMANDIR=/usr/share/man/cat5 \
+        LIBMANDIR=/usr/share/man/cat3 \
+        USRMANDIR=/usr/share/man/cat1
+checkinstall -si make USERBINDIR=/usr/bin \
+        BINDIR=/usr/sbin \
+        CLIENTBINDIR=/usr/sbin \
+	LIBDIR=/usr/lib \
+	INCDIR=/usr/include \
+        ADMMANDIR=/usr/share/man/cat8 \
+        FFMANDIR=/usr/share/man/cat5 \
+        LIBMANDIR=/usr/share/man/cat3 \
+        USRMANDIR=/usr/share/man/cat1 install
+touch /var/state/dhcp/dhcpd.leases

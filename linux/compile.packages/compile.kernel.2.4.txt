@@ -1,0 +1,65 @@
+#!/bin/bash
+# nm vmlinux | grep -v ... | sort > System.map
+
+# apply any patches if needed
+# cd /usr/src/linux
+# cat /samba/linux/kernel/preempt-kernel-rml-2.4.18-4.patch | patch -Np1
+
+# the config that made a kernel could always be salvage
+# from /usr/src/linux/arch/i386/defconfig
+# in the rpm linux-source-i386-2.4.2-11D.i386.rpm
+#
+# Suse kernel 2.6.x
+# zcat /proc/config.gz > .config
+# make cloneconfig
+#
+# ubuntu:
+# stock kernel config file in /boot
+# 
+# the current config files is 
+# cp /usr/src/linux/.config
+#
+# make mrproper to clean up (will delete .config)
+#
+# notes: block device LOOP must be compiled into the kernel
+# make menuconfig
+
+function cpfile()
+{
+	echo -ne "Installing $1..."
+	cp -f $1 /boot/$2
+	echo "done"
+}
+
+echo 'Remember to patch ip_Conntrack'
+#exit
+
+ver="2.4.31"
+
+if [ ! -f /usr/src/linux-$ver/.config ] ; then
+  echo '.config not found'
+  exit 1
+fi
+ln -s /usr/src/linux-$ver /usr/src/linux
+cd /usr/src/linux-$ver
+ls
+if make -j3 dep &&\
+   make -j3 clean &&\
+   make -j3 bzImage &&\
+   make -j3 modules &&\
+   make -j3 modules_install
+then
+  cp -f /usr/src/linux-$ver/arch/i386/boot/bzImage /boot/vmlinuz-$ver
+  cp -f /usr/src/linux-$ver/System.map /boot/System.map-$ver
+  cp -f /usr/src/linux-$ver/.config /boot/config-$ver
+  cp -f /usr/src/linux-$ver/.config /home/scripts/config-$ver
+  cd /lib/modules/$ver
+  depmod -a $ver -F /boot/System.map-$ver
+  mkinitrd -o /boot/initrd-$ver.img $ver
+  date
+  exit 0
+fi
+exit 2
+#
+# adjust /boot/grub/menu.lst, or /etc/lilo.conf
+# to update grub : grep -v ^# /etc/grub.conf | grub --batch

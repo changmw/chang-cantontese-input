@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# ftp://ftp.opaopa.org/pub/proftpd/proftpd-site_index-0.1.tar.gz
+#
+./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc/proftpd \
+	--localstatedir=/var/run \
+	--enable-autoshadow \
+	--with-modules=mod_readme:mod_ratio
+exit 0
+checkinstall --exclude=/usr/bin/ld,/usr/bin/nm,/usr/bin/strip,/usr/bin/gcc,/usr/lib/gcc/*
+#
+# need to create /var/run/proftpd for the scoreboard
+#
+# :mod_sql:mod_sql_mysql:mod_ldap
+#  --with-includes=/usr/local/mysql/include
+#  --with-libraries=/usr/local/mysql/lib/mysql

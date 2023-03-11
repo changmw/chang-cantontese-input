@@ -1,0 +1,13 @@
+#!/bin/sh
+#mkdir /var/run/pure-ftpd
+#cp configuration/pure-ftpd.conf /etc
+#cp configuration/pure-config.pl /usr/sbin
+#cp pam/ftplockout /etc
+#cp pam/pure-ftpd /etc/pam.d
+./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc/pureftpd \
+	--with-everything \
+	--with-paranoidmsg \
+	--with-virtualchroot
+make -j 3

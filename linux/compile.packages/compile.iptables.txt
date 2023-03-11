@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# check out the SRPM, drop in the new tarball, rpm -ba iptables.spec
+#
+# cd /usr/src
+# bunzip2 -dkc /samba/linux/iptables/iptables-1.2.9.tar.bz2 | tar xv
+make \
+	KERNEL_DIR=/usr/src/linux \
+	LIBDIR=/usr/lib \
+	BINDIR=/usr/sbin \
+	MANDIR=/usr/share/man/en \
+	INCDIR=/usr/include
+exit 0
+if [ $? = 0 ] ; then
+checkinstall -si make \
+	KERNEL_DIR=/usr/src/linux \
+	LIBDIR=/usr/lib \
+	BINDIR=/usr/sbin \
+	MANDIR=/usr/share/man/en \
+	INCDIR=/usr/include \
+	install
+fi

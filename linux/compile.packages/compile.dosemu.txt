@@ -1,0 +1,12 @@
+#!/bin/sh
+# work for wget, prozilla, ncftp
+CFLAGS="-O2 -march=pentiumpro"
+CXX=gcc
+CXXFLAGS="-O2 -march=pentiumpro -felide-constructors" 
+./configure \
+	--prefix=/usr \
+	--sbindir=/usr/sbin \
+	--sysconfdir=/etc \
+	--localstatedir=/var/run \
+	--includedir=/usr/include/dosemu
+make

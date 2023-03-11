@@ -1,0 +1,21 @@
+#!/bin/bash
+# introduction to LDAP
+# http://staff.pisoftware.com/bmarshal/publications/ldap_tut.html
+./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	--libexecdir=/usr/sbin \
+	--localstatedir=/var/run \
+	--sharedstatedir=/var \
+	--enable-wrappers \
+	--enable-crypt \
+	--disable-bdb \
+	--enable-ldbm \
+	--enable-perl \
+	--enable-null
+make depend
+make -j 3
+make test
+checkinstall -si make install
+ldconfig -v
+# updatedb

@@ -1,0 +1,86 @@
+#!/bin/bash
+# nm vmlinux | grep -v ... | sort > System.map
+#
+# apply kernel verison upgrade:
+# bzip2 -dc patch-2.6.20.1.bz2 | patch -p1
+#
+# apply any patches if needed
+# cd /usr/src/linux
+# cat /samba/linux/kernel/preempt-kernel-rml-2.4.18-4.patch | patch -Np1
+#
+# the config that made a kernel could always be salvage
+# from /usr/src/linux/arch/i386/defconfig
+# in the rpm linux-source-i386-2.4.2-11D.i386.rpm
+#
+# Suse kernel 2.6.x
+# zcat /proc/config.gz > .config
+# make cloneconfig
+#
+# ubuntu:
+# stock kernel config file in /boot
+# 
+# the current config files is 
+# cp /usr/src/linux/.config
+#
+# make mrproper to clean up (will delete .config)
+#
+# notes: block device LOOP must be compiled into the kernel
+#
+# make menuconfig
+
+function cpfile()
+{
+	echo -ne "Installing $1..."
+	cp -f $1 /boot/$2
+	echo "done"
+}
+
+echo 'Remember to patch ip_Conntrack'
+#exit
+
+ver="2.6.39.3"
+
+echo $ver
+
+if [ ! -f /home/src/linux-$ver/.config ] ; then
+  echo '.config not found'
+  exit 1
+fi
+cd /home/src
+ln -s /home/src/linux-$ver linux
+cd /home/src/linux-$ver
+ls
+starttime=`date`
+if make clean &&\
+   make -j2 bzImage &&\
+   make -j2 modules &&\
+   make modules_install
+then
+  cp -f /home/src/linux-$ver/arch/x86/boot/bzImage /boot/vmlinuz-$ver
+  cp -f /home/src/linux-$ver/System.map /boot/System.map-$ver
+  cp -f /home/src/linux-$ver/.config /boot/config-$ver
+  cp -f /home/src/linux-$ver/.config /home/toylet/public_html/scripts/config-$ver.txt
+  cp -f /home/src/linux-$ver/compile.kernel.txt /home/toylet/public_html/scripts
+ mkdir /lib/modules/$ver
+  cd /lib/modules/$ver
+  depmod -a $ver -F /boot/System.map-$ver
+  mkinitramfs -o /boot/initrd.img-$ver $ver
+  update-grub
+  echo $starttime
+  date
+  exit 0
+fi
+exit 2
+#
+# adjust /boot/grub/menu.lst, or /etc/lilo.conf
+# to update grub : grep -v ^# /etc/grub.conf | grub --batch
+#
+# remove the initrd line
+# video=1024x768-32@85
+#
+# under Ubuntu:
+# update-grub
+#
+# fedora core
+# grub-install /dev/hda
+#

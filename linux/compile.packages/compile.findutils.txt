@@ -1,0 +1,4 @@
+./configure --prefix=/usr
+make libexecdir=/usr/bin
+exit
+checkinstall -si make libexecdir=/usr/bin install

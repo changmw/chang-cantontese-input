@@ -1,0 +1,51 @@
+#!/bin/sh
+
+# backup these files on Ubuntu
+# /etc/samba/
+# /etc/default/samba
+# /etc/init.d/samba
+#
+# dpkg -r samba
+# dpkg -r samba-common
+# apt-get remove --purge libsmbclient
+# apt-get install libcupsys2-dev
+#
+
+./configure \
+--prefix=/usr \
+--exec-prefix=/usr \
+--sysconfdir=/etc \
+--with-privatedir=/etc \
+--localstatedir=/var \
+--infodir=/usr/info \
+--mandir=/usr/man \
+--with-piddir=/var/run \
+--with-codepagedir=/usr/share/samba \
+--with-privatedir=/etc/samba \
+--with-lockdir=/var/lock/samba \
+--with-swatdir=/usr/share/swat \
+--with-sambabook=/usr/doc/samba \
+--with-ssl=/usr/ssl \
+--with-sslinc=/usr/src/openssl \
+--without-smbwrapper \
+--with-automount \
+--with-smbmount \
+--with-utmp \
+--with-pam \
+--with-pam-smbpass \
+--with-acl-support \
+--enable-cups \
+--with-winbind \
+--with-winbind-auth-challenge \
+--with-libsmbclient \
+--with-msdfs \
+--with-vfs \
+--with-fhs \
+--with-quotas \
+--with-syslog
+
+#make
+#checkinstall
+# cp bin/libsmbclient.* /usr/lib
+# cp include/libsmbclient.h /usr/include
+#ldconfig -v

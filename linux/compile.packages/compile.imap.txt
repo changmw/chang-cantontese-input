@@ -1,0 +1,39 @@
+#!/bin/bash
+#
+# fix paths in src/osdep/unix/Makefile
+#  SSLDIR=/usr/ssl
+#  ACTIVEFILE=/var/state/news/active
+#  SPOOLDIR=/var/spool
+#  RSHPAH=/usr/bin/rsh
+#  perl -pi -e 's:BASECFLAGS="[^"]*":BASECFLAGS="":' src/osdep/unix/Makefile
+#
+# modify src/ipopd/Makefile
+# FLAGS = -I$C `cat $C/CFLAGS` -DDISABLE_POP_PROXY=1
+#
+make EXTRALDFLAGS=-s lnp
+exit 0
+checkinstall -si ./installme
+
+#!/bin/bash
+#./installme
+
+$DESTDIR=""
+for dir in usr/sbin usr/man/man8 etc/pam.d; do
+        install -d $DESTDIR/$dir
+done
+for f in ipopd imapd; do
+        install src/$f/$f.8c $DESTDIR/usr/man/man8/$f.8
+done
+
+for f in ipopd/ipop2d ipopd/ipop3d imapd/imapd; do
+        install -s $f $DESTDIR/usr/sbin
+done
+
+INCDIR=$DESTDIR/usr/include/imap
+mkdir -p $INCDIR
+cp c-client/*.h $INCDIR
+
+LIBDIR=$DESTDIR/usr/lib
+mkdir -p $LIBDIR
+install c-client/c-client.a $LIBDIR/libc-client4.a
+ln -s libc-client4.a $LIBDIR/libc-client.a

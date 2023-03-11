@@ -1,0 +1,12 @@
+#!/bin/bash
+CFLAGS="-O2 -march=pentiumpro"
+
+./Configure \
+-Dprefix=/usr \
+-Doptimize="$CFLAGS" \
+-Dpager="/bin/less -isR" \
+-Dlibswanted="sfio socket bind inet nsl nm ndbm gdbm dbm db malloc dl dld ld sun m c cposix posix ndir dir crypt sec ucb bsd BSD PW x util pthread" \
+-d -e
+
+# make
+# checkinstall

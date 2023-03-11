@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# modify Makefile, change PREFIX
+#
+make

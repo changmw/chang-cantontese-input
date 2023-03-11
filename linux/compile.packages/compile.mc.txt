@@ -1,0 +1,9 @@
+#!/bin/sh
+# work for wget, prozilla, ncftp
+./configure \
+	--prefix=/usr \
+	--sbindir=/usr/sbin \
+	--sysconfdir=/etc \
+	--localstatedir=/var/run \
+	--with-samba
+# make -j 3
