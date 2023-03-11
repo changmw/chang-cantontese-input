@@ -1,3 +1,5 @@
+*
+*
 dism /Online /Get-ProvisionedAppxPackages | Select-String PackageName | Select-String xbox
 
 Get-ProvisionedAppxPackage -Online | `
