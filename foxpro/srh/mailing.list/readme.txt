@@ -11,4 +11,6 @@ This system was initally written by Mr. Kai-wing Fung,
 who was a programmer in the MIS team of the Data Processing 
 Department.
 
-Mr. Fung left the company for studying about theology.
+Mr. Fung left the company for studying about theology. That's
+also why I was reruited as a replacement programmer in the
+MIS Team.
