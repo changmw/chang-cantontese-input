@@ -24,5 +24,7 @@ let alone its later upgrade to 9.0.
 
 HP X workstations featured the use of TCP/IP, which led to the
 blossom of WWW and internet, and loss of business for Novell 
-Netware. One interesting use of X protocol was remote control,
-very much like Remote Desktop in WIndows now.
+Netware.
+
+Another interesting thing about X protocol was remote control
+and screen casting, very much like Remote Desktop in Windows now.
