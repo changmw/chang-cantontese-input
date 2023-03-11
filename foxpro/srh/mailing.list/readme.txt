@@ -14,4 +14,4 @@ who was a programmer in the MIS team of the Data Processing
 Department.
 
 Mr. Fung left the company for studying about theology, and
-I was recruited as his replacement as programmer.
+I was recruited as his replacement, also a programmer.
