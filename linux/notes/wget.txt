@@ -1,0 +1,15 @@
+# Create the list file (edit after the 'cat' line and before the EOF line)
+cat > "wget.list" <<EOF
+ftp://ftp.ibiblio.org/pub/linux/distributions/mepis/testing/ProMEPIS-2005.b02.iso.md5sum
+ftp://ftp.ibiblio.org/pub/linux/distributions/mepis/testing/ProMEPIS-2005.b02.iso
+EOF
+
+wget    --background \
+     --append-output=wget.log \
+     --continue \
+     --tries=0 \
+     --wait=30 \
+     --limit-rate=30k \
+     --input-file=wget.list
+
+# End

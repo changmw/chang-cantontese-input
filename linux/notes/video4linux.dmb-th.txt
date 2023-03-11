@@ -1,0 +1,105 @@
+在Linux 裝最新的 V4L 可支援LGS-8GL5了
+暫時我知道的 8GL5 的卡/USB 手指
+天揚PG 183H
+Magic-Pro ProHDTV USB
+mygica 8506
+AMAZE PC DMB-8GL5
+MIX Metal mini DMB-TH (USB)
+Galaxy E7 M+ USB
+VOGSIS DMB-808HD USB
+
+
+
+轉貼部分:
+這是下載最新版V4L-DVB Source與編譯指令:
+
+hg clone http://linuxtv.org/hg/v4l-dvb
+cd v4l-dvb
+make
+sudo make install
+
+
+看firmware file 檔名的地方
+
+2.開完機後, 先用lsmod指令檢查電視卡的驅動程式是否有自動載入, 驅動程式的名稱是與電視卡的晶片型號有關。
+
+lsmod
+
+3. 電視卡的驅動程式有被載入, 還不能完全表示電視卡可以正確工作, 必須再進一步檢查/dev/dvb/ 與 /dev/dvb/adapter0這二個目錄否有被自動建立?
+
+ls -l /dev/dvb/
+
+4.最後一個檢查是掃描找出節目頻道, 能夠找出節目頻道出來, 那應該就OK 了。
+
+掃描節目頻道需要安裝一套 dvb-utils , 安裝與掃描指令如下:
+
+sudo apt-get install dvb-utils
+scan /usr/share/doc/dvb-utils/examples/scan/dvb-t/tw-Taipei
+
+tw-taipei 預先包含了幾家國內無線數位電視台的頻道參數, 沒有HiHD頻道, 其他頻道也有小錯誤, 可以用文字編輯器修正一下。
+
+gedit /usr/share/doc/dvb-utils/examples/scan/dvb-t/tw-Taipei
+
+scan /usr/share/doc/dvb-utils/examples/scan/dvb-t/tw-Taipei
+
+tw-taipei 預先包含了幾家國內無線數位電視台的頻道參數, 沒有HiHD頻道, 其他頻道也有小錯誤, 可以用文字編輯器修正一下。
+
+gedit /usr/share/doc/dvb-utils/examples/scan/dvb-t/tw-Taipei
+
+
+正確的收視頻率表, 包含了HiHD,HiHD 目前收視範圍為宜蘭-桃園,嘉義-屏東.
+
+T 533000000 6MHz 2/3 AUTO QAM16 8k 1/4 NONE
+T 545000000 6MHz 2/3 AUTO QAM16 8k 1/4 NONE
+T 557000000 6MHz 2/3 AUTO QAM16 8k 1/4 NONE
+T 569000000 6MHz 2/3 AUTO QAM64 8k 1/4 NONE
+T 581000000 6MHz 2/3 AUTO QAM16 8k 1/4 NONE
+T 593000000 6MHz 2/3 AUTO QAM16 8k 1/4 NONE
+
+
+掃描可以過關,想在Linux下看HiHD的第一步也就過關了。
+
+假如過不了關, 那麼也只好開始磨練自己google搜尋能力或是碰碰運氣了。
+
+如果你已經十分確定你的電視卡是有被列入 V4l-DVB的cardlist裡面, 那麼手動加入一個options, 有很大的機會就可以過關了。
+
+如我有一片compro T300已經十分確定在 V4l-DVB cardlist的編號是70, tuner編號則是67, 在ubuntu 8.10 一開機後, 用lsmod查有載入saa7134驅動程式, 但/dev/dvb/ 目錄沒有產生, 後來用dmesg 查, 發現根本辦識錯誤,所以在我輸入下列指令加入正確參數後, Compro T300就可以正常work了。
+
+cd /etc/modprobe.d
+sudo gedit options
+
+新增一行
+
+option saa7134 card=70 tuner=67
+
+或者也可以
+
+sudo gedit alsa-base
+
+將insert saa7134 那一行的 $CMDLINE_OPTS 變更為 code=70 tuner=67
+v4l-dvb/linux/dirvers/media/dvb/dvb-usb/*.c
+
+Signed-off-by: Timothy Lee <timothy.lee@siriushk.com>
+
+diff -r 98b4f2928fd6 util/scan/dmb-th/hk-HongKong
+--- /dev/null        Thu Jan 01 00:00:00 1970 +0000
++++ b/util/scan/dmb-th/hk-HongKong        Sat Aug 09 15:30:44 2008 +0800
+@@ -0,0 +1,18 @@
++# Hong Kong
++# T freq bw fec_hi fec_lo mod transmission-mode guard-interval hierarchy
++
++# TVB (band 35)
++T 586000000 8MHz AUTO AUTO QAM64 8k 1/32 NONE
++# ATV (band 37)
++T 602000000 8MHz AUTO AUTO QAM64 8k 1/32 NONE
++
++# Simulcast (band 22)
++T 482000000 8MHz AUTO AUTO QAM64 8k 1/32 NONE
++# Simulcast (band 30)
++T 546000000 8MHz AUTO AUTO QAM64 8k 1/32 NONE
++# Simulcast (band 32)
++T 562000000 8MHz AUTO AUTO QAM64 8k 1/32 NONE
++# Simulcast (band 40)
++T 628000000 8MHz AUTO AUTO QAM64 8k 1/32 NONE
++# Simulcast (band 43)
++T 650000000 8MHz AUTO AUTO QAM64 8k 1/32 NONE

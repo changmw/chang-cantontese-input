@@ -1,0 +1,19 @@
+#!/bin/sh
+
+#
+# http://ubuntuforums.org/showthread.php?t=37564
+# https://help.ubuntu.com/community/VNCOverSSH
+#
+# steps:
+# 1. service stop gdm
+# 2. server side: type `tightvncserver :1` to start vnc server
+# 3. client side: start vnc viewer, and connec to server_ip:1
+# 4. server side: type `tightvncserver -kill 1` to close
+
+xrdb $HOME/.Xresources
+xsetroot -solid black # Choose your color
+x-window-manager &
+{
+ (gnome-panel 2> /dev/null &)
+}
+xterm &

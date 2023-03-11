@@ -1,0 +1,38 @@
+apt-get install tightvncserver
+
+modify /etc/services
+
+apt-get install xinetd
+
+add vnc1024 and tightvnc1024
+
+modify /etc/X11/gdm.conf
+
+AllowRoot=true
+AllowRemoteGreeter=true
+[xdmcp]
+enabled=true
+
+
+service tightvnc1024
+{
+disable = yes
+socket_type = stream
+protocol = tcp
+wait = no
+user = root
+server = /usr/bin/Xtightvnc
+server_args = -inetd :1 -query localhost -geometry 1024x768 -depth 16 -once -fp /usr/share/fonts/X11/misc -DisconnectClients=0 -NeverShared passwordFile=/home/toylet/.vnc/passwd
+}
+
+
+service tightvnc1024
+{
+disable = yes
+socket_type = stream
+protocol = tcp
+wait = no
+user = nobody
+server = /usr/bin/Xtightvnc
+server_args = -inetd -query localhost -geometry 1024x768 -depth 16 -once -fp /usr/share/fonts/X11/misc
+}

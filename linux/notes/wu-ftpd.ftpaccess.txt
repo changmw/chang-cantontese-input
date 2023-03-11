@@ -1,0 +1,67 @@
+class local   real 	192.168.2.0/24
+class anonftp anonymous *
+# class upload  real      !192.168.2.0/24
+
+email toylet@hongkong.com
+
+loginfails 3
+
+readme  README*    login
+readme  README*    cwd=*
+
+message /etc/msg.issue		login
+message .message                cwd=*
+
+compress        no
+tar             no
+chmod		no
+delete		no
+overwrite	yes
+rename		no
+umask           no 
+
+log transfers anonymous,real inbound,outbound
+# log security
+log xferlog
+log commands anonftp,commands
+
+shutdown /home/ftp/etc/msg.shutdown
+timeout idle 180
+
+passwd-check rfc822
+# you may want to blacklist these silly email address as password
+#deny-email mozilla@
+#deny-email IE30User@
+#deny-email IE40User@
+#deny-email IE50User@
+#deny-email IE60User@
+#deny-email IEUser@
+
+# host-limit <class> <n> <times> <msg>
+
+# limit <class> <n> <times> <msg>
+limit anonftp 3 Any /home/ftp/etc/msg.toomany
+limit upload  3 Any /home/ftp/etc/msg.toomany
+
+# the following setting may disable chinse file names
+# but it will stop others from downloading certain files
+# path-filter anonymous /home/ftp/etc/pathmsg ^[-A-Za-z0-9_\.]*$ ^\. ^-
+
+#upload <root-dir> <dirglob> <yes|no> <owner> <group>
+upload  /home/ftp *                no
+upload  /home/ftp /bin             no 
+upload  /home/ftp /etc             no
+# /home/ftp/ncoming	permission: 753, ftp:daemon
+# /home/ftp/pub 	permission: 555, ftp:daemon
+# must match with /etc/ftpaccess
+upload  /home/ftp /incoming       yes ftp daemon 0640 dirs 
+upload  /home/ftp /incoming/*     yes ftp daemon 0640 nodirs
+
+# allow no donwload in the upload directory
+noretrieve /
+noretrieve /home/ftp
+noretrieve core passwd shadow pap-secrets chap-secrets
+allow-retrieve /home/ftp/pub
+# allow-retrieve relative class=anonftp,local bin/bin/*
+
+DenyFilter "[\*\?]"

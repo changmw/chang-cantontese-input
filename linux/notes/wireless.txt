@@ -1,0 +1,41 @@
+http://linuxplanet.com/linuxplanet/tutorials/7044/1/
+
+iwconfig for wireless configuration
+
+The iwconfig tool is like ifconfig and ethtool for wireless cards. You can view and set the basic Wi-Fi network details, such as the SSID, channel, and encryption. There's also many advanced settings you can view and change, including receive sensitivity, RTS/CTS, fragmentation, and retries. Here are some commands you may want to try:
+
+Display the wireless settings of your interfaces, including the interface names you'll need for other commands:
+
+    iwconfig
+
+Set the ESSID (Extended Service Set Identifier) or network name:
+
+    iwconfig <interface name> essid <network name>
+
+    Example: iwconfig <interface name> "my network"
+
+    Example: iwconfig <interface name> any
+
+Set the wireless channel of the radio (1-11):
+
+    iwconfig <interface name> <channel>
+
+Input a WEP encryption key (WPA/WPA2 isn't supported yet; for this you need wpa_supplicant):
+
+    iwconfig eth0 key <key in HEX format>
+
+Only allow the adapter to connect to an AP with the MAC address you specify:
+
+    iwconfig <interface name> ap <mac address>
+
+    Example: iwconfig eth0 ap 00:60:1D:01:23:45
+
+Set the transmit power of the radio, if supported by the wireless card, in dBm format by default or mW when specified:
+
+    iwconfig <interface name> txpower <power level>
+
+    Example: iwconfig eth0 txpower 15
+
+    Example: iwconfig eth0 txpower 30mW
+
+

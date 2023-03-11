@@ -1,0 +1,12 @@
+#!/bin/bash
+while [ true ]; do
+ftp -v -n yjp.dns2go.com 9394 <<EOF
+user hkpcug 1003
+passive
+binary
+prompt
+cd "/Kenny G [2002-09] Paradise [192kbps] by newbie"
+mget *
+EOF
+sleep 60
+done

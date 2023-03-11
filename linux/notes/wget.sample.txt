@@ -1,0 +1,25 @@
+#wget --no-parent -m ftp://ftp.unn.runnet.ru/pub/music/mp3/
+
+#wget --no-parent -A mp3 -m ftp://ftp.stud.montefiore.ulg.ac.be/incoming/mp3/
+#wget --no-parent -m -A mp3 ftp://ftp.radioc.ru/private/Mp3/
+#ftp.loxinfo.co.th:pub/Entertain/sample/song/
+#wget -m -A mp3 --no-parent ftp://ftp.isr.cz/pub/mp3/Faithless%20-%20%27Insomnia%27.mp3
+
+url='ftp://ftp.iso.caldera.com/pub/OpenLinux/3.1.1/Workstation'
+for file in \
+        OpenLinux-3.1.1-workstation-CD1.iso \
+        OpenLinux-3.1.1-workstation-CD1.iso.md5 \
+        OpenLinux-3.1.1-workstation-CD1a.iso \
+        OpenLinux-3.1.1-workstation-CD1a.iso.md5 \
+        OpenLinux-3.1.1-workstation-CD2.iso \
+        OpenLinux-3.1.1-workstation-CD2.iso.md5
+do
+        wget --tries=0 \
+                --continue \
+                --wait=30 \
+                $url/$file
+done
+# mirror a site
+wget -b -m -np --cut-dirs=1 -P /www/grass -o /home/webmaster/mirrorLog/httpLog0 http://www.geog.uni-hannover.de/grass/
+
+shell$ wget -nv -np -L -U "my-cool-mirror" --mirror http://www.lam-mpi.org/
