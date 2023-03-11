@@ -1,1 +1,1 @@
-AIDC (subsidary of AIA)
+American International Data Center CO. (subsidary of AIA)
