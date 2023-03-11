@@ -2,5 +2,6 @@
 
 The year was 1986. It all started inside a commercial building in Mongkok: right on top of the MTR station. I stepped on the escalator and the LEGEND began ....
 
-![Front Cover()
-![Front Cover()
+![Front Cover(legend.fcover.jpg)
+![Front Cover(legend.bcover.jpg)
+![Front Cover(letter.of.acceptance.jpg)
