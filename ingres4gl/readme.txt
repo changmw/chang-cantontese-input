@@ -14,7 +14,8 @@ and signed a temporary contact as an Application Developer.
 Ingres RDBMS's SQL syntax was not very different from Foxpro.
 But Ingres RDBMS was definitely way more expensive than Foxpro!
 Foxpro also did NOT require HP X workstations, which were also
-very expensive, more pricy than Novell Netware. :)
+very expensive, more pricy than cheap personal computers
+running Novell Netware LAN. :)
 
 Looking back, Ingres4GL was very similar to Visual Foxpro. They
 were both object-oriented and had similar user interfaces. But
