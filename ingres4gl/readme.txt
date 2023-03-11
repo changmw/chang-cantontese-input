@@ -38,4 +38,5 @@ to it's Tuen Mun Power Plant via Tuen Mun Highway.
 Back then, the railway system of MTR hadn't been 
 extended to Tuen Mun and Yuen Long yet. So cars 
 and buses were the only way for Tuen Mun residents
-to reach Kowloon and Hong Kong Island.
+to reach Kowloon and Hong Kong Island. It's an about
+one hour trip, if and only if there was no traffic jam.
