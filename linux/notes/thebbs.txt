@@ -1,0 +1,1 @@
+http://myip.us/cgi-bin/cgi_updateip.exe?accountname=foobar&password=mypass&hostname=myhost&domainname=myip.us&ipaddress=127.0.0.1

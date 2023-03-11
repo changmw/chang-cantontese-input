@@ -1,0 +1,13 @@
+http://wwww.Linux-Sec.net/Mail/Sendmail
+
+to send queued messages:
+
+sendmail -q
+
+to timeout certain messages:
+
+sendmail -qRsomeone@somewhere.com -O Timeout.queuereturn=1h
+
+to dump detail log:
+
+sendmail -O LogLevel=14 -bd -X /tmp/output.log

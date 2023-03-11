@@ -1,0 +1,9 @@
+#!/bin/bash
+sudo aptitude install gcc make kernel-package libncurses5-dev module-init-tools initrd-tools build-essential
+sudo aptitude install linux-source-2.6
+cd /usr/src
+sudo tar xfj linux-source-2.6.xx.tar.bz2
+cd linux-source-2.6.xx
+sudo make menuconfig
+sudo make-kpkg --initrd linux-image
+sudo dpkg -i ../linux-image-2.6.xx-xx.deb

@@ -1,0 +1,22 @@
+enfold:~# telnet majordomo.netcom.com 25
+Trying 206.217.29.105...
+Connected to majordomo.netcom.com.
+Escape character is '^]'.
+220 majordomo.netcom.com ESMTP Sendmail 8.7.5/8.7.3/(NETCOM MLS v1.01); Mon, 20
+Oct 1997 17:32:57 -0700 (PDT)
+HELO netcom.com
+250 majordomo.netcom.com Hello d15.dial-33.mbo.ma.ultra.net [146.115.101.111], pleased to meet you
+MAIL FROM:<bogus@elsewhere>
+250 bogus@elsewhere... Sender ok
+RCPT TO:<your@email.address>
+250 Recipient ok
+DATA
+354 Enter mail, end with "." on a line by itself
+From: Anything you like
+To: your@email.address (Or anything else)
+Subject: relayed mail from majordomo.netcom.com
+
+Just a relay test
+.
+250 RAA00550 Message accepted for delivery
+QUIT

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#get the list of active ports from netsstat
+for port in $(netstat -nta | sed '1,2d' | awk '{print $4}' | sed 's/^.*://' | sort -n | uniq) ; do
+  fuser -v $port/tcp
+done

@@ -1,0 +1,142 @@
+Basic Syntax of Regular Expressions
+
+First of all, let's take a look at two special symbols: '^' and '$'. What they do is indicate the start and the end of a string, respectively, like this:
+
+    * "^The": matches any string that starts with "The";
+    * "of despair$": matches a string that ends in the substring "of despair";
+    * "^abc$": a string that starts and ends with "abc" -- that could only be "abc" itself!
+    * "notice": a string that has the text "notice" in it.
+
+You can see that if you don't use either of the two characters we mentioned, as in the last example, you're saying that the pattern may occur anywhere inside the string -- you're not "hooking" it to any of the edges.
+
+There are also the symbols '*', '+', and '?', which denote the number of times a character or a sequence of characters may occur. What they mean is: "zero or more", "one or more", and "zero or one." Here are some examples:
+
+    * "ab*": matches a string that has an a followed by zero or more b's ("a", "ab", "abbb", etc.);
+    * "ab+": same, but there's at least one b ("ab", "abbb", etc.);
+    * "ab?": there might be a b or not;
+    * "a?b+$": a possible a followed by one or more b's ending a string.
+
+You can also use bounds, which come inside braces and indicate ranges in the number of occurences:
+
+    * "ab{2}": matches a string that has an a followed by exactly two b's ("abb");
+    * "ab{2,}": there are at least two b's ("abb", "abbbb", etc.);
+    * "ab{3,5}": from three to five b's ("abbb", "abbbb", or "abbbbb").
+
+Note that you must always specify the first number of a range (i.e, "{0,2}", not "{,2}"). Also, as you might have noticed, the symbols '*', '+', and '?' have the same effect as using the bounds "{0,}", "{1,}", and "{0,1}", respectively.
+
+Now, to quantify a sequence of characters, put them inside parentheses:
+
+    * "a(bc)*": matches a string that has an a followed by zero or more copies of the sequence "bc";
+    * "a(bc){1,5}": one through five copies of "bc."
+
+There's also the '|' symbol, which works as an OR operator:
+
+    * "hi|hello": matches a string that has either "hi" or "hello" in it;
+    * "(b|cd)ef": a string that has either "bef" or "cdef";
+    * "(a|b)*c": a string that has a sequence of alternating a's and b's ending in a c;
+
+A period ('.') stands for any single character:
+
+    * "a.[0-9]": matches a string that has an a followed by one character and a digit;
+    * "^.{3}$": a string with exactly 3 characters.
+
+Bracket expressions specify which characters are allowed in a single position of a string:
+
+    * "[ab]": matches a string that has either an a or a b (that's the same as "a|b");
+    * "[a-d]": a string that has lowercase letters 'a' through 'd' (that's equal to "a|b|c|d" and even "[abcd]");
+    * "^[a-zA-Z]": a string that starts with a letter;
+    * "[0-9]%": a string that has a single digit before a percent sign;
+    * ",[a-zA-Z0-9]$": a string that ends in a comma followed by an alphanumeric character.
+
+You can also list which characters you DON'T want -- just use a '^' as the first symbol in a bracket expression (i.e., "%[^a-zA-Z]%" matches a string with a character that is not a letter between two percent signs).
+
+In order to be taken literally, you must escape the characters "^.[$()|*+?{\" with a backslash ('\'), as they have special meaning. On top of that, you must escape the backslash character itself in PHP3 strings, so, for instance, the regular expression "(\$|¥)[0-9]+" would have the function call: ereg("(\\$|¥)[0-9]+", $str) (what string does that validate?)
+
+Just don't forget that bracket expressions are an exception to that rule--inside them, all special characters, including the backslash ('\'), lose their special powers (i.e., "[*\+?{}.]" matches exactly any of the characters inside the brackets). And, as the regex man pages tell us: "To include a literal ']' in the list, make it the first character (following a possible '^'). To include a literal '-', make it the first or last character, or the second endpoint of a range."
+
+For completeness, I should mention that there are also collating sequences, character classes, and equivalence classes. I won't be getting into details on those, as they won't be necessary for what we'll need further down this article. You should refer to the regex man pages for more information. 
+
+lidating Money Strings
+
+Ok, we can now use what we've learned to work on something useful: a regular expression to check user input of an amount of money. A quantity of money can be written in four ways we can consider acceptable: "10000.00" and "10,000.00", and, without the cents, "10000" and "10,000". Let's begin with:
+
+^[1-9][0-9]*$
+
+That validates any number that doesn't start with a 0. But that also means the string "0" doesn't pass the test. Here's a solution:
+
+^(0|[1-9][0-9]*)$
+
+"Just a zero OR some number that doesn't start with a zero." We may also allow a minus sign to be placed before the number:
+
+^(0|-?[1-9][0-9]*)$
+
+That means: "a zero OR a possible minus sign and a number that doesn't start with a zero." Ok, let's not be so strict and let the user start the number with a zero. Let's also drop the minus sign, as we won't be needing it for the money string. What we could do is specify an optional decimal fraction part in the number:
+
+^[0-9]+(\.[0-9]+)?$
+
+It's implicit in the highlited construct that a period always comes with at least one digit, as a whole set. So, for instance, "10." is not validated, whereas "10" and "10.2" are.
+
+^[0-9]+(\.[0-9]{2})?$
+
+We specified that there must be exactly two decimal places. If you think that's too harsh, you can do the following:
+
+^[0-9]+(\.[0-9]{1,2})?$
+
+That allows the user to write just one number after the period. Now, as for the commas separating the thousands, we can put in:
+
+^[0-9]{1,3}(,[0-9]{3})*(\.[0-9]{1,2})?$
+
+"A set of 1 to 3 digits followed by zero or more sets of a comma and three digits." Easy enough, isn't it? But let's make the commas optional:
+
+^([0-9]+|[0-9]{1,3}(,[0-9]{3})*)(\.[0-9]{1,2})?$
+
+That's it. Don't forget that the '+' can be substituted by a '*' if you want empty strings to be accepted also (why?). And don't forget to escape the backslash for the function call (common mistake here). Now, once the string is validated, we strip off any commas with str_replace(",", "", $money) and typecast it to double so we can make math with it. 
+
+Validating E-mail Addresses
+
+Ok, let's take on e-mail addresses. There are three parts in an e-mail address: the POP3 user name (everything to the left of the '@'), the '@', and the server name (the rest). The user name may contain upper or lowercase letters, digits, periods ('.'), minus signs ('-'), and underscore signs ('_'). That's also the case for the server name, except for underscore signs, which may not occur.
+
+Now, you can't start or end a user name with a period, it doesn't seem reasonable. The same goes for the domain name. And you can't have two consecutive periods, there should be at least one other character between them. Let's see how we would write an expression to validate the user name part:
+
+^[_a-zA-Z0-9-]+$
+
+That doesn't allow a period yet. Let's change it:
+
+^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*$
+
+That says: "at least one valid character followed by zero or more sets consisting of a period and one or more valid characters."
+
+To simplify things a bit, we can use the expression above with eregi(), instead of ereg(). Because eregi() is not sensitive to case, we don't have to specify both ranges "a-z" and "A-Z" -- one of them is enough:
+
+^[_a-z0-9-]+(\.[_a-z0-9-]+)*$
+
+For the server name it's the same, but without the underscores:
+
+^[a-z0-9-]+(\.[a-z0-9-]+)*$
+
+Done. Now, joining both expressions around the 'at' sign, we get:
+
+^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*$ 
+
+Other uses
+Extracting Parts of a String
+
+ereg() and eregi() have a feature that allows us to extract matches of patterns from strings (read the manual for details on how to use that). For instance, say we want do get the filename from a path/URL string -- this code would be all we need:
+
+ereg("([^\\/]*)$", $pathOrUrl, $regs);
+echo $regs[1];
+
+Advanced Replacing
+
+ereg_replace() and eregi_replace() are also very useful: suppose we want to separate all words in a string by commas:
+
+ereg_replace("[ \n\r\t]+", ",", trim($str));
+Some exercises
+
+Now here's something to make you busy:
+
+    * modify our e-mail-validating regular expression to force the server name part to consist of at least two names (hint: only one character needs to be changed);
+    * build a function call to ereg_replace() that emulates trim();
+    * make up another function call to ereg_replace() that escapes the characters '#', '@', '&', and '%' of a string with a '~'.
+
+Have fun! 

@@ -1,0 +1,17 @@
+#/bin/sh
+outfile="/home/samba/public/upload/toylet.sgn"
+la=`/bin/uname | tee`
+lb=`/bin/uname -r | tee`
+lc=`/usr/bin/uptime | tee`
+echo "  .~.    Might, Courage, Vision. In Linux We Trust." > $outfile
+echo " / v \\   http://www.linux-sxs.org" >> $outfile
+echo "/( _ )\\ " $la $lb >> $outfile 
+echo "  ^ ^   " $lc >> $outfile
+
+outfile="/etc/issue.net"
+echo "" > $outfile
+echo "  .~.    toylet's server powered by Caldera OpenLinux" >> $outfile
+echo " / v \\" >> $outfile
+echo "/( _ )\\  opening hours: 10:15 - 21:45" >> $outfile
+echo "  ^ ^" >> $outfile
+echo $lc >> $outfile

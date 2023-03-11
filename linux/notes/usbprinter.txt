@@ -1,0 +1,20 @@
+mknod /dev/usb/lp0 c 180 0
+
+cat /proc/bus/usb/devices
+
+fuser -k /dev/usblp0    or
+fuser -k /dev/usb/lp0
+
+Try adding
+disable spoolss = yes
+to global and
+use client driver = no
+to your print share.
+
+Adding "use client driver = yes" to the configuration of the Printer
+Share in "smb.conf" should solve the problem
+
+that include "write list" and "printer admin" that can be changed to
+get rid of the access denials
+
+

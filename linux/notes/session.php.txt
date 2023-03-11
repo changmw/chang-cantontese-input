@@ -1,0 +1,4 @@
+session_start();
+header("Cache-control: private");
+a href="javascript:go(-1)
+<a onclick="window.open('aa.php','Myname','scrollbars=yes,width=600,height=200')">

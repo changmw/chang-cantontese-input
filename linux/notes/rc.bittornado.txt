@@ -1,0 +1,20 @@
+#!/bin/bash
+case "$1" in
+ start)
+  echo "Starting BT for toylet..."
+  cd /xfs
+  su toylet -c myscreen new edonkeyclc
+  for ii in *.torrent; do
+    echo "Starting $ii"
+    su toylet -c myscreen add btdown $ii
+  done
+  ;;
+ stop)
+  ;;
+ *)
+  echo "usage: $0 [start|stop]"
+  exit 1
+  ;;
+esac
+echo "."
+exit 0

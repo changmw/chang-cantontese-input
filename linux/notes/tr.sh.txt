@@ -1,0 +1,8 @@
+#/bin/bash
+
+for x in *.prg
+do
+  echo $x
+  tr -d '\015' < $x > rr
+  mv -f rr $x
+done

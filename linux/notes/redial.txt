@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# Script to load/reload pppd
+#
+# Ashok Aiyar
+# 12/6/97
+#
+export PPPON=`/bin/ps \-ax | /usr/bin/grep ppp | /usr/bin/grep pppd | \
+/usr/bin/wc \-l | /bin/cut \-d' ' \-f7`
+#
+while : ; do
+if [ "$PPPON" = "1" ] ; then
+  exit
+elif [ "$PPPON" = "0" ] ; then
+  /usr/bin/sleep 10
+  /sbin/route del default 1> /dev/null 2> /dev/null
+  /usr/sbin/pppd 10.10.1.1:10.10.1.2 /dev/modem 57600 \
+    connect /etc/ppp/ppp-on-dialer
+fi
+done
+
+

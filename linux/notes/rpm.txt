@@ -1,0 +1,73 @@
+# find out the databse path
+rpm --eval '%{_dbpath}'
+
+# information about the package and files to add to your system
+rpm -qpil <rpm_name.rpm>
+
+# to test the intsall
+rpm -i -vv --test <rpm_name.rpm>
+
+# to install a package
+rpm -i <rpm_name.rpm>
+rpm -i --nodeps --force <rpm_name.rpm
+
+# typical way to upgrade an existing package
+rpm -Uvvh <rpm_name>
+rpm -Fvh <package>
+
+# to list the content of a i386.rpm
+rpm -qilp <rpm_name.rpm>
+
+# to extract one file, you can use midnight-commander or
+# files would be extracted to current directory, with path
+# note the lack of leading "/" in the path spec
+rpm2cpio <rpm_name.rpm> | cpio -iumd path/to/file
+rpm2cpio /path/to/libexpat1..rpm | cpio -i -d
+
+# to find the owner of an installed file
+rpm -qf </path/file>
+
+# to list the files of an installed rpm
+rpm -ql rpm_name
+
+# list all installed packages
+rpm -qa
+rpm -qa | grep <rpm_name>
+
+
+# delete a package without dependency
+rpm -e --nodeps <rpm_name>
+
+# remove all versions of packages
+rpm -e package --allmatches
+
+# delete a list of packages
+rpm -qa | grep Xfree86 | while read line
+do
+	rpm -e --nodeps $line
+done
+
+# remove just the package name from the rpmdb
+rpm -e --justdb rpmname
+
+# extract the spec file
+rpminst file.src.rpm
+
+# to build a SRC rpm from tarball for caldera
+mv package.spec to /usr/src/OpenLinux/SPEC
+mv package.tar.gz to /usr/src/OpenLinux/SOURCE
+rpm -bs package.spec
+
+# build RPM directly from tarball
+rpm -ta package.tar.gz
+
+# to compile package from SRPM for Caldera
+rpm -bb /usr/src/OpenLinux/SPECS/package.spec
+rpm -ba xxx.spec 2>&1 | tee /tmp/rpm.log
+
+# to extract the Makefile from caldera SRPM
+rpm -ivh package.srpm
+cd /usr/src/OpenLinux/SPECS
+rpm -bp package.spec
+cd /usr/src/OpenLinux/BUILD/package
+look for the makefile

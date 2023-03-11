@@ -1,0 +1,2 @@
+#!/bin/sh
+cat file | sed 's/\o012/\o015\o012/g'

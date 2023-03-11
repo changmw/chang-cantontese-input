@@ -1,0 +1,13 @@
+mkdir -p /etc/mail/certs
+cd /etc/mail/certs
+mkdir newcerts private
+touch index.txt
+echo "01" > serial
+openssl req -new -x509 -keyout private/cakey.pem -out cacert.pem -days 365
+openssl req -nodes -new -x509 -keyout sendmail.pem -out sendmail.pem -days 365
+# openssl x509 -noout -text -in sendmail.pem
+openssl x509 -x509toreq -in sendmail.pem -signkey sendmail.pem -out tmp.pem
+openssl ca -policy policy_anything -out sendmail-cert.pem -infiles tmp.pem
+# cut-and-paste the key part from sendmail.pem into sendmail-key.pem
+ln -s cacert.pem `openssl x509 -noout -hash < cacert.pem`.0
+chmod 600 ./sendmail.pem

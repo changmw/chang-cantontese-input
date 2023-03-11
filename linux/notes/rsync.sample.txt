@@ -1,0 +1,19 @@
+#!/bin/bash
+
+RSYNC_COMMAND="rsync /html/ webmaster@second_server:/html/ -e ssh -r --delete --times --modify-window=1 --exclude /serverid.html"
+
+$RSYNC_COMMAND -n -v
+
+while echo -n "Proceed with sync ?(y/n)"
+read response
+do
+  case "$response" in
+  'n')  echo "Syncronization cancelled"
+        break
+                       ;;
+  "y")  $RSYNC_COMMAND -v
+        echo "Syncronization completed"
+        break
+                       ;;
+  esac
+done

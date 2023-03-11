@@ -1,0 +1,11 @@
+#!/bin/bash
+umount /dev/hda1
+debugfs /dev/hda1
+# you are now in debugfs
+debugfs: lsdel
+# now dump the inode 999
+debugfs: dump <999> /path/file
+#
+# method 2 for big files
+#look for reover in sourceforge
+recover /dev/hda1

@@ -1,0 +1,2 @@
+rsync -poavvze ssh username@hostname:/remote/path/*.txt /local/path
+rsync -auvzW /samba/upload /backup/samba

@@ -1,0 +1,5 @@
+If the printer port \\server\samba_printer_name disappeared from the port list,
+check 
+\HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Print\Providers\LANMAn Print Services\PortNames
+
+delete any conflicting entry there.

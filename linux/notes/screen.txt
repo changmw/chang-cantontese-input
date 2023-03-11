@@ -1,0 +1,20 @@
+#
+
+<ctrl+A>  <C>     create window
+<ctrl+A>  <W>     window list
+<ctrl+A>  <0..9>  switch between session 
+<ctrl+A> [ 	copy
+<ctrl+A> ] 	paste	
+
+
+1) How do i start it running a single shell command
+    screen command
+2) How do I detach, and leave that command running
+    Control d
+3) How do i reattach to the session where that command is running
+    screen -ls        # to list the sessions
+    screen -r         # to reattach
+    screen -r sessionid     # [pid.tty.host] from the -ls option 
+
+screen -d -m first.command
+screen -d -RR -X screen 2nd.command

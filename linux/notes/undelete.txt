@@ -1,0 +1,2 @@
+dd if=/dev/your-hd-device |grep  a-keyword-from-the-deleted-file -A
+no-lines-after-keyword -B no-lines before-keyword > output-file
