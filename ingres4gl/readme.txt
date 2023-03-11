@@ -34,7 +34,8 @@ Something unrelated to computers:
 
 I still remmeber the double-decker bus used to
 carry CLP employees from Hung Hom Railway Station
-to it's Tuen Mun Power Plant. Back then, the railway
-system of MTR hadn't been extended to Tuen Mun yet,
-so cars and buses were the only way for Tuen Mun
-residents to reach Kowloon and Hong Kong Island.
+to it's Tuen Mun Power Plant via Tuen Mun Highway.
+Back then, the railway system of MTR hadn't been 
+extended to Tuen Mun yet, so cars and buses were 
+the only way for Tuen Mun residents to reach 
+Kowloon and Hong Kong Island.
