@@ -7,6 +7,6 @@ person Mr. Dion Wiggins. You can easily Google about
 him now.
 
 It was Mr. Wiggins who introduced and recommended me to 
-the special project team in CLP. I was then interviewed 
-by Executive Leasing (Australia), and signed a temporary 
-contact as an Application Developer.
+the special project team in CLP, led by Mr. Entwistle.
+I was then interviewed by Executive Leasing (Australia), 
+and signed a temporary contact as an Application Developer.
