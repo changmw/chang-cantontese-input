@@ -1,0 +1,75 @@
+
+MODULE    MENU & PROGRAM NAME           CODE   DATE  TEST   DATE  REMARK
+------ -------------------------------  ----  -----  ----  -----  ---------------
+
+OP      -C2     DATA ENTRY
+
+        -C211   INDIVIDUAL P.O.: P.O. FROM CUSTOMER
+        OPPGENCP                        MMC   02/12  N/A
+          OPSPENPD                      MMC   02/12  CHANGED
+
+        -C212   P.O. ISSUED TO VENDOR                                       
+        OPPGENVP                        MMC   03/12  N/A
+          OPSPENPD                                    repeat
+            OPSPXLPD                    MMC   03/12
+
+
+OP      -C4     DATA ENTRY
+
+        -C42    P.O. SCHEDULE
+        OPPGEDSH                        MMC   02/12  CHANGED
+
+
+
+
+QO     QOPGENCQ                                      DCC   01.12  NO CHANGE NEED                                        
+QO     QOPGEDCQ                         DCC   01.12  DCC   01.12
+QO     QOPGEQQH                         DCC   01.12  DCC   01.12
+
+
+TX      -T1     ENTRY                   
+        -T11    TRANSACTION ENTRY
+        TXSPENTX.PRG                    LHW
+          -T111 CANCEL TRANSACTION
+          TXSPXLTX.PRG                  LHW
+          -T112 INPUT VENDOR (VX) TRANSACTION
+          TXPGENVX.PRG                  LHW
+          -T113 INPUT CUSTOMER (CX) TRANSACTION 
+          TXPGENCX.PRG                  LHW
+
+TX      -T2     EDIT
+        -T21    EDIT INDIVIDUAL TRANSACTION
+        TXPGEDDC.PRG                    LHW
+          -T211 CHANGE TRANSACTION DATA
+          TXSPETMT.PRG                  LHW
+          -T212 CANCEL DOCUMENT
+          TXSPETXT.PRG                  LHW
+          -T213 RE-CALCULATE INVOICE VALUE AND DUE DATE
+          TXSPETRC.PRG                  LHW
+          -T214 SCAN & MODIFY ITEMS IN DOCUMENT
+          TXSPETSI.PRG                  LHW
+          -T215 ADD ITEM IN DOCUMENT
+          TXSPETAI.PRG                  LHW
+
+TX      -T3     ENQUIRY
+        -T31    ENQUIRY TODAY'S TRANSACTION
+        TXPGEQDY.PRG                    LHW                       NON-Y2K BUG LEAVE UNFIX
+        -T32    ENQUIRY TRANSACTION BY COMPANY                            
+        TXPGEQTC.PRG                    LHW                       'MM/YY' CHANGE UNDER REVIEW
+
+TX      -T4     REPORT
+        -T41    PRINT DAILY TRANSACTION REPORT
+        TXPGRPDY.PRG                    LHW
+        -T42    PRINT BILLING MARGIN ANALYSIS
+        TXPGRPMD.PRG                    LHW   
+
+TX      -T5     UTILITY
+        -T51    RELEASE TRANSACTION
+        TXPGULRL.PRG                    LHW
+          -T511 SELECT TRANSACTION FOR RELEASE
+          TXSPTXSL.PRG                  LHW
+          -T512 REVIEW TRANSACTION READY FOR RELEASE
+          TXSPTXRV.PRG                  LHW
+          -T513 REVIEW UNSUCCESSFUL TRANSACTION
+          TXSPTXRU.PRG                  LHW
+
