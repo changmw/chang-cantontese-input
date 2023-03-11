@@ -11,7 +11,8 @@ https://www.chicagotribune.com/news/ct-xpm-1994-07-06-9407060160-story.html
 AC Nielsen seeks to end fragmentation | South China Morning Post
 https://www.scmp.com/article/214408/ac-nielsen-seeks-end-fragmentation
 
-I left SRH for a little adventure in the Tuen Mun power plant of China
-Light & Power, working with HP Unix workstations, Ingres4GL and Ingres
-RDBMS. So I really didn't know what happened to my colleagues in
-MIS Team (which turned into MIS Department) after the acquisition.
+I left SRH for a little and short adventure in the Tuen Mun power 
+plant of China Light & Power, working with HP Unix workstations,
+Ingres4GL and Ingres RDBMS. So I really didn't know what happened 
+to my colleagues in MIS Team (which turned into MIS Department) 
+after the acquisition.
