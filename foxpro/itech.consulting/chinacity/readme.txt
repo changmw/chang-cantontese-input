@@ -1,1 +1,1 @@
-China City Night Club POS system
+China City Night Club POS system.
