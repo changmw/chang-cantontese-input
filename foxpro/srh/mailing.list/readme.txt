@@ -15,3 +15,5 @@ Department.
 
 Mr. Fung left the company for studying about theology, and
 I was recruited as his replacement, also a programmer.
+Data Processing Manager later retired and I heard that he
+emigated to Singapore.
