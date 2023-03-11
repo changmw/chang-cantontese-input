@@ -1,4 +1,4 @@
-Windows 98 icons for MIS system
+Windows 98 icons for MIS system of Willas-Array Electronics
 
 ![Company Icon](WAE.ICO)
 ![Company Icon](WAE-001.ICO)
