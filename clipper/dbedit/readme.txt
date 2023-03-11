@@ -1,5 +1,7 @@
 For those who are interesting in dBase III+ programming,
 Clipper is a good way to improve your programs' performance.
+It builds DOS executable for distribution to customers, freeing
+you from installing dBase to them.
 
 I hereby provide the Clipper source which demonstrate how to
 employ the powerful features of Clipper:  DBEDIT, @..PROMPT & MENU TO,
