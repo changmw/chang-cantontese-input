@@ -23,20 +23,21 @@ when I was working in CLP, Visual Foxpro 3.0 was NOT yet born,
 let alone its later upgrade to 6.0 then 9.0.
 
 HP X workstations featured the use of TCP/IP, which led to the
-blossom of WWW and internet, and eventual loss of business 
-for Novell Netware.
+blossom of World Wide Web and business internet, and eventual 
+loss of business for Novell Netware.
 
 An interesting thing about X protocol was remote control
 and screen casting, very much like Remote Desktop in 
 Windows now. It's graphical, unlike DOS.
 
+
+
 Something unrelated to computers:
 
-I still remmeber the double-decker bus used to
-carry CLP employees from Hung Hom Railway Station
-to it's Tuen Mun Power Plant via Tuen Mun Highway.
-Back then, the railway system of MTR hadn't been 
-extended to Tuen Mun and Yuen Long yet. So cars 
-and buses were the only way for Tuen Mun residents
-to reach Kowloon and Hong Kong Island. It's an about
-one hour trip, if and only if there was no traffic jam.
+I still remmeber the double-decker bus used to carry CLP employees 
+and contracters from Hung Hom Railway Station to it's Tuen Mun
+ower Plant via Tuen Mun Highway. Back then, the railway system of 
+MTR hadn't been  extended to Tuen Mun and Yuen Long yet. So cars 
+and buses were the only way for Tuen Mun residents to reach 
+Kowloon and Hong Kong Island. It's an about one hour trip,
+if and only if there was no traffic jam.
