@@ -24,7 +24,7 @@ let alone its later upgrade to 6.0 then 9.0.
 
 HP X workstations featured the use of TCP/IP, which led to the
 blossom of World Wide Web and business internet, and eventual 
-loss of business for Novell Netware.
+loss of business for Novell Netware (IPX protocol).
 
 An interesting thing about X protocol was remote control
 and screen casting, very much like Remote Desktop in 
