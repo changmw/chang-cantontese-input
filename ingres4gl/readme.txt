@@ -10,3 +10,13 @@ It was Mr. Wiggins who introduced and recommended me to
 the special project team in CLP, led by Mr. Entwistle.
 I was then interviewed by Executive Leasing (Australia), 
 and signed a temporary contact as an Application Developer.
+
+Ingres RDBMS's SQL syntax was not very different from Foxpro.
+But Ingres RDBMS was definitely way more expensive than Foxpro!
+But Foxpro did NOT require HP X workstations, which were also
+very expensive, more pricy than Novell Netware.:)
+
+Looking back, Ingres4GL was very similar to Visual Foxpro. They
+were both object-oriented and had similar user interfaces. But
+when I was working in CLP, Visual Foxpro 3.0 was NOT yet born,
+let alone its later upgrade to 9.0.
