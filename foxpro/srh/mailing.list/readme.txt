@@ -1,3 +1,4 @@
-Mailing System for Survey Research Hongkong
+Mailing System for Survey Research Hongkong,
+written in Foxpro for DOS
 
 Main program is MAILLIST.PRG
