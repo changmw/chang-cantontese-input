@@ -1,0 +1,60 @@
+My Words to the Graduates
+
+Dear BScCS-4 (1990),
+
+Graduation is a time of great rejoicing. Each of you
+have good reasons to be proud of your accomplishments. The many long 
+days and nights of preparation for the beginning of your career should 
+pay off nicely. I give you sincere congratulations and honor for a 
+job well done. To have successfully labored through four demanding 
+years of a difficult program is an honor indeed. May you continue 
+to do your best helping your company to succeed and providing for 
+your family's well-being.
+
+Regarding technical advice, I only have three comments.
+First, beware of computer addiction. It is very easy to lose balance 
+and to let the computer and your job consume all your time and energy. 
+Second, do not be afraid of change. Our field is one of the most volatile 
+and dynamic fields of study on earth.  You can stay abreast on technology 
+- not by frantically  reading about every new thing, but by "leap 
+frogging" new developments from time to time. Try to gain the essence 
+of the product or concept. Search deeper if you have the time. Third, 
+learn how to find excitement in any job that you are requested to 
+perform. All peoples are given work that can be considered boring, 
+tedious, unexciting, etc. But, those who are happy at their jobs find 
+ways to be creative. Even documentation can be a creative work when 
+you are able to design the layout and format of the chapters and sections 
+in order to publish a professional and beautiful document in form 
+and content.
+
+I have good memories of teaching you through your first two years.
+Despite your efforts to break me of my habit, I still say
+"excellent!" to my students. Your diligence and attitudes continue 
+to challenge me. While you have many academic strengths, I encourage 
+you to focus on sharpening your skills of good judgement, creative 
+thought, integrity, and innovation. I have high expectations for you 
+all.
+
+Sincerely,
+
+Bradley R. Swim
+
+Background
+
+Bradley R. Swim received the B.A. degree in Mathematics from
+Point Loma Nazarene College, San Diego, CA in 1979, and the
+M.S. degree (with distinction honors) in Computer Science
+from California State University, Northridge, CA in 1990.
+
+From 1979 to 1986 he was a software engineer at McDonnell
+Douglas Astronautics Company,Huntington Beach, CA, where he
+researched and developed various support software
+development tools oriented towards microprocessor
+architectures. Other projects included the development of
+support software for RISC and non-RISC architectures.
+During 1986 to 1988 he lectured at the City Polytechnic of
+Hong Kong in the areas of computer architectures, operating
+systems, compilers, and programming languages. His current
+interests are in object oriented development methods and
+tools facilitating software measurement, program development
+environments, and computer architectures.

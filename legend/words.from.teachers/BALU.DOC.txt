@@ -1,0 +1,57 @@
+
+
+@BALU-TEXT = Looking back at 1986, the City Polytechnic of Hong Kong 
+(CPHK) was in its temporary campus in Mongkok, with no recreational 
+facilities for its students. No CPHK computing graduates had yet entered 
+the market. The four-year-long Professional Diploma in Computer Studies 
+had no international recognition. Yet you took the courage to venture 
+into this course. Four years later you have now graduated with an 
+internationally recognized bachelor's degree in Computer Studies. 
+You witnessed the visit of the UK Council for National Academic Awards 
+panel in early 1987, and the visit of the British Computer Society 
+panel in late 1987. You saw the move to the permanent campus in the 
+summer of 1988 and, at the same time, the beginning of your industrial 
+placement in the sandwich degree course. The industry had an early 
+taste of what was going to come; and, they had no hestitation in openly 
+declaring their enthusiasm for you all. Congragulations and thank 
+you for acting as CPHK ambassadors.
+
+@BALU-TEXT = This year, 1990, marks a turning point in your life. 
+At the CPHK, it is seeing the formation of the Faculty System and 
+the split of Computer Studies into Information Systems and Computer 
+Science. Our industrial links became stronger with the inauguration 
+of the HK$4 million joint UNISYS - CPHK research centre on Asian Language 
+Development. The Master of Arts degree in Information Systems commenced, 
+after a successful validation by the UK Council for National Academic 
+Awards. A proposal for Master of Science degree in Computer Science 
+was submitted to the Hong Kong Council for Academic Accreditation. 
+About twenty students graduated in July with a Master of Science degree 
+in Data Processing of the University of Ulster. (All teaching/examinations 
+are conducted by CPHK staff here in Hong Kong for this course.)
+
+@BALU-TEXT = You enter the Hong Kong Information Technology industry 
+when it is facing an acute manpower shortage crisis. Young graduates 
+in Hong Kong assume supervisory and leadership positions very early 
+in their career, campared to their counterparts elsewhere in the world. 
+Hong Kong is moving from a Newly Industrialized Country (NIC) to full 
+fledged industrialized and sophisticated place akin to western countries. 
+As such, it has an important role to play, in the modernization of 
+the People's Republic of China. This, combined with the leadership 
+role which you are expected to play rather early in your career, mentioned 
+above, puts a heavy responsibility on your shoulders. Based on my 
+observation of you all in raising to challenges and in tackling obstacles 
+in the past four years, I am fully confident that you all will be 
+shining stars of Hong Kong.
+
+@BALU-TEXT = Best wishes and good luck to you all both in your professional 
+career and in your personal life.
+
+@BALU-TEXT = 
+
+@BALU-TEXT = 
+
+@BALU-TEXT = N V Balasubramanian
+
+@BALU-TEXT = Head, Department of Computer Studies
+
+
