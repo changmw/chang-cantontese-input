@@ -4,11 +4,12 @@ Foxpro! old4a.rmk was the Makefile for BLINKER.EXE.
 
 Back then, I didn't know what 4A meant. :)
 
-I just coded this system, took it with a dot-matrix printer
-to a big hotel in Admiralty, and over-watched the data entry 
-process. The judges (including foreigners, e.g. Japanese) would 
-write down their scores on papers which was input into my 
-system and produce scoring sheets.
+I just coded this system, installed it to a computer,
+took it with a dot-matrix printer to a big hotel in Admiralty, 
+and over-watched the data entry process. The judges 
+(including foreigners, e.g. Japanese) would write down their 
+scores on papers which was input into my system and produce 
+scoring sheets.
 
 The Association of Accredited Advertising Agencies of Hong Kong
 https://aaaa.com.hk/awards
