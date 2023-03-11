@@ -11,7 +11,7 @@ Main program is MAILLIST.PRG.
 
 This system was initally written by Mr. Kai-wing Fung,
 who was a programmer in the MIS team of the Data Processing 
-Department.
+Department. This is definitely not a complex system.
 
 Mr. Fung left the company for studying about theology, and
 I was recruited as his replacement, also a programmer.
