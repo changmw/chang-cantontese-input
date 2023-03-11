@@ -1,1 +1,1 @@
-Infomration systems for Survey Research Hongkong
+Management Infomration Systems for Survey Research Hongkong
