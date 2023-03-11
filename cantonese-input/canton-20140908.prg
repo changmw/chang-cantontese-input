@@ -84,7 +84,7 @@
 #define K_LF 10
 #define K_TAB 9
 
-#define DEFAULT_CLIPTEXT  "¡iÂà¶K¡j"
+#define DEFAULT_CLIPTEXT  "Â¡iÃ‚Ã Â¶KÂ¡j"
 #define MUTEX_NAME "chang_canton"
 #define APP_NAME  "Cantonese Input for Chang"
 #define ERROR_MUTEX_EXISTS 183
@@ -337,7 +337,7 @@ Define class MyLblContainer as Container
 	Add Object lblChangjei As myLabel With ;
 		top=5, Left=5, width=100, ;
 		ForeColor=RGB(0,0,255), ;
-		ToolTipText="­Ü¾e½X"
+		ToolTipText="Â­ÃœÂ¾eÂ½X"
 	Add Object lblMatches As myLabel With ;
 		top=5, Left=105, width=this.width-10-100, ;
 		AutoSize=.f., Alignment=1
@@ -1060,7 +1060,7 @@ for m.ii=1 to 26
 	locate for thekey="BIG"+chr(asc("A")+m.ii-1)
 	?? canton.big5
 endfor
-? "MYNICK", "±i°O"
+? "MYNICK", "Â±iÂ°O"
 m.maxlen=0
 Select Distinct thekey From canton ;
 	where !Empty(thekey) ;
@@ -1516,7 +1516,7 @@ RETURN
 *
 * http://blogs.lessthandot.com/index.php/datamgmt/datadesign/displaying-and-saving-unicode-data/
 *
-*!*	In the form¡¦s Load we need the following:
+*!*	In the formÂ¡Â¦s Load we need the following:
 
 *!*	Sys(987,.F.)
 *!*	Sys(3101,65001)
@@ -1525,11 +1525,11 @@ RETURN
 
 *!*	this.txtLanguage.text = createbinary(prefs_sl.Language00)
 
-*!*	We don¡¦t want to use COMPROP now for the ActiveX.
+*!*	We donÂ¡Â¦t want to use COMPROP now for the ActiveX.
 
-*!*	and then, saving data, we need to follow Rick¡¦s steps:
+*!*	and then, saving data, we need to follow RickÂ¡Â¦s steps:
 
 *!*	pcSavedText1 = Strconv(This.Text,12)
 
-*!*	*** Must explicitly force to binary ¡V can also use CAST in 9.0
+*!*	*** Must explicitly force to binary Â¡V can also use CAST in 9.0
 *!*	pcSavedText1 = CREATEBINARY(pcSavedText1)
