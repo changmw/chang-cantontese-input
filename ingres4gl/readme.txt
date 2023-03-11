@@ -20,7 +20,7 @@ running Novell Netware LAN. :)
 Looking back, Ingres4GL was very similar to Visual Foxpro. They
 were both object-oriented and had similar user interfaces. But
 when I was working in CLP, Visual Foxpro 3.0 was NOT yet born,
-let alone its later upgrade to 9.0.
+let alone its later upgrade to 6.0 then 9.0.
 
 HP X workstations featured the use of TCP/IP, which led to the
 blossom of WWW and internet, and eventual loss of business 
