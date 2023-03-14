@@ -16,4 +16,6 @@ screen and menu definition file painted with screen
 and menu designer.
 
 With the arrival of smartphones and tablets, this PLAS
-system should have been replaced with Android and iOS apps. :)
+front-end system should have been replaced with Android 
+and iOS apps. Also, some insurance companies might 
+out-source insurance agent system to small companies.
