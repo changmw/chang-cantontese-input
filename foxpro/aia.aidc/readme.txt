@@ -12,4 +12,5 @@ PLAS stood for Personal Lines Administration System.
 
 Unlike Visaul Foxpro, Foxpro for Windows required you
 to use GENSCRN to gernerate actual Foxpro codes from 
-screen definition painted with screen designer.
+screen and menu definition file painted with screen 
+and menu designer.
