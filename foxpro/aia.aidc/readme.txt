@@ -17,5 +17,8 @@ and menu designer.
 
 With the arrival of smartphones and tablets, this PLAS
 front-end system should have been replaced with Android 
-and iOS apps. Also, some insurance companies might 
-out-source insurance agent system to small companies.
+and iOS apps. Before that, Java should have been used
+to produce a PLAS-like system using web browsers.
+
+Lastly, some insurance companies might out-source 
+insurance agent system to small companies.
