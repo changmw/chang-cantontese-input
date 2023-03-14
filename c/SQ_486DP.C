@@ -2,6 +2,10 @@
 #include <conio.h>
 #include <ctype.h>
 
+#
+# Netware print queues for Survey Research Hongkong
+#
+
 void box(int,int,int,int,int,int);
 
 void main(int argc, char **argv) {
@@ -63,30 +67,30 @@ void box(int left, int top, int right, int bottom,
 
   /* draw corners */
   gotoxy(1,1);
-  putchar('Ú');
+  putchar('Ãš');
   gotoxy(width,height);
-  putchar('Ù');
+  putchar('Ã™');
 
   gotoxy(width,1);
-  putchar('¿');
+  putchar('Â¿');
   gotoxy(1,height);
-  putchar('À');
+  putchar('Ã€');
 
   /* draw borders */
   for (i=1;i<width-1;i++) {
 	 gotoxy(i+1,top);
-	 putchar('Ä');
+	 putchar('Ã„');
   }
   for (i=1;i<width-1;i++) {
 	 gotoxy(i+1,height);
-	 putchar('Ä');
+	 putchar('Ã„');
   }
   for (i=1;i<height-1;i++) {
 	 gotoxy(1,i+1);
-	 putchar('³');
+	 putchar('Â³');
   }
   for (i=1;i<height-1;i++) {
 	 gotoxy(width,i+1);
-	 putchar('³');
+	 putchar('Â³');
   }
 }
