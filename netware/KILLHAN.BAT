@@ -1,3 +1,0 @@
-@echo off
-echo Removing Chun Hon Chinese System ...
-f:\lib\han255\qhan

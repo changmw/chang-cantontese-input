@@ -1,3 +1,0 @@
-@echo off
-echo Removing ET Chinese System ...
-ECHO Y | H:\LIB\ET22\UTILITY\SETHRC > NUL

@@ -1,2 +1,0 @@
-@Echo Off
-Login SRH486DP\SUPERVISOR
