@@ -16,3 +16,5 @@ scoring sheets.
 
 The Association of Accredited Advertising Agencies of Hong Kong
 https://aaaa.com.hk/awards
+
+![4A Schoring System](4a.screen.jpg)
