@@ -8,4 +8,4 @@ directly to Ms. Patricia Po.
 PLAS stood for Personal Lines Assurance System.
 
 PLAS.PRG contained miscellaneous library functions for all
-applications of PLAS (Motor, Life, General)
+applications of PLAS (Motor, Home).
