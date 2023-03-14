@@ -5,10 +5,11 @@
 
   set procedure to SRHLIB
   on error do ERRPROC with error(), message(), message(1), program(), lineno()
-
+  *
   * this variable points to the path holding the HKSIC.DBF from
-  * the HK Census and Statistics Depart. Note that the path must
-  * be ended with a slash
+  * the Hong Kong Government - Census and Statistics Depart.
+  * Note that the path must be ended with a slash
+  *
   SIC_PATH  = "\DP\HKSIC\"
 
   SYSDATE   = date()       && today's date
