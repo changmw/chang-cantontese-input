@@ -12,14 +12,16 @@ PLAS stood for Personal Lines Administration System.
 
 Unlike Visaul Foxpro, Foxpro for Windows required you
 to use GENSCRN to gernerate actual Foxpro codes from 
-screen and menu definition file painted with screen 
-and menu designer.
+screen and menu definition files painted with screen 
+and menu designer. It did saved you sometime from using
+@...SAY...GET... PICTURE.
 
 With the arrival of smartphones and tablets, this PLAS
-front-end system should have been replaced with Android 
-and iOS apps. Before that, Java should have been used
-to produce a PLAS-like system that could be used
-via web browsers.
+front-end insurance agent system should have been 
+replaced with Android and iOS apps. Before that, Java
+should have been used to produce a PLAS-like system
+accessible from all kinds of web browsers.
 
 Lastly, some insurance companies might out-source 
-insurance agent system to small software companies.
+insurance agent system to small, independent software
+companies.
