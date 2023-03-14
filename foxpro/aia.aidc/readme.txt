@@ -9,3 +9,7 @@ PLAS.PRG contained miscellaneous library functions for all
 applications of PLAS (Motor, Home).
 
 PLAS stood for Personal Lines Administration System.
+
+Unlike Visaul Foxpro, Foxpro for Windows required you
+to use GENSCRN to gernerate actual Foxpro codes from 
+screen definition painted with screen designer.
