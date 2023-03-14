@@ -10,7 +10,7 @@ database based on the source codes.
 Main program is MAILLIST.PRG.
 
 This Foxbase system was initally written by Mr. Kai-wing Fung,
-who was a programmer in the MIS team of the Data Processing 
+who was a programmer in the System Team of the Data Processing 
 Department. This is definitely not a complex system.
 
 Mr. Fung left the company for studying about theology, and
