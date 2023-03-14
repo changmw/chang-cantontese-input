@@ -333,7 +333,7 @@ IF m.g_graphic
    @ 3.000,3.333 TO 4.231,m.nblocks + 3.333 ;
       PATTERN 1 COLOR RGB(128, 128, 128, 128, 128, 128)
 ELSE
-   @ 3,3 SAY REPLICATE("Û",m.nblocks)
+   @ 3,3 SAY REPLICATE("Ã›",m.nblocks)
 ENDIF
 RETURN
 
