@@ -1,7 +1,7 @@
 American International Data Center Co. (subsidary of AIA)
 
 I ported an insurance agent system written in Clipper 
-Summer 87 to Foxpro for Windows, with some connection to
+Summer 87 to Foxpro for Windows, with file transfer to/from
 AIA's mainframe computers. For this project, I reported 
 directly to Ms. Patricia Po.
 
