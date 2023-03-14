@@ -9,6 +9,8 @@
   * this variable points to the path holding the HKSIC.DBF from
   * the Hong Kong Government - Census and Statistics Depart.
   * Note that the path must be ended with a slash
+  * 
+  * This program was requested by SRH Research Director Mr. Louis Tong
   *
   SIC_PATH  = "\DP\HKSIC\"
 
