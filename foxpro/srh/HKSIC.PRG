@@ -6,7 +6,7 @@
   set procedure to SRHLIB
   on error do ERRPROC with error(), message(), message(1), program(), lineno()
   *
-  * this variable points to the path holding the HKSIC.DBF from
+  * These variable points to the path holding the HKSIC.DBF from
   * the Hong Kong Government - Census and Statistics Depart.
   *
   * Hong Kong Standard Industrial Classification Version 2.0 (HSIC V2.0)
@@ -14,7 +14,7 @@
   *
   * Note that the path must be ended with a slash
   * 
-  * This program was requested by SRH Research Director Mr. Louis Tong
+  * This program was requested by SRH Research Director Mr. Louis Tong  
   *
   SIC_PATH  = "\DP\HKSIC\"
 
