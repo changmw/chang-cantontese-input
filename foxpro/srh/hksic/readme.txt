@@ -1,6 +1,8 @@
 HKSIC.DBF from the Hong Kong Government - Census and Statistics Depart.
 
-This program was requested by SRH Research Director Mr. Louis Tong  
+This program was requested by SRH Research Director Mr. Louis Tong. 
+I needed to represent SRH to communicate with the C&SD about the format
+of the HKSIC data file.
 
 Nowadays, you can search from the web browser.
 
