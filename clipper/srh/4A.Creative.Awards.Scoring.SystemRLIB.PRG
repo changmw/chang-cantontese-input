@@ -48,7 +48,7 @@ f_ritecol = f_leftcol + f_widest + 1                            && calculate rig
 f_window  = SAVESCREEN(f_toprow,f_leftcol,f_botrow,f_ritecol)   && save what is underneath
 f_incolor = SETCOLOR(f_color)                                   && save old color an set to white on red, or color specified
 SCROLL(f_toprow,f_leftcol,f_botrow,f_ritecol,0)                 && clear screen and paint in designated color
-@ f_toprow,f_leftcol,f_botrow,f_ritecol BOX 'ÚÄ¿³ÙÄÀ³'          && draw box around window
+@ f_toprow,f_leftcol,f_botrow,f_ritecol BOX 'ÃšÃ„Â¿Â³Ã™Ã„Ã€Â³'          && draw box around window
 FOR f_x = f_indexp TO f_pcount                                  && get widest width for window
    f_pname = 'p' + LTRIM(STR(f_x,2,0))                          && build name of parameter
    @ f_toprow+f_brows+IF( f_lines=f_pcount, f_x, f_x-1 ),;
@@ -191,7 +191,7 @@ ELSE
 ENDIF
 f_incolor = SETCOLOR(f_color)                                   && save old color an set to white on red, or color specified
 SCROLL( f_top, f_left, f_bottom, f_rite, 0 )                    && clear screen and paint in designated color
-@ f_top,f_left,f_bottom,f_rite BOX 'ÚÄ¿³ÙÄÀ³'                   && draw box around window
+@ f_top,f_left,f_bottom,f_rite BOX 'ÃšÃ„Â¿Â³Ã™Ã„Ã€Â³'                   && draw box around window
 FOR f_x = f_indexp TO f_pcount                                  && get widest width for window
    f_pname = 'p' + LTRIM(STR(f_x,2,0))                          && build name of parameter
    @ f_top+f_brows+IF( f_lines=f_pcount, f_x, f_x-1 ),;
@@ -309,7 +309,7 @@ NEXT f_x
 *-- now draw the box for the menu using the maximum width of options
 *-- making the active box a double line box
 SETCOLOR(f_box_on)
-@ p_row, p_col-1, p_row+LEN(p_options)+1, p_col+f_maxwide BOX 'ÉÍ»º¼ÍÈº'
+@ p_row, p_col-1, p_row+LEN(p_options)+1, p_col+f_maxwide BOX 'Ã‰ÃÂ»ÂºÂ¼ÃÃˆÂº'
 
 *-- now add any alternate pick keys passed as parameters to the list, if any
 p_altkeys = IF( TYPE('p_altkeys') = 'C', f_junk + p_altkeys, f_junk )
@@ -392,7 +392,7 @@ IF p_choice > 0 .AND. p_choice <= LEN(p_options)
    @ p_row+p_choice,p_col SAY p_options[p_choice]
    *-- redraw box in in-active box color
    SETCOLOR(f_box_off)
-   @ p_row, p_col-1, p_row+LEN(p_options)+1, p_col+f_maxwide BOX 'ÚÄ¿³ÙÄÀ³'
+   @ p_row, p_col-1, p_row+LEN(p_options)+1, p_col+f_maxwide BOX 'ÃšÃ„Â¿Â³Ã™Ã„Ã€Â³'
 ENDIF
 
 *-- restore original color
