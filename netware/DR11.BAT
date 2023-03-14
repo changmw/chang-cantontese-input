@@ -1,0 +1,4 @@
+@Echo Off
+Map Ins S1:=SRH486A\SYS:LIB\DR11
+DR
+MAP DEL S1:

@@ -1,0 +1,1 @@
+nprint %1 /NA=%1 /S=SRH486DP /Q=DP_LQ1050 /NB /NONOTI
