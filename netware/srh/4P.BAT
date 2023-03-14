@@ -1,5 +1,7 @@
 @echo off
 rem
+rem Calling Shareware program 4PRINT to print reports
+rem 
 rem default options:
 rem
 rem -f   front side only
