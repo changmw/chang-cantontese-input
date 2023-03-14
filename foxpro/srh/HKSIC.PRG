@@ -9,8 +9,8 @@
   * this variable points to the path holding the HKSIC.DBF from
   * the Hong Kong Government - Census and Statistics Depart.
   *
-  * C&SD : Hong Kong Standard Industrial Classification Version 2.0 (HSIC V2.0) Search Tool
-  * https://www.censtatd.gov.hk/en/index_hsic2_code.html
+  * Hong Kong Standard Industrial Classification Version 2.0 (HSIC V2.0)
+  * Online Search Tool: https://www.censtatd.gov.hk/en/index_hsic2_code.html
   *
   * Note that the path must be ended with a slash
   * 
