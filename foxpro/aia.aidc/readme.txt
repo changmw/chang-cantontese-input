@@ -21,4 +21,4 @@ and iOS apps. Before that, Java should have been used
 to produce a PLAS-like system using web browsers.
 
 Lastly, some insurance companies might out-source 
-insurance agent system to small companies.
+insurance agent system to small software companies.
