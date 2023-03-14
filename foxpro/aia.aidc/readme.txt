@@ -14,3 +14,6 @@ Unlike Visaul Foxpro, Foxpro for Windows required you
 to use GENSCRN to gernerate actual Foxpro codes from 
 screen and menu definition file painted with screen 
 and menu designer.
+
+With the arrival of smartphones and tablets, this PLAS
+system should have been replaced with Android and iOS apps. :)
