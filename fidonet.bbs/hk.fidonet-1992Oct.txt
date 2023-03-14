@@ -1,0 +1,458 @@
+Fiodnet Hong Kong 
+
+Source: https://groups.google.com/forum/#!topic/soc.culture.hongkong/BtzS0-3QcNQ
+
+Newsgroup: soc.culture.hongkong
+From: Ernest Yik
+Subject: Complete Hong Kong Fidonet BBS list (LONG) 
+
+Hello everybody,
+
+        Here is a complete list of the Fidonet Nodes of Hong Kong,
+as of October 1992.  All the telephone numbers have a 852- prefix.
+Addresses are 6:700/*.
+
+Regards,
+Ernest Yik.
+
+
+ Node     Name of BBS                    Name of SysOp      Phone
+--------------------------------------------------------------------
+   1  TAIC Maximus-CBCS                  Samson Luk        789-1267
+   2  Commercial Net                     Steve Nacarlo     330-7761
+   3  DataWorld Twin Net/1               Denny Ngo         834-7277
+   4  ATC Board                          Francis Leung     490-0424
+   5  MedInfoNet                         Cp Wong           760-4228
+   6  Practitioner's BBS                 Alfred Tang       336-2405
+   7  Music Lovers' Board                Raymond Poon      885-9531
+   8  HK PC User Group Software Library  Samson Luk        390-6133
+   9  Friendly Board                     Clement Leung     415-2619
+  10  CATNet /1                          CT Lee            546-6341
+  11  CATNet /2                          CT Lee            559-6415
+  12  DbMadNet                           Issac Lam         760-7742
+  14  Phone Magazine                     Alsmond Yui       475-2772
+  15  Black Knight BBSystem              Raymond Ko        426-5196
+  16  ZyXEL SUPPORT                      Tannil Lam        574-6040
+  17  Wing of Elf                        Eric Cheung       814-8567
+  18  Electronic BBS                     Stanley Yau       728-4159
+  19  Home of Elf Hong Kong ZyXEL suppo  Eric Cheung       --Down--
+  20  Ziggy BBS                          Steve Robertson   872-5377
+  21  Rookie's Board                     Edmond Li         875-0692
+  22  Sincerity                          Neil Chan         896-3018
+  24  Moonwalker                         Andy Wong         797-8605
+  25  C'ing BBS                          Kevin Lam         697-4536
+  26  M&S Technologies                   Mike Carr         813-0297
+  28  KitNET                             Kit Ngan          656-1637
+  29  ComputerWorld On-Line              Dean Bottorff     572-7640
+  30  CompuNet Advanced RBBS             Albert Ng         388-0580
+  32  Conference BBS 3                   Joe Fong          411-5610
+  33  CompuTech Net                      Dennis Lee        540-9486
+  34  Conference BBS 2                   Thomson Shum      455-8976
+  35  Conference BBS 1                   Thomson Shum      455-1206
+  36  Concerto BBS#1/Concourse           Alen Chan         637-5805
+  37  Concerto BBS#3/Chatterbox          Harrison Leung    324-9501
+  38  Concerto BBS#4/Cresendo            Dennis Wong       517-0332
+  39  Concerto BBS#2/Consensus           Allan Yuen        855-1015
+  40  Concerto BBS#5/Carnival            Wk Chan           647-7737
+  41  Concerto BBS#6/Caravan             Kamwing Lee       726-5116
+  42  Concerto BBS#7/Cubbyhole           Rex Lau           478-5744
+  44  HORIZON >Strength<                 Hercules C.       834-0373
+  46  International Chinese Network (CH  Ivan Li           390-3912
+  48  :-( .............                  albert chan       565-9274
+  50  Net700 Sub MailGate                Tommy Lau         673-8221
+  51  Joseph Fan's Board                 Joseph Fan        455-1507
+  52  Trading Market                     Walker Chen       771-9258
+  53  WSDC Node 1                        Alex Fong         677-0885
+  54  Daniel's BBS (Line 2)              Daniel Tsui       518-0641
+  55  ==> Super Woofer BBS <==           Adams Chan        563-4113
+  56  = Especially For You               Day Chan          --Down--
+  57  City Connection BBS                Tobby Lee         602-5812
+  58  Freedom Board                      Eddie Lee         422-7079
+  59  Lethal Strike                      S-S Chan          755-8815
+  60  Turning Point BBS                  Peter Li          786-0287
+  61  Gradius Net                        Gradius Law       412-7754
+  63  Winzzy II                          Martin Tai        865-5617
+  65  Prince Paging System               Edward Chong      716-6462
+  66  Military Strategy R&D BBS [MultiL  Arnold Lee        --Down--
+  67  Ottomatic                          Otto To           330-6761
+  68  Freetime BBS                       Kwong Chik        404-1296
+  69  RO10X                              Kam Leung         776-2975
+  70  HORIZON >Wisdom<                   Vankith Tsoi      562-0440
+  71  MegaSonic Net                      Edward Tsang      637-9193
+  72  PROGRAMMER PARADISE                Kenneth Wu        880-0865
+  74  HKCS Mail Office                   Enzo Michelangeli 735-8802
+  75  Ophinchus's Land BBS -- Legend of  Ophinchus Chow    657-9219
+  76  The Islander BBS                   Rishi Thunder     548-1098
+  77  Blazing Sun BBS                    Sunny Tsang       473-5594
+  78  BegiNet                            Knight Lee        647-8635
+  79  Satellite BBS                      Yuen Ming         568-8191
+  80  Communist Board (HK)               Rocky Ng          708-8492
+  81  Nebula Net #3                      Tannil Lam        834-9537
+  82  NEBULA #6/Service Centre           Andy Ho           598-4067
+  85  VIP Software BBS                   Kan Ma            775-2040
+  86  Emmanuel                           Alsen Chan        609-0246
+  87  Garfield Forever                   Ires Tsang        564-0270
+  90  Bubble Gum BBS                     Marco Chan        451-9814
+  92  HYPNOS BBS                         Simon Ma          477-9420
+  93  Apple Lover Board                  Yaksa Ken         478-5308
+  94  PROGRAMMING WINZZY                 Andy Lo Yan Chi   774-0592
+  95  Counterpart BBS                    Samson So         602-5543
+  96  LacWord - Gni Hc 85 Hc             Wesly Lau         787-3797
+  97  DbMadNet/97                        Frank Lam         712-3931
+  98  Walker BBS(HK)                     Stephen Bartholom 796-2667
+  99  Military Strategy R&D BBS [MultiL  Arnold Lee        --Down--
+ 100  Hong Kong BBS Hub                  Kw Chiu           -HubSys-
+ 101  Net700 MailGate (1 of 3)/CrazyNet  Louie Chan        692-0831
+ 102  Net700 MailGate (2 of 3)/CrazyNet  KW Chiu           698-6754
+ 103  Net700 MailGate (3 of 3)/CrazyNet  Louie Chan        605-6516
+ 106  Chinese BBS/CrazyNet #6            KaiKuen Lau       833-0118
+ 108  HKBBS/CrazyNet #8                  Peter Crowcroft   715-9701
+ 109  HKBBS/CrazyNet #9                  KaiKuen Lau       714-6075
+ 115  2010 Board                         K.S. Lo           343-2906
+ 116  Special Group -- Don Bosco Youth   YK Wong           429-6713
+ 117  MEGA Network/CBCS                  Christopher Kwok  890-2702
+ 118  RUSSELL BOARD                      Russell Tse       873-2861
+ 119  Direct Link                        Ng Wingfuk        428-3625
+ 120  Turbo Maktal                       Mak Wingyiu       389-4159
+ 121  labMED                             Chun Hing         782-5048
+ 122  Sagacious                          Hermione Chung    546-8300
+ 123  THE board - little                 Catherine Leung   525-1802
+ 125  Japan Board                        Ozawa Hiroyuki    694-7160
+ 126  The BOARD                          Alex Lee          735-7306
+ 128  Trinity Hse                        Kenny Tse         785-2463
+ 129  HcUG BBS                           T.K. Kang         855-0569
+ 130  Ashley Board                       Ashley Cheng      871-0272
+ 131  Elite                              Maverick Tsang    705-1222
+ 132  BiG Programming Club               Patrick Ko        656-1350
+ 133  Tergiversation                     Kelvin Leung      782-4332
+ 134  Direct ACCESS * 386                Clement Lo        416-1859
+ 135  Info-Access                        WK Wong           517-1704
+ 136  Bread Board BBS                    Monty Wong        735-3552
+ 138  Chiu's Board                       KW Chiu           712-6466
+ 139  ACTIVE Wayne's Board               Wayne Sze         578-2360
+ 140  SuperBike Professional             YK Wong           418-9504
+ 141  B&A 386 BBS                        Alfred Lee        887-2669
+ 142  Perfect BBS                        Ming Leung        550-8043
+ 143  BAUD Weekly                        Ivan Tang         786-2108
+ 145  Cross-Com BBS                      Raymond Wong      653-3350
+ 146  BBSNewsEditor/Nebula Net #1        Andy Ho           519-7807
+ 147  Rendezvous                         Peter Lam         568-3374
+ 148  Supersonic Board                   Tony Mak          --Down--
+ 149  Anthony's Board                    Anthony Wong      577-7876
+ 150  HUB 100 Sub MailGate               Kan Ma            727-2930
+ 151  L Square C Square P. L. C.         Lawrence Liu      413-7338
+ 152  Zap Board                          Joseph Sze        341-0891
+ 153  FOCUS                              Bryant Kwok       898-9817
+ 156  Christian Support Center           Chun Hing         396-6399
+ 158  Chicken's Board                    Chan Kafai        785-7127
+ 159  Megalopolis                        Frederick Lo      --Down--
+ 161  Nebula Net #2                      Kenneth Cheung    880-9912
+ 162  Vertex Board                       Victor Lam        817-9787
+ 163  Global System                      Raymond Lam       415-6439
+ 164  Phoenixity                         Hui Kit-ying      326-2040
+ 166  Message Lover's Board              Lee Eric          741-1121
+ 167  Software Association #4 : C++      Kwok Ching        761-4290
+ 168  THE Board                          Wally Li          794-0588
+ 169  SA#5 Clipper/City Board            Jim Poon          559-3929
+ 170  Sovereign                          Raco Ho           546-8300
+ 171  Quintessence                       Terence Wong      435-1115
+ 172  Instrumentation                    Jackman Cheung    471-7537
+ 173  FatNet                             Ajay Hira         609-4940
+ 174  CP Friends II                      Chris Tsui        858-8167
+ 175  PathQMH                            Kwok Wah          817-2747
+ 176  K.M. BBS                           Kinson Mak        896-4805
+ 177  Junction Network                   Roger Kwan        417-1919
+ 178  HodRod BBS                         Billy Chow        396-2549
+ 179  Accountant's Board                 Henry Law         705-0792
+ 180  Fox Net                            KK Leung          775-4116
+ 181  Cosmic Excelland                   Dennis Kung       637-8385
+ 182  ASHURA BOARD [Nebula #4]           Henry Lau         694-7030
+ 183  Simon & Lawrence BBS               Lawrence Lee      549-6638
+ 186  E&E BBS [Echomail Express]         Ellis Chan        650-0493
+ 188  SPORTS BBS                         Simon Leung       513-1192
+ 189  The Board                          Raymond Lum       365-7821
+ 190  JJ BBS                             Wong Shu Shing    495-8070
+ 192  FatCatPoint                        Cc Yau            884-4358
+ 195  Winzzy BBS                         Franki Yim        641-9099
+ 196  Knapp's Pioneers BBS               Raymond Knapp     671-6630
+ 197  Nebula Net #5                      Tannil Lam        834-3932
+ 198  Andy Board                         Andy Ng           565-0210
+ 199  Labyrinth                          Esprit Leung      493-5699
+ 486  Technical BBS                      Tang Yukeung      889-2496
+ 666  HELL Net                           CT Lee            559-8900
+ 719  Daisy Information Gallery          Simmons Kwan      765-6899
+ 720  Rainbow Chain BBS                  Howard Chan       897-6756
+ 925  Current Affairs Board              Ben Yoong         896-0651
+ 200  HUB 200                            Roger Nie         -HubSys-
+ 201  HamNet Node 1                      Tony Kwok         796-3845
+ 202  RLI/BBS                            Gennis Tsang      450-2301
+ 203  HamNet Node 3                      Stanley Lo        346-6500
+ 204  HamNet Node 4                      Edward So         564-4692
+ 205  HamNet Node 5                      Johnny Lee        352-5193
+ 206  SamsonNet                          Samson Chan       725-1184
+ 207  Daniel's BBS                       Daniel Tsui       873-0541
+ 208  Challenger                         Solomon Woo       406-7347
+ 211  Future Tech #2 - J . Net           James Tong        499-4594
+ 212  Big Eyes BBS                       Willin Chan       544-6231
+ 213  The Metaform BBS                   Katson Yeung      602-4177
+ 214  The Scevolians                     Tse Chikeung      880-5065
+ 215  Edification                        Wilson Lau        666-5521
+ 216  OCTOPUS                            Vincent Young     498-8746
+ 217  Cheflink BBS                       Klaus Lam         558-6759
+ 218  Polian LINK                        Kelvin Seto       603-1751
+ 219  Camelot BBS                        Joseph Yuen       568-4585
+ 220  Telelink BBS                       Daniel Chu        551-1669
+ 221  Telelink BBS #2                    Daniel Chu        875-3335
+ 222  Intelligent BBS                    John Chan         761-0053
+ 223  KiwiNet BBS                        Justin Keen       987-8865
+ 224  Castle BBS                         Geoffrey Sin      481-8235
+ 225  Forefront BBS                      Tommy Lui         661-5962
+ 226  Kai's node                         Kai-Yeung Mak     660-5236
+ 227  Lazy Board                         Andy Chung        418-1216
+ 228  Simpson Board                      Simpson Chan      480-5364
+ 229  Adventurealm                       Bernard Li        338-7333
+ 230  Kee (Up & Down) Board              Hon Kee           647-5012
+ 232  KiwiNet MAIL-GATE                  Justin Keen       987-8848
+ 233  WingMan Net                        Simon Siu         606-4786
+ 234  Winsome Board                      Winson Yee        666-5012
+ 235  Pearl                              Philip Wong       898-7297
+ 236  Falcon Crest                       Michael Hamnett   673-3157
+ 237  The Eagle's Nest                   Michael Hamnett   673-3165
+ 238  <* ColnaGo TeleBoArD *>            Roger Hamnett     607-0535
+ 239  The Mac BBS                        Dick Chung        728-3993
+ 240  FilesNet                           Billy Liang       480-6256
+ 241  Calbee Fat's Board / Assistant Ne  Calbee Leung      570-8792
+ 242  Logic Board (Multi-line)           Ricky Chau        857-2399
+ 243  Newslink                           Clive Li          424-3664
+ 244  DECEMBER BOARD                     Kenny Chan        646-8909
+ 245  Amiga Land BBS                     Bassanio Kum      391-9568
+ 246  Xenix BBS                          Daniel Mok        450-1892
+ 247  Eveready Board                     Vincent Yeung     712-6780
+ 248  MutNet - McCenLearn                Leung Chun Ting   432-5512
+ 249  EchoList Coordinator/Software Exp  Roger Nie         570-9102
+ 250  HUB 200 Sub MailGate               Bowie Chan        603-0351
+ 252  HELLO BBS                          Stephen Au        572-4624
+ 253  Plantation Transverter             Edwin Tam         715-0064
+ 254  Paper Net                          Sonny Chan        666-0379
+ 257  Future Tech #4 - Gel Gel BBS       Harrison Kan      566-8500
+ 258  Net Echo Coordinator/SEB #2        Roger Nie         887-8504
+ 259  Net Inspector                      Michael Lau       880-5426
+ 260  MEGA-BYTE Multiline #1             Li Man            344-3140
+ 261  MEGA-BYTE Multiline #2             Li Man            793-3559
+ 262  MEGA-BYTE Multiline #3             Li Man            342-0834
+ 263  MEGA-BYTE Multiline BBS #4         Li Man            343-0848
+ 264  Switch Board                       Danny Lai         637-4062
+ 265  Bartman Island                     Peter Wong        760-7415
+ 266  CB#6 Virgo                         Roger Fong        881-1527
+ 267  AmigaZone                          Sean Clarke       651-2194
+ 268  Science BBS                        Wincent Wong      763-4536
+ 269  Future Tech #1 - Rock Fun BBS      Francis Lam       563-4490
+ 270  Cogito Ergo Sum                    Frank Shit        705-2555
+ 271  CB#11 Aquarius                     Godwin Ay         417-2285
+ 272  CC Net                             Leung Ming Yan    693-4406
+ 273  Superior BBS #1                    Ray Ho            382-2120
+ 274  Superior BBS #2                    Ray Ho            716-7902
+ 275  PolyEngin                          Andy Woo          775-6219
+ 276  Panzer Board                       Roger Cheng       855-7757
+ 277  Falcon'S BOARD                     Alex Chan         695-4170
+ 278  Jet Start BBS                      Wong Wah Cheuk    471-8813
+ 279  John's BBS                         J Lee             487-5099
+ 280  PencilPoint                        Patrick Law       598-4409
+ 281  NEW BBS                            Siu Kin-wai       564-0960
+ 282  Our Utopia BBS                     Josef Ku          357-5946
+ 283  Future Tech #5 - Fai Forwarding B  Yu Kin Fai        546-9107
+ 284  *===> SABAI LAND <===*             Ike Akazak        657-1699
+ 285  V-Dreams                           David Hui         856-1892
+ 286  St.Lawrence BBS 486                K.L. Lee          576-6208
+ 287  Spider-Net                         Steven Tsao       499-3586
+ 288  Gemini Syndicate                   Eric Lau          367-0470
+ 289  [ Casablanca Super Club ]          Billy Liang       489-0903
+ 290  EuroLink                           Victor Richard    744-9791
+ 291  Atlantic Board                     Danny Lai         647-0220
+ 292  Crystal Net                        Simon.F Chan      452-3339
+ 294  THE ONE YOU LOVE                   Joseph Chan       647-5620
+ 295  Chris Board                        Chris Leung       855-9284
+ 296  Philip Cat's Board                 Philip Fu         691-1048
+ 297  Angel Land                         Michael Chan      984-1168
+ 298  Software Bank #1                   Danny Fung        569-9852
+ 299  LEARN:RESOURCE                     T.K. Kang         872-5077
+ 300  HUB 300                            Dick Chung        -HubSys-
+ 301  Mailgate Collection                dick chung        728-8393
+ 302  Dic Dic BBS                        Dick Chung        387-4568
+ 303  Sincere Net                        David Luk         665-7355
+ 304  ==[JASO CLUB SUPER BBS]==          Kevin Hui         435-1690
+ 305  Girl's Diary                       Meno Leung        754-2860
+ 306  Colour Board                       Terry Yung        560-2383
+ 307  TopGun BBS                         Billy Lo          559-4639
+ 308  CompuMate Net                      Andrew Leung      332-3165
+ 309  Tiny Board                         Angus Fong        855-8785
+ 311  TWILIGHT [REVELATIONS]             Frank Cheung      670-6203
+ 312  The Atlantis BBS                   Kenny Yung        510-8715
+ 313  World Series                       Leo Li            564-6783
+ 316  The Teddy Bear                     Alan Yu           383-7693
+ 318  The Plantagenet's BBS              Simon Willson     657-7767
+ 323  = NEW HAPPY HOUR                   Freedom Cheong    464-0112
+ 324  Final Zone Bulletin Board          Johnny Au Yeung   818-4794
+ 325  Enoch                              Wk Yum            728-4659
+ 326  Newtype                            Alfred Leung      858-7649
+ 327  Felix The Cat BBS                  Spencer Fung      602-8959
+ 328  Amphiprion Paradise                Kinson Mak        560-9601
+ 330  Wonderful Land                     PS Mak            653-0147
+ 333  Halcyon Days                       Horace Ho         603-1767
+ 334  Peter's Laputa Board               Peter Leung       457-2412
+ 335  KGV BBS (The Lion's ROAR)          Joseph Yang       714-6900
+ 336  VA Express Zone                    Sam Man           660-7165
+ 339  PSL#1 WarZone BBS                  Alex Lau          428-8639
+ 340  PSL#2 The Fable                    Keith Ng          418-9306
+ 341  PSL#3 Affection BBS                Cheung Shing Kwon 646-3691
+ 342  PSL#4 Longue Distance              Terence Lam       669-1973
+ 344  PSL#6 My Supreme Board             Law Sing Man      784-6285
+ 345  PSL#7 Metropolis                   Pang Wai Cheung   699-8575
+ 346  PSL#8 Salaam System                Iolo Loki         441-2088
+ 350  HUB 300 Sub MailGate               Marvin Chan       440-2000
+ 352  SPEEDMODEM #1                      Anita Wong        725-1404
+ 353  SPEEDMODEM #2                      Marvin Chan       457-0122
+ 354  SPEEDMODEM #3                      Pussy Chan        440-2011
+ 358  SysOp's Node                       Mahesh Vasnani    858-6487
+ 359  Apache BBS                         Dheeraj Patri     338-8642
+ 361  CX#01 Dinkierami                   Herrick Kwong     481-8305
+ 362  CX#02 Tintinnabulation             Everett Ng        345-6904
+ 363  CX#03 Infinity Evolution           Nicholas Chan     728-7615
+ 364  CX#04 Final Encounter              Leslie Tsang      697-7107
+ 365  CX#05 Silhouette                   Boris Leung       386-8492
+ 366  CX#06 MegaTokyo HKC#01             Gabriel Ho        890-4090
+ 367  CX#07 Rocky Talky                  Talky Wong        755-2851
+ 368  CX#08 Greeny Bike                  Greeny Louie      895-5865
+ 369  CX#09 Unitronic BBS                Dicky Lei         559-0135
+ 370  CX#10 AfterHours BBS               Wylie Leung       713-3753
+ 371  CX#11 Merican Softstation          Eric Lee          412-2181
+ 373  Overground BBS                     Lasse Teranen     812-6933
+ 374  Fun Hint                           Andrew Law        603-0927
+ 375  My Way                             Jo Kwok           415-7382
+ 376  Audiophiles' Home                  HK Chan           751-1170
+ 377  Unique BBS                         Raymond Ho        741-9685
+ 378  MacAegis                           Justin Chan       349-6106
+ 379  Wiseman BBS                        Lee Wesman        569-0341
+ 380  Moon Gate 168                      Michael Lam       344-3617
+ 381  Moon Gate 169/[CHINet Gateway]     Michael Lam       824-0334
+ 382  Moon Gate 186                      Kenny Lam         347-5283
+ 383  Moon Gate 386                      Gary Lam          351-5082
+ 384  Moon Gate 286                      Thomas Fong       348-3813
+ 385  Moon Gate 287                      Edmond Chan       338-9417
+ 386  Green & White Council              Christopher Leung 798-6530
+ 387  Moon Gate 387                      Singly Wong       396-1581
+ 388  Wizardry Inn                       Chris Lam         550-5709
+ 389  SkyNet                             Nicholas Deal     577-4505
+ 390  Rose Board                         Hon Man           493-9228
+ 392  Conqueror BBS                      Billy Or          856-1379
+ 393  The Potato Patch BBS               Dave Kimball      814-0494
+ 394  Children of the Millennia          Chris Azure       695-4318
+ 395  Dini BBS                           Dini Man          868-1994
+ 396  Magnum BBS                         Magnum Chu        669-1084
+ 397  Underground BBS                    Chris Wiltshire   --Down--
+ 398  Sideline BBS                       WS Kwok           881-1450
+ 399  DataZone                           Dickson Cheung    667-5889
+ 400  HUB 400                            Alan Lui          -HubSys-
+ 401  Pacific Network                    Alan Lui          858-9540
+ 406  Speed-Data #1                      Jimmy Wong        546-7805
+ 407  Speed-Data #2                      Daniel Law        386-4515
+ 409  NeXuS                              Dino Chincotta    547-7129
+ 411  New Generation (Line #1)           Steve Leung       741-9812
+ 413  Yesterday Once More                Tom Yeung         741-3860
+ 414  Scanner Fans Club                  Dick Chan         353-1326
+ 415  Draco Eye II                       Leung Wai-Yip     716-3545
+ 416  Transcendent Draco                 Kin-fai Lau       481-4580
+ 418  Draco Eye I                        Lee Tin-Yau       716-3519
+ 419  Greenwoods                         Geoffrey Hui      415-2690
+ 420  Power Database                     Dick Wong         424-7674
+ 421  Joetex                             Joe Tang          364-6304
+ 422  Linked Together BBS                Dennis Yu         858-6108
+ 423  Sylvester Board                    Eric Chow         566-2645
+ 424  LOTA BBS                           Everet Gan        763-0907
+ 425  [BEST A-1] Lonely MailGate         Bowie Chan        647-8471
+ 426  [BEST A-2] Street Fighter ][ BBS   Jimmy Wong-Chi-Ho 478-8474
+ 427  [BEST A-3] The No Nonsense BBS     Simon S. Chan     714-5523
+ 428  [BEST A-4] Night Ghosts Board      Alfred Ng         322-5452
+ 429  [BEST A-5] DeF jAm BBS             Eugene Hui        336-8444
+ 430  [BEST B-1] Project Psychoist       Jerry Leung       895-2579
+ 431  [BEST B-2] Rambo III BBS           Jonathan Cheng    668-0390
+ 432  [BEST B-3] Unique Foundation       Tony Lai          417-3450
+ 433  = [BEST B-4] Bonnie's Fantasy      Bonnie Tsang      578-6900
+ 434  [BEST B-5] Priority BBS            Wilson Pang       857-2718
+ 435  [BEST C-1] The Ultimate Mailgate   Sitson Lee        635-3909
+ 436  [BEST C-2] NExt Bilingual BBS      Chan Wei-wang     568-0361
+ 437  [BEST C-3] EverGreen               Johnson Chan      345-8084
+ 438  [BEST C-4] CIPOTECH BBS            Leo Luk           516-9713
+ 439  [BEST C-5] Random Thoughts         Sherry Li         393-0064
+ 440  [BEST D-1] Laputa Board            David Jen         559-0597
+ 441  [BEST D-2] Bisquit Pentax Board    Ngan Kwan         727-2490
+ 442  [BEST D-3] Try My Best             Matthew Mak       777-2103
+ 443  [BEST D-4] Simon & Pat Board       Simon Ma          568-5593
+ 444  [BEST D-5] Cupid Board             Ho Kam Ming Kevin 498-7936
+ 445  Ultra-Z                            William Wong      458-8663
+ 446  Special Luck BBS                   Nicholas Cheung   450-6635
+ 447  de La Salle BBS Group - Discovery  Derek Choy        338-9135
+ 449  Classical BBS                      Kenneth Lau       559-4623
+ 452  New Wave BBS                       Thomas Reed       555-9774
+ 453  Seki's City                        Seki Yuen         323-9672
+ 454  SMORGASBORD BBS                    Lam Brian         814-1557
+ 455  CPHK - CS                          Grandy Fu         788-7144
+ 456  Hunter                             Grandy Fu         671-2030
+ 460  DOHC-32v BBS & Video Girl AI       David-Koenig Chow 466-3363
+ 466  JJ BBS                             Jason Hui         337-2425
+ 467  Horse Racing BBS                   Dino Leung        818-2035
+ 468  CMC Support BBS                    Albert Lam        471-0985
+ 469  L.S. Fresco                        Sonny Lam         342-5490
+ 471  < ABOVEBOARD BBS CLUB >WING'S LAB  William Chan      872-6441
+ 480  < ABOVEBOARD BBS CLUB > GALAXY     Tse Yin Ching     421-7208
+ 485  The Kids WORLD                     Vincent Chan      391-6119
+ 487  Environment + IT Net #1            Anthony Kwan      567-7182
+ 488  HKIE BBS                           Warren Kwok       404-0520
+ 489  JL-Net                             Jones Lam         338-4935
+ 500  HUB 500                            Michael Lau       -HubSys-
+ 501  Venture BBS                        Michael Lau       562-2674
+ 506  KinderGarten BBS                   Philip Pak        566-4459
+ 507  MutNet - Penguin Island            Andy H.T.K.       885-7440
+ 508  ET USER CLUB                       Sun Yeung         --Down--
+ 509  The Holiday Spin                   Kelvin Lai        350-6005
+ 510  Gaming World BBS #1                David Hui         562-5108
+ 511  Shizuka Fan Club                   David Hui         562-5175
+ 512  Special Group -- The Sword #2      Lyon Kwok         441-1779
+ 513  -=> Terminator Board <=-           Paul Ng           347-4771
+ 514  -=> Agincourt BBS <=-              Dave Lau          571-7384
+ 515  The -=> Burberry BBS <=-           Raymond Chak      657-1261
+ 516  Special Group -- Quicken Away      Stanley Cheung    435-7037
+ 517  BERTA BBS                          Micheal Cheung    716-2362
+ 518  Special Group of Light Bulb Facto  Paulas Ling       459-2754
+ 519  Special Group -- The Sword #1      Lyon Kwok         452-1807
+ 520  Bow Bells Board                    Arthur Tsang      568-5402
+ 521  iLink Information Services         Daniel Ng         414-2054
+ 522  Adventurer                         Gabriel Tsui      394-2396
+ 523  MSX FAN BBS                        Ryu Ho            660-6804
+ 524  WHY NIGHT IS DARK? BBS             Kicker Chan       404-1105
+ 548  Nicam BBS                          Wilkin Leung      729-7204
+ 549  SuperBen Board                     T.T. Yeung        873-5635
+ 550  HUB 500 Sub MailGate               Francis Ma        691-4803
+ 553  Window on the World BBS            Andrew Murray     488-3257
+ 554  NEO GEO BBS                        Alan Li           796-1892
+ 556  Evergo Board                       Patrick Li        605-7601
+ 557  Knight Club                        Ken Yau           487-4423
+ 558  Salesian BBS                       Ricky Hung        567-7506
+ 559  COMPUTING PEER                     Jacky Leung       420-3813
+ 560  Computing Peer #2                  Jacky Leung       416-6248
+ 586  HERESY                             Nish Man          657-1386
+ 587  Dangerous BBS                      Timothy Chow      797-3987
+ 588  Mysterious Island BBS              Robert Law        674-5293
+ 589  Magun Board                        Peter Wong        896-4475
+ 598  Active Zone                        Christopher Man   481-2008
+ 599  FM Station                         Frank Lau         770-8158
+ 600  HUB 600                            Sunny Lau         -HubSys-
+ 601  Hong Kong Amature Radio BBS        Sunny Lau         459-0334
+ 614  Stealth Fighter Board              Victor Ho         559-7106
+ 615  Paramita                           Dave Chan         838-7691
+ 616  Saliva Club                        Faust Tack        650-3786
+ 617  Cameron Express                    Barry Cheung      513-1029
+--------------------------------------------------------------------
+
+--
+ * Origin: VAXlab : Home of Ernest (6:700/375.1)   Internet: yik...@cs.cuhk.hk
