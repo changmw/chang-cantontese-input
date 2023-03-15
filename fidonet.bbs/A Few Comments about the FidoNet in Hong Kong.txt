@@ -1,0 +1,57 @@
+FidoNews 11-36                 Page:  2                    05 Sep 1994
+
+A Few Comments about the FidoNet in Hong Kong
+
+By: S.C.Martin Wong  -  Martin_Wong@HKMHBR.MHBRGRP.COM
+
+     Before you read this passage, please excuse me my English
+writing skill is so very bad.  Because I am only sixteen years old
+very small BBS system operator in Hong Kong.(6:700/760).
+
+     I joined FidoNet for 6 months.  I read a lot of echomail in
+FidoNet.  I discovered two very serious problems in FidoNet Hong
+Kong (Zone 6, Region 700).
+
+Problem 1) In FidoNet Hong Kong local echo, user not allowed to use
+           Chinese.
+
+Problem 2) FidoNet Hong Kong has two NC!
+
+     According to FidoNet Policy 4, English is FidoNet official
+language.  In international echo, only allow user use English is
+right!  Because English is international language.  But in local
+echo, not allow user use Chinese is so very unacceptable!  Because
+most BBS user in Hong Kong is Chinese or oversea Chinese, include
+me.  Hong Kong BBS user English writing skill is very bad (like me).
+I read mail in local echo is so very hard because Hong Kong BBS user
+usually use incorrect grammar or spelling in their message, but no
+person to correct their mistake.  I don't know what they said in the
+mail.  I think local echo message will not send to another country.
+Allow user use Chinese in local echo (not include local sysop echo,
+because some BBS sysop in Hong Kong is foreigner!) is very
+FidoNews 11-36                 Page:  3                    05 Sep 1994
+
+reasonable!  Because most BBS user are Chinese, make more BBS user
+read and write message easily will make more BBS user using Fidonet
+Hong Kong.
+
+     Another serious problem in FidoNet Hong Kong is FidoNet Hong
+Kong has two NC.
+
+     FidoNet Hong Kong was made by Louis Chan and another foreign
+sysop in Hong Kong.  Then Louis Chan was Hong Kong FidoNet NC.  But
+Louis Chan is so very busy man, he usually not read the message and
+do not do management work in FidoNet Hong Kong.  Some sysop hope
+change the NC, then some sysop elected Chris Leung to do the NC.  In
+this time, Louis Chan said he is the NC, some sysop disagreed it.
+But Louis Chan said reason is more important than legality.  Now, I
+don't know who is the true NC.
+
+     I hope Hong Kong FidoNet sysop read this passage, they can
+think how to make FidoNet Hong Kong better than Now.
+
+                                  S.C. Martin Wong
+                                  Hong Kong Man Hing Book Room,
+                                  System Operator
+                                  in British Hong Kong
+                                  (6:700/760.0@FidoNet.org)
