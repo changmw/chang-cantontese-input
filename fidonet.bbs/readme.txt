@@ -29,7 +29,18 @@ Non-official Echos using Fidonet node system by S. C. Martin Wong
 Hong Cong an Macau users can now use these 9 special echos using
 Fidonet, YO!net and the Hong Cong net node system.
 
+1. Discussion on Vivian Lai echo
+2. Discussion on Winnie Lau echo
+3. Discussion on Tacry So
+4. Discussion on Linda Wong echo
+5. Discussion on Hacken Lee echo
+6. Discussion on Cass Pang echo
+7. Discussion on Priscilla Chan echo
+8. Cross Fire Echo
+9. Heart-Link
+
 03 Oct 1994
+
    A good snooze this week, starting with an update on the ZEC
 election. More NC vs NC battles in Hong Kong (why not *three*
 positions in the net [RC, NC, & PC {Political Co-ordinator}]),
