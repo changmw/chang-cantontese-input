@@ -29,8 +29,6 @@ person to correct their mistake.  I don't know what they said in the
 mail.  I think local echo message will not send to another country.
 Allow user use Chinese in local echo (not include local sysop echo,
 because some BBS sysop in Hong Kong is foreigner!) is very
-FidoNews 11-36                 Page:  3                    05 Sep 1994
-
 reasonable!  Because most BBS user are Chinese, make more BBS user
 read and write message easily will make more BBS user using Fidonet
 Hong Kong.
