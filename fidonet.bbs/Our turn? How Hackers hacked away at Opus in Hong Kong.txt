@@ -1,0 +1,106 @@
+FidoNews 5-19                Page 4                    9 May 1988
+
+     SEAnet/2 - Hong Kong                    IFNA node 3:700/13.0
+
+
+                 A POTENTIAL SECURITY PROBLEM IN OPUS
+                 ------------------------------------
+
+     Our turn?
+
+     To every BBS, it seems, there comes a Hacker - and we've just
+     had our first major attempt at gaining unauthorized access to
+     our system.
+
+     As  we  use Opus 1.03b which is,  to say the least,  a rather
+     widely used system we have decided to  share  our  experience
+     with  you in the hopes that you may avoid similar occurrences
+     on your own systems.
+
+     The  hacker  in  question  used a very simple,  but powerful,
+     method which could - had things gone according to his plan  -
+     have  allowed him to gain full control of the machine running
+     Opus.  This  would  have  included  access  to  all  the  BBS
+     utilities on the machine.
+
+     Such a success would,  of course, meant that the hacker would
+     have been able to completely cover his tracks,  even  leaving
+     the Sysop unaware that his system had been compromised.
+
+     Due to some luck (good for us,  bad for the hacker) he failed
+     in his attempts to control our system,  and merely managed to
+     crash it leaving the system down for several hours.
+
+     A debate
+     --------
+     There  is  always  something  of  a  debate  over whether the
+     methodology behind such things as Virus programs, Trojans and
+     so on should be publicly revealed in full detail.
+
+     The argument against full disclosure is seated  in  the  idea
+     that  we should not risk telling other people how such things
+     can be accomplished in the hope that no more people will find
+     out than already know.
+
+     Opposing this is the belief that only by letting people  know
+     about  a danger,  and by fully informing them of that danger,
+     can ways be developed to combat the danger.
+
+     The two arguments might be summarized as the "Keep quiet  and
+     hope it goes away" against the "Forewarned is forearmed".
+
+     It  is  in  the  light of the latter belief that this article
+     will explain what the hacker did, and how he did it.
+
+     I do of course advise all those who think their systems might
+     be susceptible to this line of attack to  protect  themselves
+     at once in the manner I will describe shortly.
+
+
+     The Method
+     ----------
+     Basically what the hacker did was to take  advantage  of  the
+     fact  that  we do not make much use of the *.GBS files in our
+     Opus system.
+
+     For  those  unfamiliar  with  .GBS  files  I  should pause to
+     explain that these are the graphic equivalents  to  the  .BBS
+     files  containing  system  logos,  file lists,  menus and the
+     like.
+
+     People with ANSI graphics set ON will see what is in the .GBS
+     files,  while  those with it off will see what is in the .BBS
+     file.
+
+     This allows users with ANSI capability to take full advantage
+     of that  system,  while  still  producing  perfectly  legible
+     displays for those without ANSI support.
+
+     The  hacker  uploaded a file called FILES.GBS to a file area,
+     as no such file existed previously the system allowed him to
+     do this.
+
+     This file was a text file containing OANSI embedded  commands
+     to shell to DOS and perform various functions.
+
+     These  included  DEL  *.LOG in a successful attempt to remove
+     the system logs and so cover his trail.
+
+     The  hacker  then tried to run the remote sysop utility using
+     this system, luckily for us he was unaware of which com: port
+     we are using.  By performing CTTY  with  the  wrong  port  he
+     managed to crash the system.
+
+     Protection
+     ----------
+     Protecting  against  further  attempts  to  do  this is quite
+     simple,  we have now set the upload paths for all file  areas
+     to  a  directory  that  is only available from a file area in
+     which the F)iles and T)ypes command are disabled.
+
+     Sysops will have to check this area and hurl (real problem as
+     Opus won't hurl across multiple drives) files into the  areas
+     they are intended for. Not entirely satisfactory, but it's a
+     solution.
+
+     Raymond C Lowe
