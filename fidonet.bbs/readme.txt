@@ -28,3 +28,11 @@ Non-official Echos using Fidonet node system by S. C. Martin Wong
 
 Hong Cong an Macau users can now use these 9 special echos using
 Fidonet, YO!net and the Hong Cong net node system.
+
+03 Oct 1994
+   A good snooze this week, starting with an update on the ZEC
+election. More NC vs NC battles in Hong Kong (why not *three*
+positions in the net [RC, NC, & PC {Political Co-ordinator}]),
+then we could have a rule that the PC *has* to play politics,
+The NSC *cannot* play politics, and the RC's cannot to anything
+but tally the membership lists ...
