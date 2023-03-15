@@ -1,0 +1,113 @@
+----------------------------------------------------------------------
+
+From: Roger Nie (6:700/200)
+To: Editor     (1:1/23)
+Subject: Letter from Net700 to IC.
+
+Hello George,
+
+As you should know about the case  of  Net700,  and  I  want  to
+condemn   my  Zone  Co-ordinator  about  this  case  as  he  was
+acknowledged and support the wrong decision of R61C and the  new
+appointed Net700C.
+
+As  I  believe,  the re-engineering process should be, provide a
+take over process from the former NC to him, and there should be
+nothing  changed  to  the lower level. But the new appointed NC,
+failed to take-over the job from  the  former  NC,  and  try  to
+remove  all nodes in order to get the information from us. After
+a meeting of NET700, we confirmed that  we  deeply  condemn  our
+Coordinators use this dirty tricks to win his power.
+
+And  for  this case, we tried to send netmail to our Z6C, Honlin
+Lue, but he refused all netmail which was  written  in  English,
+and willing to answer all the complain in Chinese in the Chinese
+echomail. He is  trying  to  escape  the  official  language  in
+FidoNET in order to bend on the RC/NC.
+
+Please take a look on the following translation from his mail,
+
+FidoNews 11-42                 Page: 19                    17 Oct 1994
+
+Date : Sep 27 '94, 01:04
+From : Honlin Lue 6:720/303.0
+To   : Hilary Luk
+Subj : about net-rule of Fido.
+
+In    a    message    of    <Sep    25    19:36>,   Hilary   Luk
+ (6:700/474@fidonet.org) writes: HL> You said you would  support
+ the RC you appointed, even if he made mistake.
+
+If  he made mistake, I will ask him to correct, and will forgive
+him.
+
+Date : Sep 29 '94, 02:52
+From : Honlin Lue     6:720/303.0
+To   : Goodwin Yuen
+Subj : China
+
+In   a   message   of   <Sep    28    13:29>,    Goodwin    Yuen
+ (6:700/375.2@fidonet.org)   writes:  GY>Neither  of  any  post,
+ Policy4 haven't give him power to dissolve and  GY>rebuild  the
+ whole  network！  GY>(He can only remove those nodes which were
+ downed above 2 weeks.)
+
+This is correct.  Policy4 does not give NC  any  power.   If  it
+affects your right, you don't have to accept it.
+
+But  Policy4 said out-going NC will provide information of nodes
+to the new NC.  If the new NC delete any node  because  he  does
+not have sufficient information, this is understandable.
+
+We  only  communicate through e-mail.  If the identity cannot be
+confirmed, we can't be sure who is the writer of the mail.
+
+An extreme situation is when a person is NC and he made a number
+of  false  nodes.   Or  a  few  dozens phoney BBS.  Although the
+telephone numbers in the nodelist is  real,  who  can  ascertain
+that the sysop of the BBS is real.
+
+NC not just can delete nodes which have been down for two weeks.
+He can also delete BBS who made false nodelist or do not use the
+latest nodelist.
+
+As  I  know,  Policy4 request us to use the update nodelist. But
+our ZC said that if we don't use the update nodelist,  our  node
+can be removed. It is true that we have responsibilty to use the
+update nodelist. But not forced us to use the  latest  otherwise
+our  node  will  be  removed.  And  ALL  the NET700 nodes in the
+nodelist were real  and  offical.  ZC  cannot  doubt  about  the
+nodelist's reality.
+
+Also  when  his RC made a mistake, he will forgive him, but when
+nodes at his lower level made a mistake, he will dismiss him. It
+is  obviously  to see that our ZC is fully protect his appointed
+staffs either he is doing  something  wrong,  like  dismiss  ALL
+nodes in NET700.
+FidoNews 11-42                 Page: 20                    17 Oct 1994
+
+
+I  think  you  also agree that we, operating a BBS, is basically
+for interest. But now our Co-ordinators treat this as a game for
+politics  and  power.  We  hate  this  intention and condemn all
+levels of our Co-ordinators.
+
+Besides for NET700, all the  product  support  site,  which  was
+based  on  NET700 was also removed from the Zone list. Like mine
+6:6/108 and 6:6/109, the Asia  support  site  for  QuickBBS  and
+ALLfix.  I  fully believe that the Z6C/R61C/N700C parties has an
+intention to remove all HONG KONG FidoNET nodes  neither  it  is
+NET700  or  not,  and  then accept those who will not oppose, or
+support their dictatorship management, back to the nodelist.
+
+I fully hope that you can leave us a mail, at least we  can  see
+your  decision in NET700 very soon. You decision will safe about
+600 active nodes, 300 private nodes in NET700, a  network  which
+the size is competitive with a state in US.
+
+Rgds
+
+Alex Lee
+6:700/126
+6:700/137
+6:6/108
