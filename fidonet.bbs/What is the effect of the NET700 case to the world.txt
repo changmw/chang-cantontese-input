@@ -1,0 +1,67 @@
+FidoNews 11-42                 Page: 11                    17 Oct 1994
+
+What is the effect of the NET700 case to the world?
+Your right to international communication is at stake.
+-----------------------------------------------------
+
+What is the NET700 case?  Owing to personal feud between the RC and
+the NC, the NC was suddenly fired with reasons that the majority of
+sysops did not accept.  A new NC was appointed by the RC and a
+cleansing exercise started.  New NC demanded all sysops to apply for
+Fidonet membership again, or else be kicked out.  The reason: he needs
+to know the information of all nodes.  This is a very bad excuse as
+the information of all nodes is already in the NET700 nodelist which
+has been in use for many years satisfactorily.
+
+The present status is that all sysops (about 600) continue to use the
+existing nodelist and happily communicating with each other under the
+Fidonet Hong Kong.  Only a few (about 30) responded to the new NC, but
+they still keep the existing nodelist and also happily communicating
+with all fidonet sysops in Hong Kong.
+
+Here comes the ugly abuse of authority.  The NC just fielded the 30
+odds nodes to the international nodelist.  So the world now sees a
+shrunken Hong Kong net from a prosperous and busy network to a tiny
+and quiet place of 30 nodes.  You may know that Hong Kong is a tiny
+island in size but a giant in economy and hi-tech communication.  How
+come the 600 sysops who devoted time and money to telecommunication
+suddenly all committed a fatal crime and were ex-communicated from the
+world renowned network?
+
+Something is definitely wrong.
+
+The nucleus of the event is in the RC of Region 61 who brought his
+personal feud to the world.  New NC is his front (probably aka RC).
+ZC is also stupid enough to be caught in the event without seeing the
+consequence.
+
+Hong Kong sysops are furious.  Complaints are being made to ZC and IC.
+There are also legal actions being planned to sue the NC.  This naive
+guy thinks he can't go to jail for this and claims to be a hero, being
+a beloved subordinate of a powerful RC and has the power to stand up
+again 600 others.  He doesn't realise that the civil action against
+him may cost him millions of dollars in the end.
+
+As it now stands, NET700 is running smoothly locally.  The only
+damaging thing the NC/RC/ZC have done is the abuse of their authority
+in manipulating the international nodelist.  The IC has to do
+something to maintain the integrity of this important document which
+is used by the world.
+
+In the meantime, your right to international communication is in
+stake.  Remember when you want to join the wonderful Fidonet to reach
+the world.  Now because of improper management, this Fidonet is in the
+danger of falling apart.  You can see that a main chunk of Hong Kong
+has been lost.  This wonderful city of 600 nodes is largely out of
+reach to you now.  Is there a way to curd this kind of irresponible
+behaviour of the appointed personnels?  Is the information super
+highway really in need of regulating.  Fidonet is a fine example of a
+well orgainsed network of amateurs.  But this things really put people
+off and make them turn elsewhere.
+
+Meanwhile, guys in Hong Kong are still striving to save the net.
+Demands are being made to the IC for the reinstatment of all Net700
+nodes.  Whether Fidonet can be healthy again is now in his hand.
+
+Raymond Poon
+(6:700/7 ex-communicated?)
