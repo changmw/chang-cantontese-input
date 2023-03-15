@@ -7,6 +7,9 @@ FidoNews:
 http://eljaco.se/FILES/fnews/
 http://www.filegate.net/pub/fidonews/
 
+Hong Kong BBS Alumni | Groups | Facebook
+https://www.facebook.com/groups/5516858677
+
                    __ 
                   /  \
                  /|oo \
