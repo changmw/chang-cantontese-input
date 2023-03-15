@@ -1,4 +1,4 @@
-Fiodnet and Yo!net (Hong Kong)
+Fiodnet (Zone 6 Region 601) and Yo!net (Hong Kong)
 
                    __ 
                   /  \
