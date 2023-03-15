@@ -1,4 +1,4 @@
-About Fiodnet (Zone 6, Region 601) and Yo!net (Hong Kong)
+About Fiodnet (Hong Kong: Zone 6, Region 61) and Yo!net 
 
 FidoNet:
 https://www.fidonet.org/
