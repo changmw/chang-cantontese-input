@@ -1,0 +1,121 @@
+Subject: FidoNet Hong Kong Goes To The Dogs!
+From:    Roger Nie (16:700/200)
+
+               FidoNet Hong Kong Goes To The Dogs
+               ==================================
+
+                     Editor   : Larry Campbell
+                     From magazine "DATAPHILE"
+
+  Of all the electronic bulletin boards listed in the preceding
+few pages, the majority are part of an international network
+called FidoNet. Or should I say "were".
+
+  Thanks to events that have traspired in the local FidoNet
+community for as long as the past year, there appear to now be
+two local nodes to the network: one small official system and a
+huge network of BBSes getting on to FidoNet via what has been
+term by one insider a "semi-legal kludge"
+
+  To understand any part of the "big picture", you must first
+have an understanding of FidoNet and how its operates. Think of
+FidoNews 12-02                 Page: 10                    09 Jan 1995
+
+FidoNet on the same lines as you would think of the Internet,
+except scale down the concept the concept a thousand times.
+FidoNet is a central hub connected to a clain of PC networks (or
+BBSes) around the world, the main function of which is to pass
+arround store-and-forward free E-mail called Echomail.
+
+  FidoNet is divided into three areas: zones; regions; and
+networks. Six zones make up the FidoNet world: North America,
+Europe, Australia, Latin America, South Africa and Asia. Each
+Zone is assigned a number, with North America being Zone 1 and
+Asia being Zone 6. Zones are divided into regions, with Hong
+Kong/MAcau, Taiwan and Singapore (plus a few other areas) being
+regions within the Asia "zone". Regions are further divided into
+Networks, and Hong Kong is Net700. Thus, if you were looking at
+a FidoNet node list, a node number of a member in Hong Kong
+would look something like 6:700/344, for example.
+
+  FidoNet, as any organisation should have, has its management
+heirarchy, with zone, and network co-ordinators, and so on.
+Asia's zone co-ordinator is a gentleman based in Taiwan named
+Honlin Lue. Next down the ladder is Hong-Kong-based regional
+co-ordinator Samson Luk, a man who has been involved in FidoNet
+(if not in his current post) for more than a decade. Under Mr
+Luk are - or were - a number of other co-ordinators. One is
+Roger Nie, who co-ordinates FidoNet echos in Hong KOng, making
+sure each echo is named right so that the proper links can be
+set up between member BBSes. He also maintains a list of echos.
+
+  A gentleman named Louie Chan was involved in FidoNet for
+just about as long as Mr Luk and had beed happily performing a
+number of tasks, including the tedious and thankless one of
+maintaining the FidoNet Hong Kong node list. Until about a year,
+that is. What appears to have happened is that about a year ago
+Mr Luk received a few complaints from some local FidoNet sysops
+against Mr. Chan claiming the latter had not replied some of
+their mail and in short was not doing his job. So Mr Luk "fired"
+Mr Chan and appointed Chris Leung - a relative newcomer to the
+scene - to do his job... a move that made the majority of the
+local FidoNet community unhappy, to say the least. the reason:
+the network heirarchy is supporsed to be arranged by vote
+involving all members, although admittedly no hard and fast rule
+exists on this score. The result has bcome what can only be
+described as a complete farce, a comedy with the only people
+being hurt being FidoNet's numerous users in Hong Kong.
+
+  Upon his appointment to his current FidoNet post, Mr Leung
+decided to "clean up" FidoNet Hong Kong, E-mailing memeber
+sysops with requests for forms to be filled out, amoung other
+things. What responses he got were, in on-line speak, flames.
+
+  Insiders say he  then  disappeared  from  Causeway,  a
+semi-official message echo set up for FidoNet sysops, only to
+reappear about four months later with the wonderful news that he
+has dissolving network 700 to completely revamp FidoNet Hong
+Kong. And he did, full world of FidoNet. He then asked sysops
+FidoNews 12-02                 Page: 11                    09 Jan 1995
+
+interested in rejoining FidoNet to register with him.
+
+  To date, only about 30 sysops have dones so, and these
+according to sources, are newcomers to the sence.
+
+  Network 700 did not, however, die quietly. It has not, for
+that matter, died at all. With the majority of sysops loyal to
+him. Mr Chan with the help of Mr Nie, controlled that networks,
+albeit unofficially, and a new zone number has been set up to
+ensure its mail goes back and fourth. BBSes on this network are
+now identified as 16:700/whatever. The power play did not stop
+there.
+
+  The Chan loyalists then attempted to hold a vote of sorts
+where they could oust Mr. Leung and Mr Luk from their posts.
+However, to do so, they apparently needed the ultimate approval
+of zone co-ordinator Mr Lue, who to-date has been silent on the
+issue..
+
+  Attempts by local sysops to have the matter resolved by the
+upper echelons of FidoNet in the United States have failed, too,
+which has had a totally detrimental effect on FidoNet.
+
+  Now, all this is very strange. FidoNet was (is) supposed to
+be a non-commercial on-line group of hobby of hobby BBS
+operators pooling resources to offer low-cost (albeit low-speed)
+E-mail to users. All this infighting has, however, made a
+mockery of the whole concept, and the fact that no one in any
+position of power appears to be taking the slightest bit of
+interest in fixing the situation is not helping either.
+
+  One of the things I heard was that at one point a few months
+ago,  some brilliant mind within the local community had
+suggested the sysops get together and file a classs action suit
+against Mr Luk. What they would have charged him with is a
+mystery. Perhaps with causing loss to their hobbies? What a
+laugh!
+
+  But then again, maybe it would have worked.
+
+----------------------------------------------------------------------
