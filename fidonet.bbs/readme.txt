@@ -49,3 +49,8 @@ Fidonet, YO!net and the Hong Cong net node system.
 7. Discussion on Priscilla Chan echo
 8. Cross Fire Echo
 9. Heart-Link
+
+08 Apr 2021
+
+[HK01]尋人記︱「電腦王子」崔永健緊張個人私隱　做CD-Rom不留網絡足跡
+全文見: https://www.hk01.com/%E5%8D%B3%E6%99%82%E5%A8%9B%E6%A8%82/609802/
