@@ -1,4 +1,4 @@
-Hong Kong Fiodnet and Yo!net
+Fiodnet and Yo!net (Hong Kong)
 
                    __ 
                   /  \
