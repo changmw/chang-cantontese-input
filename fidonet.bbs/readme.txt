@@ -54,3 +54,6 @@ Fidonet, YO!net and the Hong Cong net node system.
 
 [HK01]尋人記︱「電腦王子」崔永健緊張個人私隱　做CD-Rom不留網絡足跡
 全文見: https://www.hk01.com/%E5%8D%B3%E6%99%82%E5%A8%9B%E6%A8%82/609802/
+
+[星島日報]【維港會】方東昇再尋30年前電腦王子 今著重私隱拒留網上足跡 
+全文見: https://std.stheadline.com/realtime/article/1542355/
