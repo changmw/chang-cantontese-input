@@ -7,9 +7,9 @@
 
 **Remain silent! Drink, Blink, Stretch! Live long and prosper!**
 
-* Photo taken on 15 Jun 1994 in Tioman Island, Malaysia!
- - ![Photo taken on 15 Jun 1994 in Tioman Island, Malaysia!)](19940615.jpg)
+* Photo taken on 15 June 1994 in Tioman Island, Malaysia!
+ - ![Photo taken on 15 June 1994 in Tioman Island, Malaysia!)](19940615.jpg)
 
 * Illustration for school newspaper (1985?) of TWGHs Lee Ching Dea Memorial School
- - ![Illustration for school newspaper when I was studying in TWGHs Lee Ching Dea Memorial School!)](lcdmc.dating.jpg)
+ - ![Illustration for school newspaper (1985?) of TWGHs Lee Ching Dea Memorial School)](lcdmc.dating.jpg)
 
