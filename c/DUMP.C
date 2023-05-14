@@ -10,6 +10,7 @@ BTRV (Btrieve) parameters
 Survey Resaerch Group (HQ) had Pascal programs that used Btrieve
 to speed up file processing.
 
+This C program aimed to access those data files directly.
 */
 char POS_BLK[128];
 int KEY_NUM;
