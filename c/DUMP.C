@@ -4,7 +4,13 @@
 #include "btrdef.h"
 #include "conv.h"
 
-/* BTRV parameters */
+/*
+BTRV (Btrieve) parameters
+
+Survey Resaerch Group (HQ) had Pascal programs that used Btrieve
+to speed up file processing.
+
+*/
 char POS_BLK[128];
 int KEY_NUM;
 
