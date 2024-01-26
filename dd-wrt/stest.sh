@@ -1,4 +1,3 @@
-# cat stest.sh
 #!/bin/sh
 #
 # Speedtest CLI: Internet speed test for the command line
