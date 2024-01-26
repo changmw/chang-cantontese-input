@@ -1,5 +1,5 @@
 #!/bin/sh
-
+#
 # reverse a string using awk
 #
 x="welcome"
