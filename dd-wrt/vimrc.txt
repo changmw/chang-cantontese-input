@@ -1,0 +1,26 @@
+set ignorecase
+set backup
+set showmatch
+set history=1000
+set ruler
+" comment lines
+" set cursorline
+" set cursorcolumn
+
+" following disable jumplist, buffering, and file position
+" set viminfo=
+
+syntax on
+color green
+
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+if has("gui_running")
+    "echo "yes, we have a GUI"
+    set mouse=a
+else
+    "echo "Boring old console"
+    set mouse=
+endif
