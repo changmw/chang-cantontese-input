@@ -1,3 +1,4 @@
+#!/bin/sh
 #
 # DD-WRT :: View topic - Unbound DNS over TLS Adblock up-to-date root.hints
 # https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=320362&sid=8f74203692da063796392a961494cde5
