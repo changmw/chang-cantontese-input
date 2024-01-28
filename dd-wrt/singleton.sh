@@ -1,5 +1,8 @@
 #!/bin/sh
 #
+# linux - How to make sure only one instance of a bash script runs? - Unix & Linux Stack Exchange
+# https://unix.stackexchange.com/questions/48505/how-to-make-sure-only-one-instance-of-a-bash-script-runs
+#
 # command-line to test this script:
 #
 # for i in `seq 1 3`; do (sh singleton.sh &) ; done
