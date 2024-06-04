@@ -1,0 +1,244 @@
+#!/bin/sh
+#
+# Created by; kuthulu
+#
+# DD-WRT :: View topic - Wireless scanner for linux
+# https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=34924&highlight=scanner
+#
+# DD-WRT :: View topic - Wireless Network Scanner script (Kuthulu) Help please ?
+# https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=43598
+#
+# DD-WRT :: View topic - site survey vs. NetStumbler
+# https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=23663&highlight=scanner
+# wl passive 1
+# to go back to normal mode type:
+# wl passive 0
+# when setting passive to 1 you are putting the router into passive scan mode, 
+# by default the router is in active scan mode.
+# In active mode the router detects other APs by sending a packet and waiting 
+# for response. Only the Aps that send a response are showed in the site survey page.
+# In passive mode the router just listens for packets from every AP.
+#
+# http://www.dd-wrt.com/wiki/index.php/Useful_Scripts#Wireless_Network_Scanner_.28working_on_DD-WRT_v24.29
+#####################################
+#
+# Jul 15, 2008 Created by kuthulu at forum.dd-wrt.com (https://kuthulu.com/)
+#              https://forum.dd-wrt.com/phpBB2/profile_sec.php?mode=viewprofile&u=14849
+# Dec 06, 2008 Reposted and edited by ruddles at forum.dd-wrt.com
+#              https://forum.dd-wrt.com/phpBB2/profile_sec.php?mode=viewprofile&u=49001
+# Feb 28, 2024 Modified by mwchang (toylet.toylet@gmail.com) to fix bugs
+#              https://forum.dd-wrt.com/phpBB2/profile_sec.php?mode=viewprofile&u=306838
+# Feb 29, 2024 More bug-fixing; learning Awk programming, notably escaping special characters
+# Mar 02, 2024 Use sed to change field delimiters in the output of site_survey
+# Mar 03, 2024 Rearranged columns, add Seen/Iteration column.
+# Mar 19, 2024 Instead of converting square braces in the ouput of site_survey command 
+#              to curly ones, convert them to tab the non-printable character!
+#
+#####################################
+#
+# The various escape codes you can use to color output to StdOut from Node JS · GitHub
+# https://gist.github.com/abritinthebay/d80eb99b2726c83feb0d97eab95206c4
+#
+# talyian.github.io/ansicolors/
+# https://talyian.github.io/ansicolors/
+#
+# Service set (802.11 network) - Wikipedia
+# https://en.wikipedia.org/wiki/Service_set_(802.11_network)
+# https://en.wikipedia.org/wiki/Service_set_&#40;802.11_network&#41;
+#
+# SSID Naming Conventions
+# https://www.cisco.com/assets/sol/sb/WAP321_Emulators/WAP321_Emulator_v1.0.0.3/help/Wireless05.html
+# 
+# The SSID (Service Set Identifier) can be any alphanumeric, case-sensitive entry from 2 to 32 characters.
+# The printable characters plus the space (ASCII 0x20) are allowed, but
+# these six characters are not: ?, ", $, [, \, ], and +.
+#
+# Because the site_survey command of DD-WRT uses "[" and "]" as field separators,
+# the following SSID names will break this program when using them as Awk field separators:
+#
+# 1. "[LG_StickVacuum]xxxx"
+# [code][ 2] SSID[[LG_StickVacuum]e6cb] BSSID[82:5B:65:68:E6:CB][....[/code]
+#
+#
+# How do I pull the value between curly braces?
+# https://www.unix.com/unix-for-dummies-questions-and-answers/229865-how-do-i-pull-value-between-curly-braces.html
+# awk \'$1=="pid"{print $2}\' FS=\{ RS=\} file
+#
+# To call sed within the Awk vaariable, need to escape:
+# 1. "]" to "\\]"
+# 2. "[" to "\\["
+# 3. "'" to "'\''"
+# 
+# Trimming spaces via calling sed::
+#
+# cmd="echo " $4 " | sed -e s/[[:blank:]]//g";
+# cmd | getline result;
+# close(cmd);
+# name[bssid]=result;
+#
+awk '
+function dump_site_survey() {
+# dump input from site_survey
+while (command|getline xx)
+{
+  print xx;
+}
+}
+
+BEGIN{
+
+
+# ANSI terminal control codes
+red = "\x1b[31m"; green = "\x1b[32m";
+greenback="\x1b[42m"; yellow = "\x1b[33m";
+cyan = "\x1b[36m"; blue = "\x1b[34m";
+blueback = "\x1b[44m"; white = "\x1b[37m";
+whiteback = "\x1b[47m";
+underscore = "\x1b[4m"; clear = "\e[2J";
+home = "\x1b[0;0H"; erase2end = "\x1b[K";
+
+home = "\x1b[H";
+
+dim = "\x1b[2m";
+underscore = "\x1b[4m";
+blink = "\x1b[5m";
+reverse = "\x1b[7m";
+hidden = "\x1b[8m";
+reset = "\x1b[0m";
+bright = "\x1b[1m";
+#
+# change all square brackets into to tab character,
+# which is impossible to be as input for SSID
+#
+command="site_survey 2>&1 | \
+sed -e '\''s/^./\t/'\'' \
+-e '\''s/\\] SSID\\[/\t SSID\t/'\'' \
+-e '\''s/\\] BSSID\\[/\t BSSID\t/'\'' \
+-e '\''s/\\] channel\\[/\t channel\t/'\'' \
+-e '\''s/\\] frequency\\[/\t frequency\t/'\'' \
+-e '\''s/\\] numsta\\[/\t numsta\t/'\'' \
+-e '\''s/\\] rssi\\[/\trssi\t/'\'' \
+-e '\''s/\\] noise\\[/\t noise\t/'\'' \
+-e '\''s/\\] beacon\\[/\t beacon\t/'\'' \
+-e '\''s/\\] cap\\[/\t cap\t/'\'' \
+-e '\''s/\\] dtim\\[/\t dtim\t/'\'' \
+-e '\''s/\\] rate\\[/\t rate\t/'\'' \
+-e '\''s/\\] enc\\[/\t enc\t/'\'' \
+-e '\''s/.$/\t/'\'' ";
+
+#
+# FS="[][]";
+# FS= "[]|[]";
+# FS = "[{]|[}]";
+# FS = "[{}]";
+#
+FS = "\t";
+IGNORECASE = 1;
+
+# for testing no input 
+# command="";
+
+zz=0;
+itrt=0;
+
+for(;;)
+{
+while (command|getline)
+{
+# skip line 1
+if ($22 == "") continue;
+
+# using BSSID as array index
+bssid=$6;
+
+name[bssid]="[???]";
+# if ($4!="") {
+if ($4=="") {
+  # SSID contains square brackets, breaking this parsing
+  zz=1;
+} else {
+  # trim all spaces in AP name
+  gsub(/ /, "", $4);
+  name[bssid]=$4;
+}
+
+channel[bssid] = $8;
+freq[bssid]=$10;
+rssi[bssid] = $14;
+noise[bssid]= $16;
+caps[bssid] = $20;
+rate[bssid]=$24;
+# convert string to number
+row[bssid]=$2+0;
+seen[bssid]++;
+
+#
+# Understanding RSSI Levels | MetmGeek
+# https://www.metageek.com/training/resources/understanding-rssi/
+#
+# android - Issue with WifiManager.calculateSignalLevel(RSSI, 5) - Stack Overflow
+# https://stackoverflow.com/questions/2873469/issue-with-wifimanager-calculatesignallevelrssi-5
+# 
+# public static int calculateSignalLevel(int rssi, int numLevels) {
+#  if (rssi <= MIN_RSSI) {
+#      return 0;
+#  } else if (rssi >= MAX_RSSI) {
+#      return numLevels - 1;
+#  } else {
+#    float inputRange = (MAX_RSSI - MIN_RSSI);
+#    float outputRange = (numLevels - 1);
+#    if(inputRange != 0)
+#      return (int) ((float) (rssi - MIN_RSSI) * outputRange / inputRange);
+#  }
+#      return 0;
+#  }
+# }
+#
+# Convert dBm to mWatt: mWatt = 10^(dBm/10)
+#
+# arbitrary strength calc through trial and error... modify as you wish:
+# be careful of the space before "+90"
+sigstrength = ((rssi[x] - noise[x])*1.5) + ((rssi[x] +90)*1.5);
+if (sigstrength <1) sigstrength=0;
+  strg[bssid]=sigstrength;
+}
+close(command);
+
+# gsub(/[^\11\12\15\40-\176]/,"");
+# asort(name);
+
+#fmt = "%s%-15s %s%0"sigstrength"d "reset erase2end "\n %s %s%-4d %s%-4d %s%-4d %s%2s " reset erase2end "\n" erase2end "\n";
+fmt="%-4s %-30s %4s %4s %4s %4s %4s %5s %-18s %5s\n";
+
+printf "%s%s%s",home,clear;
+printf "%s%s%s",bright,white,underscore;
+printf fmt, "Row","SSID / Wifi Name","Chnl","Freq","Rate","Caps","RSSI","Noise","BSSID","Seen";
+printf "%s%s",reset,white;
+
+rwcnt=0;
+for (x in name) 
+{
+printf fmt, row[x],name[x],channel[x],freq[x],rate[x],caps[x],rssi[x],noise[x],x,seen[x];
+rwcnt++;
+}
+itrt++;
+
+if (rwcnt == 0) {
+    print bright yellow "No Results - Does router have survey capability?";
+  }
+printf "%s%s",bright,white;
+printf "%-4s:Rows%57s%20s%5s",rwcnt,"Hit [Ctrl]+[C] to stop! You can '\''| tee -a file'\''!","Iteration: ",itrt;
+
+# PROCINFO["/dev/stdin", "READ_TIMEOUT"] = 3000
+# getline < "/dev/stdin";
+
+# debugging disabled
+zz=0;
+if (zz==1) {
+   dump_site_survey();
+   exit;
+}
+zz++;
+}
+}
+'
