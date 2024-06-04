@@ -1,0 +1,32 @@
+set-option -g default-shell $SHELL
+set-option -g default-terminal "screen-256color"
+#
+# Customizing the Status Bar in tmux0-
+# https://linuxhint.com/customizing-status-bar-tmux/
+#
+# In tmux, there is a clock mode that can be entered by using tmux 
+# clock-mode or Prefix + t by default. 
+# tmux set-option -g clock-mode-colour white
+set-window-option -g clock-mode-colour colour109 #blue
+#
+# Everything you need to know about tmux – Status Bar | ArcoLinux
+# https://arcolinux.com/everything-you-need-to-know-about-tmux-status-bar/
+#
+set-option -g status on
+# set-option -g status-justify centre
+# set-option -g status-keys vi
+# set-option -g status-position bottom
+# set-option -g status-style fg=colour136,bg=colour235
+# set-option -g status-left-length 20
+# set-option -g status-left-style default
+# set-option -g status-left "#[fg=green]#H #[fg=black]• #[fg=green,bright]#(uname -r)#[default]"
+# set-option -g status-right-length 80
+# set-option -g status-right-style default
+set-option -g status-interval 1
+set-option -g status-right "#[fg=brightyellow,bg=default]%a %l:%M:%S %p#[default] #[fg=orange]%Y-%m-%d"
+# set-option -g status-right "#[fg=green,bg=default,bright]#(tmux-mem-cpu-load) "
+# set-option -g status-right "#[fg=red,dim,bg=default]#()"
+set-window-option -g window-status-style fg=colour244
+set-window-option -g window-status-style bg=default
+set-window-option -g window-status-current-style fg=colour166
+set-window-option -g window-status-current-style bg=default
