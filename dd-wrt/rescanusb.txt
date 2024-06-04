@@ -1,0 +1,33 @@
+iDD-WRT :: View topic - New Build - 10/31/2023 - r53833
+https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=335339&start=5
+
+After using Google Search to look for methods rescanning USB devices in Linux, the following works. There was no need to soft reboot DD-WRT.
+[code]# cd /sys/bus/pci/drivers/xhci_hcd
+# ls -l
+total 0
+lrwxrwxrwx    1 root     root             0 Nov  3 16:00 0000:00:0c.0 -> ../../../../devices/pci0000:00/0000:00:0c.0
+--w-------    1 root     root          4096 Nov  3 16:03 bind
+lrwxrwxrwx    1 root     root             0 Nov  3 16:00 module -> ../../../../module/xhci_pci
+--w-------    1 root     root          4096 Nov  3 16:00 new_id
+--w-------    1 root     root          4096 Nov  3 16:00 remove_id
+--w-------    1 root     root          4096 Nov  3 16:00 uevent
+--w-------    1 root     root          4096 Nov  3 16:00 unbind[/code]
+Notice the first "devices" line "0000:00:0c.0", the "bind" and the "unbind". The following commands were using them.
+[code]# echo -n "0000:00:0c.0" > unbind
+# echo -n "0000:00:0c.0" > unbind
+sh: write error: No such device
+# echo -n "0000:00:0c.0" > bind
+# lsusb
+Bus 004 Device 002: ID 0781:5583
+Bus 001 Device 001: ID 1d6b:0002
+Bus 002 Device 001: ID 1d6b:0001
+Bus 003 Device 001: ID 1d6b:0002
+Bus 004 Device 001: ID 1d6b:0003
+Connection to 192.168.1.1 closed by remote host.
+Connection to 192.168.1.1 closed.
+[/code]
+Once first line "Bus 004 Device 002: ID 0781:5583" appeared, DD-WRT was kind enough to continue mounting all the partitions (/jffs, /opt) in the USB 3.0 port correctly and auto-magically! USB Script was then executed as well and as expected.
+
+But my SSH session was terminated. Dunno why. However, I could still connect back to DD-WRT immediately and there was no reboot.
+
+Was the USB mounting was halted in the middle of init? I dunno.
